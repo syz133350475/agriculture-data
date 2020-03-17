@@ -1,0 +1,58 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: "digital";
+  src: url("./fonts/digital-7.woff"); /* IE9 Compat Modes */
+}
+::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 10px; /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1px;
+}
+::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #1affb6;
+  cursor: pointer;
+}
+::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background: #144941;
+}
+a {
+  text-decoration: none;
+}
+h3 {
+  color: #72fffc;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 45px;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+/* 地图弹框 */
+.esri-popup__main-container,
+.esri-widget,
+.esri-popup__pointer-direction {
+  background-color: rgba(15, 30, 45, 0.8);
+}
+.esri-popup__main-container .esri-popup__header,
+.esri-popup__main-container .esri-widget__table {
+  color: #fff;
+}
+.esri-popup__main-container .esri-widget__table tr th {
+  border-right: 3px solid rgba(255, 255, 255, 0.3);
+}
