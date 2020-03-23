@@ -17,8 +17,7 @@
       <el-col :span="6">
         <div id="jcyj-rightDiv">
           <jcyjNYY />
-          <jcyjHJJC />
-          <jcyjSZZQ />
+          
         </div>
       </el-col>
     </el-row>
@@ -33,8 +32,7 @@ import jcyjZQZB from "./jcyjType/zqzb.vue";
 import Jimg from "./jcyjType/Jimg.vue";
 import jcyjJJSS from "./jcyjType/jjss.vue";
 import jcyjNYY from "./jcyjType/nyyList.vue";
-import jcyjHJJC from "./jcyjType/hjcj.vue";
-import jcyjSZZQ from "./jcyjType/szzq.vue";
+
 export default {
   name: "jcyj", //监测预警
   components: {
@@ -44,8 +42,7 @@ export default {
     Jimg, //首页大图
     jcyjJJSS, //经济损失
     jcyjNYY, //农业园列表
-    jcyjHJJC, //环境监测
-    jcyjSZZQ //生长周期
+    
   }
 };
 </script>

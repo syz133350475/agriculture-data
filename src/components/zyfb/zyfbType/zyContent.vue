@@ -2,7 +2,7 @@
   <!-- 搜索框 -->
   <div id="search">
     <el-row class="autocomplete">
-      <el-col :span="23" style="height: 5%;">
+      <!-- <el-col :span="23" style="height: 5%;">
         <el-autocomplete
           class="inline-input"
           prefix-icon="el-icon-search"
@@ -13,7 +13,7 @@
           @select="searchhandleSelect"
           clearable
         ></el-autocomplete>
-      </el-col>
+      </el-col> -->
       <el-col :span="23" style="height: 94%;margin-top:1%;">
         <div id="searchDiv" v-show="isShow">
           <!-- 边框开始 -->
@@ -98,11 +98,13 @@
         </div>
       </el-col>
     </el-row>
+    <contentDiv ref="contentDiv" />
   </div>
 </template>
 
 <script>
 /* eslint-disable */
+import contentDiv from "./echarts/contentDiv.vue";
 export default {
   data() {
     return {
@@ -117,6 +119,9 @@ export default {
         "https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg"
       ] //大图预览
     };
+  },
+  components: {
+    contentDiv
   },
   methods: {
     querySearch(queryString, cb) {
@@ -260,6 +265,9 @@ export default {
     searchhandleSelect(item) {
       if (!this.isShow) {
         this.isShow = true;
+        if (this.$refs.contentDiv.isShow) {
+          this.$refs.contentDiv.isShow = false;
+        }
       }
       console.log(this.isShow);
     }

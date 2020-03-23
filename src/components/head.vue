@@ -17,7 +17,7 @@
               active-text-color="#ffd04b"
             >
               <el-menu-item index="1">
-                <router-link to="/">农业经济</router-link>
+                <router-link to="/">农业全景</router-link>
               </el-menu-item>
               <el-menu-item index="2">
                 <router-link to="/zyfb">资源分布</router-link>

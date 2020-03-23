@@ -8,20 +8,35 @@
 export default {
   data() {
     return {
-      charts: " ",
       titleData: "历年农产品价格(元)",
-      dataName: ["2015年", "2016年", "2017年", "2018年", "2019年"],
-      data_1: [11, 30, 20, 80, 11],
-      data_2: [10, 56, 23, 43, 23],
-      data_3: [80, 40, 8, 12, 45],
-      data_4: [20, 70, 60, 80, 60],
+      dataName: [
+        "2020年3月",
+        "2020年2月",
+        "2020年1月",
+        "2019年12月",
+        "2019年11月"
+      ],
+      name: [],
+      data: [],
+      chart: undefined
+      // data_1: [11, 30, 20, 80, 11],
+      // data_2: [10, 56, 23, 43, 23],
+      // data_3: [80, 40, 8, 12, 45],
+      // data_4: [20, 70, 60, 80, 60],
     };
+  },
+  created() {
+    // const tableData = window.chartData.ncp_Data.todayprice;
+    // for (var i = 0; i < 4; i++) {
+    //   this.name.push(tableData[i].pz);
+    //   this.data.push(tableData[i].date);
+    // }
   },
   methods: {
     //近5年产量预警
     historyPrice() {
-      const chart = this.$echarts.init(document.getElementById("historyPrice"));
-      chart.setOption({
+      this.chart = this.$echarts.init(document.getElementById("historyPrice"));
+      this.chart.setOption({
         title: {
           text: this.titleData,
           top: "5%",
@@ -57,10 +72,10 @@ export default {
           // }
         },
         grid: {
-          left: "3%",
-          right: "6%",
+          left: "10%",
+          right: "10%",
           top: "20%",
-          bottom: "15%",
+          bottom: "25%",
           containLabel: true
         },
         // legend: {
@@ -117,7 +132,7 @@ export default {
         ],
         series: [
           {
-            name: "牛肉",
+            name: this.name[0],
             type: "line",
             smooth: true,
             //  symbol: "none", //去掉折线点
@@ -126,10 +141,10 @@ export default {
                 color: "rgb(255,179,62)" //背景色
               }
             },
-            data: this.data_1
+            data: this.data[0]
           },
           {
-            name: "猪肉",
+            name: this.name[1],
             type: "line",
             smooth: true,
             //  symbol: "none", //去掉折线点
@@ -138,10 +153,10 @@ export default {
                 color: "rgb(230,212,41)" //背景色
               }
             },
-            data: this.data_2
+            data: this.data[1]
           },
           {
-            name: "羊肉",
+            name: this.name[2],
             type: "line",
             smooth: true,
             itemStyle: {
@@ -149,10 +164,10 @@ export default {
                 color: "rgb(52,227,64)" //背景色
               }
             },
-            data: this.data_3
+            data: this.data[2]
           },
           {
-            name: "禽蛋",
+            name: this.name[3],
             type: "line",
             smooth: true,
             //  symbol: "none", //去掉折线点
@@ -161,7 +176,7 @@ export default {
                 color: "rgb(206,62,119)" //背景色
               }
             },
-            data: this.data_4
+            data: this.data[3]
           }
         ]
       });

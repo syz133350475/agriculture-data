@@ -7,13 +7,13 @@
 
 <script>
 /* eslint-disable */
-
 import wenzhouMap from "../../../assets/js/WenZhou.js";
 export default {
   data() {
     return {
-      charts: " ",
-      //坐标
+      chart: undefined,
+      interval: undefined,
+      // 坐标
       geoMap: {
         鹿城区: [120.489894, 28.132536],
         龙湾区: [120.805894, 27.900969],
@@ -27,31 +27,19 @@ export default {
         泰顺县: [119.877783, 27.481151],
         苍南县: [120.452814, 27.381237],
         龙港市: [120.6099323, 27.52166944]
-      },
-      //数值
-      geoData: {
-        鹿城区: [8, 6, 4, 2],
-        龙湾区: [8, 6, 4, 2],
-        瓯海区: [8, 6, 4, 2],
-        洞头区: [8, 6, 4, 2],
-        瑞安市: [8, 6, 4, 2],
-        乐清市: [8, 6, 4, 2],
-        永嘉县: [8, 6, 4, 2],
-        文成县: [8, 6, 4, 2],
-        平阳县: [8, 6, 4, 2],
-        泰顺县: [8, 6, 4, 2],
-        苍南县: [8, 6, 4, 2],
-        龙港市: [8, 6, 4, 2]
       }
     };
   },
   methods: {
     NYJJMap() {
-      const chart = this.$echarts.init(document.getElementById("nyjj-map"));
+      const that = this;
+
+      this.chart = this.$echarts.init(document.getElementById("nyjj-map"));
       this.$echarts.registerMap("wenzhou", wenzhouMap);
-      chart.setOption({
+      this.chart.setOption({
         geo: {
           map: "wenzhou",
+          zoom: 1.2,
           label: {
             normal: {
               show: false
@@ -92,16 +80,55 @@ export default {
           }
         }
       });
+
+      // 图表点击事件
+      this.chart.on("click", function(event) {
+        // 清除定时器
+        clearInterval(that.interval);
+
+        const geoList = Object.keys(that.geoMap);
+
+        let geoName;
+        if (event && event.componentType == "geo") {
+          geoName = event.name;
+        } else if (event && event.componentSubType == "bar") {
+          geoName = geoList[event.seriesIndex];
+        }
+
+        that.chart.setOption({
+          geo: {
+            regions: [
+              {
+                name: geoName,
+                itemStyle: {
+                  areaColor: "#389BB7",
+                  borderWidth: 0
+                }
+              }
+            ]
+          }
+        });
+
+        that.$root.$children[0].$children[1].$refs.jyjjmapPh.updateChart(
+          geoName
+        );
+
+        that.$root.$children[0].$children[1].$refs.jyjjTable.updateChart(
+          geoName
+        );
+
+        // 重置定时器
+        that.intervalFn();
+      });
     },
     addBar() {
+      const that = this;
       const grids = [];
       const xAxis = [];
       const yAxis = [];
       const barSeries = [];
-      Object.keys(this.geoData).map((item, index) => {
-        const coord = this.$echarts
-          .init(document.getElementById("nyjj-map"))
-          .convertToPixel("geo", this.geoMap[item]);
+      Object.keys(this.nzwTable_Data).map((item, index) => {
+        const coord = that.chart.convertToPixel("geo", this.geoMap[item]);
 
         grids.push({
           width: 40,
@@ -149,7 +176,7 @@ export default {
           xAxisIndex: index,
           yAxisIndex: index,
           barCategoryGap: "35%",
-          data: this.geoData[item],
+          data: that.nzwTable_Data[item].price,
           z: 100,
           itemStyle: {
             normal: {
@@ -170,23 +197,70 @@ export default {
       });
 
       return {
-        geo: this.$echarts.init(document.getElementById("nyjj-map")).getOption()
-          .geo,
+        geo: that.chart.getOption().geo,
         grid: grids,
         xAxis: xAxis,
         yAxis: yAxis,
         series: [...barSeries]
       };
+    },
+    // 定时
+    intervalFn() {
+      const that = this;
+      const geoList = Object.keys(this.geoMap);
+
+      let i = 0;
+
+      // 开始定时
+      this.interval = setInterval(() => {
+        that.chart.setOption({
+          geo: {
+            regions: [
+              {
+                name: [...geoList][i % 12],
+                itemStyle: {
+                  areaColor: "#389BB7",
+                  borderWidth: 0
+                }
+              }
+            ]
+          }
+        });
+
+        that.$root.$children[0].$children[1].$refs.jyjjmapPh.updateChart(
+          [...geoList][i % 12]
+        );
+
+        that.$root.$children[0].$children[1].$refs.jyjjTable.updateChart(
+          [...geoList][i % 12]
+        );
+
+        i++;
+      }, 2000);
     }
   },
+  created() {
+    // 数据加载
+    const { nzwTable_Data } = window.chartData;
+
+    this.nzwTable_Data = nzwTable_Data;
+  },
   mounted() {
+    const that = this;
     this.NYJJMap(); //调用地图
-    this.addBar(); //添加柱状图
+    // 添加柱状图
     const newOption = this.addBar();
 
-    this.$echarts
-      .init(document.getElementById("nyjj-map"))
-      .setOption(newOption);
+    // 重绘图表
+    this.chart.setOption(newOption);
+
+    // 定时
+    this.intervalFn();
+  },
+  beforeDestroy() {
+    // 销毁定时器
+    clearInterval(this.interval);
+    this.interval = undefined;
   }
 };
 </script>

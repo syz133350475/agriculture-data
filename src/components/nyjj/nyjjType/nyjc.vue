@@ -1,7 +1,7 @@
 <template>
   <div id="nyjcDiv">
     <div class="title" style="height:18%">
-      <h3>农业监测（万元）</h3>
+      <h3>农业产值（万元）</h3>
     </div>
     <div id="jpdDiv">
       <div class="border1"></div>
@@ -18,23 +18,25 @@
 export default {
   data() {
     return {
-      charts: " ",
-      dataName: ["2015年", "2016年", "2017年", "2018年", "2019年"],
-      dataZZ: [20, 10, 20, 80, 120],
-      dataCM: [10, 70, 60, 60, 110],
-      dataLY: [80, 80, 50, 120, 100],
-      dataYY: [20, 70, 90, 80, 140]
+      chart: undefined
     };
   },
   methods: {
     //近5年产量预警
     nyjctj() {
-      const chart = this.$echarts.init(document.getElementById("nyjctj"));
-      chart.setOption({
+      const that = this;
+      this.chart = this.$echarts.init(document.getElementById("nyjctj"));
+      this.chart.setOption({
+        grid: {
+          left: "3%",
+          right: "6%",
+          top: "10%",
+          bottom: "15%",
+          containLabel: true
+        },
         tooltip: {
           trigger: "axis",
           axisPointer: {
-            //type: "line",
             label: {
               backgroundColor: "#6a7985"
             }
@@ -45,33 +47,13 @@ export default {
           icon: "roundRect",
           bottom: "2%",
           textStyle: {
-            color: "#fff",
-            fontSize: 12
+            color: "#fff"
           }
         },
-        color: ["#0080ff", "#4cd5ce"],
-        toolbox: {
-          // feature: {
-          //     saveAsImage: {}
-          // }
-        },
-        grid: {
-          left: "3%",
-          right: "6%",
-          top: "10%",
-          bottom: "15%",
-          containLabel: true
-        },
-        // legend: {
-        //   orient: "vertical",
-        //   top: "12%",
-        //   left: "50%",
-        // },
         xAxis: [
           {
             type: "category",
             boundaryGap: false,
-            data: this.dataName,
             axisLabel: {
               show: true,
               textStyle: {
@@ -79,13 +61,14 @@ export default {
                 fontSize: 12
               }
             },
-            axisTick: false, //刻度不显示
+            axisTick: false,
             axisLine: {
               lineStyle: {
                 color: "#04a58e",
-                width: 2 //这里是为了突出显示加上的
+                width: 2
               }
-            }
+            },
+            data: that.cz_Category
           }
         ],
         yAxis: [
@@ -94,15 +77,15 @@ export default {
             axisLine: {
               onZero: false,
               lineStyle: {
-                width: 2, //这里是为了突出显示加上的
+                width: 2,
                 color: "#04a58e"
               }
             },
-            axisTick: false, //刻度不显示
+            axisTick: false,
             axisLabel: {
               show: true,
               textStyle: {
-                color: "#fff" //字体颜色
+                color: "#fff"
               }
             },
             splitLine: {
@@ -119,45 +102,61 @@ export default {
             name: "种植业",
             type: "line",
             smooth: true,
-            //  symbol: "none", //去掉折线点
             itemStyle: {
               normal: {
-                color: "rgba(14,255,216,.4)", //背景色
+                color: "rgba(14,255,216,.4)",
                 lineStyle: {
-                  // 系列级个性化折线样式
                   width: 2,
                   type: "solid",
                   color: "rgb(14,255,216)"
                 }
               }
             },
-            symbolSize: 5, //折线点的大小
+            symbolSize: 5,
             areaStyle: {
               normal: {}
             },
-            data: this.dataZZ
+            data: that.zzy
           },
           {
             name: "畜牧业",
             type: "line",
             smooth: true,
-            //  symbol: "none", //去掉折线点
             itemStyle: {
               normal: {
-                color: "rgba(255,179,62,.4)", //背景色
+                color: "rgba(255,179,62,.4)",
                 lineStyle: {
-                  // 系列级个性化折线样式
                   width: 2,
                   type: "solid",
                   color: "rgb(255,179,62)"
                 }
               }
             },
-            symbolSize: 5, //折线点的大小
+            symbolSize: 5,
             areaStyle: {
               normal: {}
             },
-            data: this.dataCM
+            data: that.xmy
+          },
+          {
+            name: "林业",
+            type: "line",
+            smooth: true,
+            itemStyle: {
+              normal: {
+                color: "rgba(80,216,0,.4)",
+                lineStyle: {
+                  width: 2,
+                  type: "solid",
+                  color: "rgb(80,216,0)"
+                }
+              }
+            },
+            symbolSize: 5,
+            areaStyle: {
+              normal: {}
+            },
+            data: that.ly
           },
           {
             name: "渔业",
@@ -165,46 +164,33 @@ export default {
             smooth: true,
             itemStyle: {
               normal: {
-                color: "rgba(15,188,239,.4)", //背景色
+                color: "rgba(15,188,239,.4)",
                 lineStyle: {
-                  // 系列级个性化折线样式
                   width: 2,
                   type: "solid",
                   color: "rgb(15,188,239)"
                 }
               }
             },
-            symbolSize: 5, //折线点的大小
+            symbolSize: 5,
             areaStyle: {
               normal: {}
             },
-            data: this.dataZZ
-          },
-          {
-            name: "林业",
-            type: "line",
-            smooth: true,
-            //  symbol: "none", //去掉折线点
-            itemStyle: {
-              normal: {
-                color: "rgba(80,216,0,.4)", //背景色
-                lineStyle: {
-                  // 系列级个性化折线样式
-                  width: 2,
-                  type: "solid",
-                  color: "rgb(80,216,0)"
-                }
-              }
-            },
-            symbolSize: 5, //折线点的大小
-            areaStyle: {
-              normal: {}
-            },
-            data: this.dataLY
+            data: that.yy
           }
         ]
       });
     }
+  },
+  created() {
+    // 数据加载
+    const { cz_Category, cz_Data } = window.chartData;
+    this.cz_Category = cz_Category;
+    const { zzy, xmy, ly, yy } = cz_Data;
+    this.zzy = zzy;
+    this.xmy = xmy;
+    this.ly = ly;
+    this.yy = yy;
   },
   mounted() {
     this.nyjctj(); //近5年产量预警

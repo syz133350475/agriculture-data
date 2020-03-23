@@ -1,6 +1,6 @@
 <template>
   <div id="nyyDiv">
-    <div class="title" style="height:15%">
+    <div class="title" style="height:5%">
       <h3>农业园信息</h3>
     </div>
     <div id="jpdDiv">
@@ -36,11 +36,15 @@
           </el-col>
         </el-row>
       </div>
+       <jcyjHJJC />
+    <jcyjSZZQ />
     </div>
   </div>
 </template>
 
 <script>
+import jcyjHJJC from "./hjcj.vue";
+import jcyjSZZQ from "./szzq.vue";
 export default {
   data() {
     return {
@@ -52,21 +56,27 @@ export default {
         "https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg"
       ] //大图预览
     };
+  },
+  components:{
+    jcyjHJJC, //环境监测
+    jcyjSZZQ //生长周期
   }
 };
 </script>
 
 <style>
 .jcyj-centent #nyyDiv {
-  height: 42%;
+  height: 100%;
 }
 .jcyj-centent #nyyDiv #jpdDiv {
-  height: 83%;
+  height: 95%;
   background-color: rgba(0, 126, 52, 0.3);
   border: 1px solid #24ff78;
   border-radius: 22px;
   position: relative;
   top: 1%;
+  display: flex;
+    flex-direction: column;
 }
 .jcyj-centent #nyyDiv #jpdDiv .border1 {
   width: 40px;
@@ -112,7 +122,7 @@ export default {
   margin: auto;
   margin-top: 2%;
   color: #fff;
-  height: 50%;
+  height: 23%;
 }
 .jcyj-centent #nyyDiv .ny_name p {
   font-size: 14px;

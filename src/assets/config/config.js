@@ -1,9 +1,11 @@
 export const ARCGIS_API_URL =
   //"http://192.168.0.200:9003/s/lc/libs/arcgis_js_v412_api/arcgis_js_api/library/4.12/dojo/dojo.js";
-  "http://172.20.89.68:5001/lc/libs/arcgis_js_v412_api/arcgis_js_api/library/4.12/dojo/dojo.js";
+ "http://172.20.89.68:5001/lc/libs/arcgis_js_v412_api/arcgis_js_api/library/4.12/dojo/dojo.js";
+ 
 export const OPTION = {
   url: ARCGIS_API_URL
 };
+export const server = "http://218.75.26.62:6443";
 
 //服务前缀
 export const url = "http://218.75.26.62:6443/arcgis/rest/services/";

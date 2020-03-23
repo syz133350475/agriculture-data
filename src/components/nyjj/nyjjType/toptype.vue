@@ -4,28 +4,28 @@
       <el-col :span="6">
         <div class="topDiv">
           <p>种植业产值</p>
-          <h1>15363</h1>
+          <h1>{{ zzy }}</h1>
           <span>万元</span>
         </div>
       </el-col>
       <el-col :span="6">
         <div class="topDiv">
           <p>畜牧业产值</p>
-          <h1>15363</h1>
+          <h1>{{ xmy }}</h1>
           <span>万元</span>
         </div>
       </el-col>
       <el-col :span="6">
         <div class="topDiv">
           <p>林业产值</p>
-          <h1>15363</h1>
+          <h1>{{ ly }}</h1>
           <span>万元</span>
         </div>
       </el-col>
       <el-col :span="6">
         <div class="topDiv">
           <p>渔业产值</p>
-          <h1>15363</h1>
+          <h1>{{ yy }}</h1>
           <span>万元</span>
         </div>
       </el-col>
@@ -34,7 +34,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  created() {
+    const { topData } = window.chartData;
+    const { zzy, xmy, ly, yy } = topData;
+    this.zzy = zzy;
+    this.xmy = xmy;
+    this.ly = ly;
+    this.yy = yy;
+  }
+};
 </script>
 
 <style>

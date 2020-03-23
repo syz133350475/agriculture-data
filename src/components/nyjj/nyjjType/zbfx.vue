@@ -12,20 +12,34 @@
       <div style="position: absolute;width: 100%;">
         <h3
           style="width: 50%;display: inline-block;text-align: center;color: #a0ffe7;font-weight: normal;"
-        >面积统计</h3>
+        >{{ title1 }}</h3>
+        <div id="select">
+          <el-select v-model="value" @change="bqSelect($event)">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </div>
         <h3
           style="width: 50%;display: inline-block;text-align: center;color: #a0ffe7;font-weight: normal;"
-        >产量统计</h3>
+        >{{ title2 }}</h3>
       </div>
       <div id="zbfxChart"></div>
       <!-- 内容 -->
-      <div style="position: absolute;top: 32%;left: 18%;text-align: center;color: #fff;">
+      <div
+        style="position: absolute;top: 32%;left: 25%;transform: translate(-50%, 0px);text-align: center;color: #fff;"
+      >
         <p style="margin-bottom: 0;">总计</p>
-        <p style="font-size: 21px;margin-top: 0;">23145</p>
+        <p style="font-size: 21px;margin-top: 0;">{{ sum1 }}</p>
       </div>
-      <div style="position: absolute;top: 32%;right: 18%;text-align: center;color: #fff;">
+      <div
+        style="position: absolute;top: 32%;right: 25%;transform: translate(50%, 0px);text-align: center;color: #fff;"
+      >
         <p style="margin-bottom: 0;">总计</p>
-        <p style="font-size: 21px;margin-top: 0;">13545</p>
+        <p style="font-size: 21px;margin-top: 0;">{{ sum2 }}</p>
       </div>
     </div>
   </div>
@@ -36,153 +50,178 @@
 export default {
   data() {
     return {
-      charts: " ",
-      thepieone: [],
-      data_1: [11, 30, 20, 80, 11], //得到饼图的图例
-      thepietwo: [], //得到饼图的左边
-      thepiethree: [], //得到饼图的右边
-      pieData1: [
+      chart: undefined,
+      title1: "面积 (万公顷)",
+      title2: "产量 (万吨)",
+      options: [
         {
-          name: "渔业",
-          theData: 80
+          value: "种植业",
+          label: "种植业"
         },
         {
-          name: "种植业",
-          theData: 18
+          value: "畜牧业",
+          label: "畜牧业"
         },
         {
-          name: "畜牧业",
-          theData: 33
+          value: "林业",
+          label: "林业"
         },
         {
-          name: "林业",
-          theData: 2
+          value: "渔业",
+          label: "渔业"
         }
       ],
-      pieData2: [
-        {
-          name: "渔业",
-          theData: 80
-        },
-        {
-          name: "种植业",
-          theData: 18
-        },
-        {
-          name: "畜牧业",
-          theData: 51
-        },
-        {
-          name: "林业",
-          theData: 20
-        }
-      ]
+      value: "种植业"
     };
   },
   methods: {
     //农业占比分析
     nczbFun() {
-      const chart = this.$echarts.init(document.getElementById("zbfxChart"));
-      for (var i = 0; i < this.pieData1.length; i++) {
-        this.thepieone.push(this.pieData1[i].name);
-      }
-      for (var j = 0; j < this.pieData1.length; j++) {
-        let objects = {
-          value: this.pieData1[j].theData,
-          name: this.pieData1[j].name,
-          label: {
-            normal: {
-              fontSize: 14,
-              position: "outside",
-              formatter: "{c}亩"
-            }
-          }
-        };
-        this.thepiethree.push(objects);
-      }
-
-      for (var z = 0; z < this.pieData2.length; z++) {
-        let objects2 = {
-          value: this.pieData2[z].theData,
-          name: this.pieData2[z].name,
-          label: {
-            normal: {
-              fontSize: 14,
-              position: "outside",
-              formatter: "{c}吨"
-            }
-          }
-        };
-        this.thepietwo.push(objects2);
-      }
-      chart.setOption({
+      const that = this;
+      this.chart = this.$echarts.init(document.getElementById("zbfxChart"));
+      this.chart.setOption({
         tooltip: {
           trigger: "item",
           formatter: function(parms) {
-            console.log(parms);
-            if (parms.componentIndex == "1") {
-              var str =
-                // parms.name +
-                // "</br>" +
-                parms.marker +
-                "" +
-                parms.name +
-                "</br>" +
-                "面积（亩）：" +
-                parms.data.value +
-                "</br>" +
-                "占比：" +
-                parms.percent +
-                "%";
+            if (parms.seriesIndex == 0) {
+              return `${parms.marker}${parms.name}<br />
+                ${
+                  that.value == "畜牧业" ? "饲养量 (万只)：" : "面积 (万公顷)："
+                }
+                ${parms.data.value}<br />
+                占比：${parms.percent} %`;
             } else {
-              var str =
-                // parms.name +
-                // "</br>" +
-                parms.marker +
-                "" +
-                parms.name +
-                "</br>" +
-                "产量（吨）：" +
-                parms.data.value +
-                "</br>" +
-                "占比：" +
-                parms.percent +
-                "%";
+              return `${parms.marker}${parms.name}<br />
+                ${that.value == "畜牧业" ? "产量 (万只)：" : "产量 (万吨)："}
+                ${parms.data.value}<br />
+                占比：${parms.percent} %`;
             }
-
-            return str;
           }
         },
         legend: {
-          data: this.thepieone,
           bottom: "2%",
           textStyle: {
             color: ["#fff"]
           },
-          itemGap: 25,
           itemWidth: 20
         },
         series: [
           {
-            name: "产量统计",
-            type: "pie",
-            hoverAnimation: false, //鼠标上去效果
-            radius: ["60%", "40%"],
-            center: ["75%", "50%"],
-            data: this.thepietwo
-          },
-          {
             name: "面积统计",
             type: "pie",
-            hoverAnimation: false, //鼠标上去效果
-            radius: ["60%", "40%"],
+            hoverAnimation: false,
+            minAngle: 4,
+            startAngle: 230,
+            radius: ["55%", "40%"],
             center: ["25%", "50%"],
-            data: this.thepiethree
+            data: that.mjData,
+            label: {
+              normal: {
+                fontSize: 12,
+                position: "outside",
+                formatter: "{c}"
+              }
+            },
+            labelLine: {
+              length: 25,
+              length2: 7
+            }
+          },
+          {
+            name: "产量统计",
+            type: "pie",
+            hoverAnimation: false,
+            minAngle: 4,
+            radius: ["55%", "40%"],
+            center: ["75%", "50%"],
+            data: that.clData,
+            label: {
+              normal: {
+                fontSize: 12,
+                position: "outside",
+                formatter: "{c}"
+              }
+            }
           }
         ],
         color: ["#05d3f8", "#e67136", "#fcff14", "#71e636"]
       });
+    },
+    bqSelect(event) {
+      const that = this;
+      const name = event;
+      this.mjData = this.mjObj[name];
+      this.clData = this.clObj[name];
+
+      this.title1 = name == "畜牧业" ? "饲养量 (万只)" : "面积 (万公顷)";
+      this.title2 = name == "畜牧业" ? "产量 (万只)" : "产量 (万吨)";
+
+      this.sum1 = this.mjSumObj[name].sum.toFixed(2);
+      this.sum2 = this.clSumObj[name].sum.toFixed(2);
+
+      this.chart.setOption({
+        legend: {
+          data: that.nyzb_Data[event].nameList
+        },
+        series: [
+          {
+            data: that.mjData
+          },
+          {
+            data: that.clData
+          }
+        ]
+      });
     }
+  },
+  created() {
+    // 数据加载
+    const { nyzb_Data } = window.chartData;
+
+    this.nyzb_Data = nyzb_Data;
+
+    const mjObj = {};
+    const clObj = {};
+
+    const mjSumObj = {};
+    const clSumObj = {};
+
+    for (let k in nyzb_Data) {
+      const _tmp = nyzb_Data[k];
+      for (let i = 0; i < _tmp.nameList.length; i++) {
+        !mjObj[k] && (mjObj[k] = []);
+        mjObj[k].push({
+          name: _tmp.nameList[i],
+          value: (_tmp.mj[i] / 10000).toFixed(2)
+        });
+
+        !clObj[k] && (clObj[k] = []);
+        clObj[k].push({
+          name: _tmp.nameList[i],
+          value: (_tmp.cl[i] / 10000).toFixed(2)
+        });
+
+        !mjSumObj[k] && (mjSumObj[k] = { sum: 0 });
+        mjSumObj[k].sum =
+          Number(mjSumObj[k].sum) + Number((_tmp.mj[i] / 10000).toFixed(2));
+
+        !clSumObj[k] && (clSumObj[k] = { sum: 0 });
+        clSumObj[k].sum =
+          Number(clSumObj[k].sum) + Number((_tmp.cl[i] / 10000).toFixed(2));
+      }
+    }
+
+    this.mjObj = mjObj;
+    this.clObj = clObj;
+
+    this.mjSumObj = mjSumObj;
+    this.clSumObj = clSumObj;
+
+    this.mjData = mjObj["种植业"];
+    this.clData = clObj["种植业"];
+
+    this.sum1 = mjSumObj["种植业"].sum.toFixed(2);
+    this.sum2 = clSumObj["种植业"].sum.toFixed(2);
   },
   mounted() {
     this.nczbFun(); //近5年产量预警
@@ -242,6 +281,20 @@ export default {
   right: -2px;
   transform: rotate(180deg);
 }
+.jyjj-centent #zbfxDiv #jpdDiv #select {
+  width: 20%;
+  position: absolute;
+  left: 50%;
+  top: 14%;
+  transform: translate(-50%, 0);
+  z-index: 30;
+}
+
+.jyjj-centent #zbfxDiv #jpdDiv #select .el-select .el-input__inner {
+  height: 28px;
+  line-height: 28px;
+}
+
 .jyjj-centent #zbfxDiv #zbfxChart {
   width: 100%;
   height: 100%;

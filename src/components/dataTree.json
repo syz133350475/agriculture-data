@@ -1,0 +1,2645 @@
+﻿[{
+  "id": 1,
+  "name": "国情普查",
+  "type": "folder",
+  "open": true,
+  "text":"国情",
+  "children": [
+
+    {
+      "id": 12,
+      "name": "遥感影像数据",
+      "type": "folder",
+      "isParent": true,
+      "children": [{
+        "id": 121,
+        "name": "温州市区影像2012年",
+        "type": "layer",
+        "layerUrl":"arcgis/rest/services/dlgq/gp_yyyx_2012/ImageServer",
+        "attr": {
+          "index": 0
+        }
+      }, {
+        "id": 122,
+        "name": "温州市区影像2014年",
+        "type": "layer",
+        "layerUrl":"arcgis/rest/services/dlgq/gp_yyyx_2014/ImageServer",
+        "attr": {
+          "index": 0
+        }
+      }]
+    }, {
+      "id": 13,
+      "name": "地表覆盖数据",
+      "type": "folder",
+      "text":"耕地 1382.72&nbsp;&nbsp;&nbsp;道路 237.43<br> 园地 534.96&nbsp;&nbsp;&nbsp;&nbsp;构筑物 192.14<br> 林地 7322.46&nbsp;&nbsp;&nbsp;人工堆掘地 170.57<br> 草地 644.56&nbsp;&nbsp;&nbsp;&nbsp;荒漠与裸露地表   225.5<br> 房屋建筑区&nbsp;&nbsp;&nbsp;576.53  水域   416.86",
+
+      "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0000_15/MapServer",
+      "attr": {
+        "index": 0
+      },
+      "children": [{
+        "id": 130100,
+        "name": "耕地",
+        "type": "folder",
+        "attr": {
+          "code": "0100"
+        },
+        "children": [{
+          "id": 130110,
+          "name": "水田",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0100_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0110",
+            "index": 0
+          }
+        }, {
+          "id": 130120,
+          "name": "旱地",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0100_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0120",
+            "index": 1
+          }
+        }]
+      }, {
+        "id": 130200,
+        "name": "园地",
+        "type": "folder",
+        "attr": {
+          "code": "0200"
+        },
+        "children": [{
+          "id": 130210,
+          "name": "果园",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0200_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0210",
+            "index": 0
+          }
+        }, {
+          "id": 130220,
+          "name": "茶园",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0200_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0220",
+            "index": 1
+          }
+        }, {
+          "id": 130230,
+          "name": "桑园",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0200_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0230",
+            "index": 2
+          }
+        }, {
+          "id": 130240,
+          "name": "橡胶园",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0200_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0240",
+            "index": 3
+          }
+        }, {
+          "id": 130250,
+          "name": "苗圃",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0200_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0250",
+            "index": 4
+          }
+        }, {
+          "id": 130260,
+          "name": "花圃",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0200_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0260",
+            "index": 5
+          }
+        }, {
+          "id": 130290,
+          "name": "其他园地",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0200_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0290",
+            "index": 6
+          }
+        }]
+      }, {
+        "id": 130300,
+        "name": "林地",
+        "type": "folder",
+        "attr": {
+          "code": "0300"
+        },
+        "children": [{
+          "id": 130310,
+          "name": "乔木林",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0300_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0310",
+            "index": 7
+          }
+        }, {
+          "id": 130320,
+          "name": "灌木林",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0300_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0320",
+            "index": 0
+          }
+        }, {
+          "id": 130330,
+          "name": "乔灌混合林",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0300_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0330",
+            "index": 1
+          }
+        }, {
+          "id": 130340,
+          "name": "竹林",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0300_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0340",
+            "index": 2
+          }
+        }, {
+          "id": 130350,
+          "name": "疏林",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0300_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0350",
+            "index": 3
+          }
+        }, {
+          "id": 130360,
+          "name": "绿化林地",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0300_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0360",
+            "index": 4
+          }
+        }, {
+          "id": 130370,
+          "name": "人工幼林",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0300_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0370",
+            "index": 5
+          }
+        }, {
+          "id": 130380,
+          "name": "稀疏灌丛",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0300_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0380",
+            "index": 6
+          }
+        }]
+      }, {
+        "id": 130400,
+        "name": "草地",
+        "type": "folder",
+        "attr": {
+          "code": "0400"
+        },
+        "children": [{
+          "id": 130410,
+          "name": "天然草地",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0400_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0410",
+            "index": 0
+          }
+        }, {
+          "id": 130420,
+          "name": "人工草地",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0400_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0420",
+            "index": 1
+          }
+        }]
+      }, {
+        "id": 130500,
+        "name": "房屋建筑（区）",
+        "type": "folder",
+        "attr": {
+          "code": "0500"
+        },
+        "children": [{
+          "id": 130510,
+          "name": "多层及以上房屋建筑区",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0500_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0510",
+            "index": 0
+          }
+        }, {
+          "id": 130520,
+          "name": "低矮房屋建筑区",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0500_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0520",
+            "index": 1
+          }
+        }, {
+          "id": 130530,
+          "name": "废弃房屋建筑区",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0500_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0530",
+            "index": 2
+          }
+        }, {
+          "id": 130540,
+          "name": "多层及以上独立房屋建筑区",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0500_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0540",
+            "index": 3
+          }
+        }, {
+          "id": 130550,
+          "name": "低矮独立房屋建筑",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0500_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0550",
+            "index": 4
+          }
+        }]
+      }, {
+        "id": 130600,
+        "name": "道路",
+        "type": "folder",
+        "attr": {
+          "code": "0600"
+        },
+        "children": [{
+          "id": 130610,
+          "name": "有轨道路路面",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0600_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0610",
+            "index": 0
+          }
+        }, {
+          "id": 130620,
+          "name": "无轨道路路面",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0600_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0620",
+            "index": 1
+          }
+        }]
+      }, {
+        "id": 130700,
+        "name": "构筑物",
+        "type": "folder",
+        "attr": {
+          "code": "0700"
+        },
+        "children": [{
+          "id": 130710,
+          "name": "硬化地表",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0700_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0710",
+            "index": 0
+          }
+        }, {
+          "id": 130720,
+          "name": "水工设施",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0700_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0720",
+            "index": 1
+          }
+        }, {
+          "id": 130740,
+          "name": "城墙",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0700_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0740",
+            "index": 2
+          }
+        }, {
+          "id": 130750,
+          "name": "温室、大棚",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0700_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0750",
+            "index": 3
+          }
+        }, {
+          "id": 130760,
+          "name": "固化池",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0700_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0760",
+            "index": 4
+          }
+        }, {
+          "id": 130770,
+          "name": "工业设施",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0700_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0770",
+            "index": 5
+          }
+        }, {
+          "id": 130780,
+          "name": "沙障",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0700_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0780",
+            "index": 6
+          }
+        }, {
+          "id": 130790,
+          "name": "其他构筑物",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0700_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0790",
+            "index": 7
+          }
+        }]
+      }, {
+        "id": 130800,
+        "name": "人工堆掘地",
+        "type": "folder",
+        "attr": {
+          "code": "0800"
+        },
+        "children": [{
+          "id": 130810,
+          "name": "露天采掘场",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0800_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0810",
+            "index": 0
+          }
+        }, {
+          "id": 130820,
+          "name": "堆放物",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0800_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0820",
+            "index": 1
+          }
+        }, {
+          "id": 130830,
+          "name": "建筑工地",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0800_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0830",
+            "index": 2
+          }
+        }, {
+          "id": 130840,
+          "name": "其他人工堆掘地",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0800_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0840",
+            "index": 3
+          }
+        }]
+      }, {
+        "id": 130900,
+        "name": "荒漠与裸露地表",
+        "type": "folder",
+        "attr": {
+          "code": "0900"
+        },
+        "children": [{
+          "id": 130910,
+          "name": "盐碱地表",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0900_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0910",
+            "index": 0
+          }
+        }, {
+          "id": 130920,
+          "name": "泥土地表",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0900_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0920",
+            "index": 1
+          }
+        }, {
+          "id": 130930,
+          "name": "砂质地表",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0900_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0930",
+            "index": 2
+          }
+        }, {
+          "id": 130940,
+          "name": "硕石地表",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0900_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0940",
+            "index": 3
+          }
+        }, {
+          "id": 10950,
+          "name": "岩石地表",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_0900_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0950",
+            "index": 4
+          }
+        }]
+      }, {
+        "id": 131000,
+        "name": "水域",
+        "type": "folder",
+        "attr": {
+          "code": "1000"
+        },
+        "children": [{
+          "id": 131050,
+          "name": "冰川与常年积雪",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_1000_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "1050",
+            "index": 1
+          }
+        }, {
+          "id": 131001,
+          "name": "水面",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_dbfg_1000_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "1001",
+            "index": 0
+          }
+        }]
+      }]
+    }, {
+      "id": 14,
+      "name": "地理国情要素数据",
+      "type": "folder",
+      "children": [{
+        "id": 140600,
+        "name": "道路",
+        "type": "folder",
+        "attr": {
+          "code": "0600"
+        },
+        "children": [{
+          "id": 140610,
+          "name": "铁路",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0610_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0610",
+            "index": 0
+          }
+        }, {
+          "id": 140620,
+          "name": "公路",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0620_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0620",
+            "index": 0
+          }
+        }, {
+          "id": 140630,
+          "name": "城市道路",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0630_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0630",
+            "index": 0
+          }
+        }, {
+          "id": 140640,
+          "name": "乡村道路",
+          "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0640_15/MapServer",
+          "type": "layer",
+          "attr": {
+            "code": "0640",
+            "index": 0
+          }
+        }]
+      }, {
+        "id": 140700,
+        "name": "构筑物",
+        "type": "folder",
+        "attr": {
+          "code": "0700"
+        },
+        "children": [{
+          "id": 140720,
+          "name": "水工设施",
+          "type": "folder",
+          "attr": {
+            "code": "0720"
+          },
+          "children": [{
+            "id": 1407200,
+            "name": "闸（点）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0720_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 0
+            }
+          }, {
+            "id": 1407201,
+            "name": "排灌泵点（点）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0720_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 1
+            }
+          }, {
+            "id": 1407202,
+            "name": "堤坝（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0720_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 2
+            }
+          }, {
+            "id": 1407203,
+            "name": "其他水工构筑物（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0720_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 4
+            }
+          },{
+            "id": 1407205,
+            "name": "闸（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0720_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 3
+            }
+          }, {
+            "id": 1407204,
+            "name": "闸（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0720_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 5
+            }
+          }]
+        }, {
+          "id": 140730,
+          "name": "交通设施",
+          "type": "folder",
+          "attr": {
+            "code": "0730"
+          },
+          "children": [{
+            "id": 1407300,
+            "name": "高速公路出入口（点）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0730_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 0
+            }
+          }, {
+            "id": 1407301,
+            "name": "加油（气）、充电站（点）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0730_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 1
+            }
+          }, {
+            "id": 1407302,
+            "name": "隧道（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0730_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 2
+            }
+          }, {
+            "id": 1407303,
+            "name": "桥梁（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0730_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 3
+            }
+          }, {
+            "id": 1407304,
+            "name": "码头（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0730_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 4
+            }
+          }, {
+            "id": 1407305,
+            "name": "车渡（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0730_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 5
+            }
+          }, {
+            "id": 1407306,
+            "name": "码头（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_0730_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 6
+            }
+          }]
+        }]
+      }, {
+        "id": 141000,
+        "name": "水域",
+        "type": "folder",
+        "attr": {
+          "code": "1000"
+        },
+        "children": [{
+          "id": 141010,
+          "name": "河渠",
+          "type": "folder",
+          "attr": {
+            "code": "1010"
+          },
+          "children": [{
+            "id": 1410100,
+            "name": "河流（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1010_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 0
+            }
+          }, {
+            "id": 1410101,
+            "name": "水渠（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1010_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 1
+            }
+          }, {
+            "id": 1410102,
+            "name": "河流（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1010_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 2
+            }
+          }, {
+            "id": 1410103,
+            "name": "水渠（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1010_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 3
+            }
+          }]
+        }, {
+          "id": 141020,
+          "name": "湖泊",
+          "type": "folder",
+          "attr": {
+            "code": "1020"
+          },
+          "children": [{
+            "id": 1410200,
+            "name": "湖泊（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1020_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 0
+            }
+          }, {
+            "id": 1410201,
+            "name": "湖泊（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1020_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 1
+            }
+          }]
+        }, {
+          "id": 141030,
+          "name": "库塘",
+          "type": "folder",
+          "attr": {
+            "code": "1030"
+          },
+          "children": [{
+            "id": 1410300,
+            "name": "水库（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1030_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 0
+            }
+          }, {
+            "id": 1410301,
+            "name": "坑塘（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1030_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 1
+            }
+          }, {
+            "id": 1410302,
+            "name": "水库（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1030_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 2
+            }
+          }, {
+            "id": 1410303,
+            "name": "坑塘（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1030_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 3
+            }
+          }]
+        }, {
+          "id": 141040,
+          "name": "海面",
+          "type": "folder",
+          "attr": {
+            "code": "1040"
+          },
+          "children": [{
+            "id": 1410400,
+            "name": "海面（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1040_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 0
+            }
+          }, {
+            "id": 1410401,
+            "name": "海面（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1040_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 1
+            }
+          }]
+        }, {
+          "id": 141050,
+          "name": "冰川与常年积雪",
+          "type": "folder",
+          "attr": {
+            "code": "1050"
+          },
+          "children": [{
+            "id": 1410500,
+            "name": "冰川（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1050_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 0
+            }
+          }, {
+            "id": 1410501,
+            "name": "常年积雪（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1050_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 1
+            }
+          }, {
+            "id": 1410502,
+            "name": "冰川（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1050_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 2
+            }
+          }, {
+            "id": 1410503,
+            "name": "常年积雪（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1050_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 3
+            }
+          }]
+        }]
+      }, {
+        "id": 141100,
+        "name": "地理单元",
+        "type": "folder",
+        "attr": {
+          "code": "1100"
+        },
+        "children": [{
+          "id": 141110,
+          "name": "行政区划与管理单元",
+          "type": "folder",
+          "attr": {
+            "code": "1110"
+          },
+          "children": [{
+            "id": 1411100,
+            "name": "行政村",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1110_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 0
+            }
+          }, {
+            "id": 1411104,
+            "name": "国家级行政区",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1110_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 4
+            }
+          }, {
+            "id": 1411105,
+            "name": "省级行政区",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1110_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 5
+            }
+          }, {
+            "id": 1411106,
+            "name": "特别行政区",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1110_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 6
+            }
+          }, {
+            "id": 1411101,
+            "name": "地、市、州级行政区（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1110_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 3
+            }
+          }, {
+            "id": 1411107,
+            "name": "地、市、州级行政区（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1110_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 7
+            }
+          }, {
+            "id": 1411102,
+            "name": "县级行政区（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1110_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 2
+            }
+          }, {
+            "id": 1411108,
+            "name": "县级行政区（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1110_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 8
+            }
+          }, {
+            "id": 1411103,
+            "name": "乡、镇行政区（线）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1110_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 1
+            }
+          }, {
+            "id": 1411109,
+            "name": "乡、镇行政区（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1110_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 9
+            }
+          }, {
+            "id": 14111010,
+            "name": "城市中心城区",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1110_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 10
+            }
+          }, {
+            "id": 14111011,
+            "name": "其他特殊行政管理区",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1110_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 11
+            }
+          }]
+        }, {
+          "id": 141120,
+          "name": "社会经济区域单元",
+          "type": "folder",
+          "attr": {
+            "code": "1120"
+          },
+          "children": [{
+            "id": 1411200,
+            "name": "国有农、林、牧场 ",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1120_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 0
+            }
+          }, {
+            "id": 1411201,
+            "name": "风景名胜区、旅游区（点）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1120_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 1
+            }
+          }, {
+            "id": 1411202,
+            "name": "主体功能区",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1120_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 2
+            }
+          }, {
+            "id": 1411203,
+            "name": "开发区、保税区 ",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1120_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 3
+            }
+          }, {
+            "id": 1411204,
+            "name": "自然、文化保护区 ",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1120_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 4
+            }
+          }, {
+            "id": 1411205,
+            "name": "自然、文化遗产",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1120_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 5
+            }
+          }, {
+            "id": 1411206,
+            "name": "风景名胜区、旅游区（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1120_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 6
+            }
+          }, {
+            "id": 1411207,
+            "name": "森林公园",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1120_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 7
+            }
+          }, {
+            "id": 1411208,
+            "name": "地质公园",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1120_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 8
+            }
+          }, {
+            "id": 1411209,
+            "name": "行、蓄、滞洪区",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1120_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 9
+            }
+          }]
+        }, {
+          "id": 141130,
+          "name": "自然地理单元",
+          "type": "folder",
+          "attr": {
+            "code": "1130"
+          },
+          "children": [{
+            "id": 1411300,
+            "name": "流域 ",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1130_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 0
+            }
+          }, {
+            "id": 1411301,
+            "name": "地貌类型单元",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1130_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 1
+            }
+          }, {
+            "id": 1411302,
+            "name": "沼泽区",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1130_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 2
+            }
+          }, {
+            "id": 1411303,
+            "name": "地形分区",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1130_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 3
+            }
+          }, {
+            "id": 1411304,
+            "name": "湿地保护区",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1130_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 4
+            }
+          }]
+        }, {
+          "id": 141140,
+          "name": "城镇综合功能单元",
+          "type": "folder",
+          "attr": {
+            "code": "1140"
+          },
+          "children": [{
+            "id": 1411400,
+            "name": "居住小区（点）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1140_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 0
+            }
+          }, {
+            "id": 1411401,
+            "name": "工矿企业（点）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1140_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 1
+            }
+          }, {
+            "id": 1411402,
+            "name": "单位院落（点）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1140_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 2
+            }
+          }, {
+            "id": 1411403,
+            "name": "居住小区（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1140_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 3
+            }
+          }, {
+            "id": 1411404,
+            "name": "工矿企业（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1140_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 4
+            }
+          }, {
+            "id": 1411405,
+            "name": "单位院落（面）",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1140_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 5
+            }
+          }, {
+            "id": 1411406,
+            "name": "休闲娱乐、景区",
+
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1140_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 6
+            }
+          }, {
+            "id": 1411407,
+            "name": "体育活动场所",
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1140_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 7
+            }
+          }, {
+            "id": 1411408,
+            "name": "名胜古迹",
+
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1140_15/MapServer",
+            "type": "layer",
+            "attr": {
+              "index": 8
+            }
+          }, {
+            "id": 1411409,
+            "name": "宗教场所",
+
+            "layerUrl": "arcgis/rest/services/dlgq/gq_gqys_1140_15/MapServer",
+
+            "type": "layer",
+            "attr": {
+              "index": 9
+            }
+          }]
+        }]
+      }]
+    }]
+}, {
+  "id": 2,
+  "name": "省情普查",
+  "type": "folder",
+  "open": true,
+  "children": [{
+    "id": 21,
+    "name": "城市建成区",
+    "type": "folder",
+    "children": [{
+      "id": 210,
+      "name": "建成区",
+      "layerUrl": "arcgis/rest/services/dlgq/sq_jcq_15/MapServer",
+      "type": "layer",
+      "attr": {
+        "index": 0
+      }
+    }]
+  }, {
+    "id": 22,
+    "name": "城市建成区绿地",
+    "type": "folder",
+    "children": [{
+      "id": 220,
+      "name": "建成区绿地现状范围",
+      "layerUrl": "arcgis/rest/services/dlgq/sq_jcqld_15/MapServer",
+      "type": "layer",
+      "attr": {
+        "index": 0
+      }
+    }, {
+      "id": 221,
+      "name": "建成区绿化覆盖范围",
+      "layerUrl": "arcgis/rest/services/dlgq/sq_jcqld_15/MapServer",
+      "type": "layer",
+      "attr": {
+        "index": 1
+      }
+    }]
+  }]
+}, {
+  "id": 3,
+  "name": "市县情普查",
+  "type": "folder",
+  "open": true,
+  "children": [{
+    "id": 33100,
+    "name": "地形地貌",
+    "type": "folder",
+    "attr": {
+      "code": "3100"
+    },
+    "children": [{
+      "id": 33110,
+      "name": "高程分级",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_dxdm_16/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市勘察测绘研究院<br/>完成范围：温州市域<br/>概述：根据温州总体地形地貌特征，利用2015年1:10000DEM进行高程分级和陆域占比统计（高程分为12级：（0，10 ]、（10，20] 、（20，75]、（75，200]、（200，400]、（400，600]、（600，800]、（800，1000]、（1000，1200]、（1200，1400]、（1400，1600]、＞1600。",
+      "attr": {
+        "code": "3110",
+        "index":0
+      }
+    }, {
+      "id": 33120,
+      "name": "坡度分级",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_dxdm_16/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市勘察测绘研究院<br/>完成范围：温州四区<br/>概述：根据《温州都市区山坡地利用战略规划》，坡度信息0°～2°的地形为平原、 2°～7.5°为缓坡地、 7.5°～15°为可利用山坡地、15°～30°为山坡地、大于30°为陡坡地，利用2015年1:10000DEM，去除水域面后进行坡度分级统计。",
+      "attr": {
+        "code": "3120",
+        "index":1
+      }
+    }, {
+      "id": 33130,
+      "name": "地形地貌特征",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_dxdm_16/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市勘察测绘研究院<br/>完成范围：温州四区<br/>概述：利用2012年高精度1:2000DEM，根据温州市基础测绘大比例尺地形图提取四区范围内水体，其余地形坡度信息小于2°的地形划为平原、大于2°为山地，进行总体地形地貌特征构成统计。",      "attr": {
+        "code": "3130",
+        "index":2
+      }
+    }, {
+      "id": 33140,
+      "name": "主要河流面",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_dxdm_16/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市勘察测绘研究院<br/>完成范围：温州市域<br/>概述：普查市域范围内的主要河流及面积（跨地级市的河流仅统计温州市域内面积），普查参考数据包括大比例尺基础测绘数据、1:10000DLG、影像、国普数据等。",
+      "attr": {
+        "code": "3140",
+        "index":3
+      }
+    }, {
+      "id": 33150,
+      "name": "水系线",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_dxdm_16/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市勘察测绘研究院<br/>完成范围：温州市域<br/>概述：普查市域范围内的主要河流及长度（跨地级市的河流仅统计温州市域内长度），普查参考数据包括大比例尺基础测绘数据、1:10000DLG、影像、国普数据等。",
+      "attr": {
+        "code": "3150",
+        "index":4
+      }
+    }, {
+      "id": 33160,
+      "name": "主要湖泊水库",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_dxdm_16/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市勘察测绘研究院<br/>完成范围：温州市域<br/>概述：普查市域范围内的面积为1平方公里以上的湖泊、水库（考虑到贯通性，个别要素没有严格执行本指标），普查参考数据包括大比例尺基础测绘数据、1:10000DLG、影像、国普数据等。",
+      "attr": {
+        "code": "3160",
+        "index":5
+      }
+    }]
+  }, {
+    "id": 33200,
+    "name": "地理极值",
+    "type": "folder",
+    "attr": {
+      "code": "3200"
+    },
+    "children": [{
+      "id": 33210,
+      "name": "四至点",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_dljz_16/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市勘察测绘研究院<br/>完成范围：温州市域<br/>概述：普查温州市域、市本级和十一个县市（区）的东、西、南、北的四至经纬度（海岛除外），明确四至所在村级行政归属以及统计各行政区的东西、南北跨度。普查参考数据包括省民政厅的陆地行政界线、省海洋与渔业局提供的海域行政勘界资料、国家“927”工程海岛调查资料，国普的海岛普查成果等。",
+      "attr": {
+        "code": "3210",
+        "index": 0
+      }
+    }, {
+      "id": 33220,
+      "name": "极值点",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_dljz_16/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市勘察测绘研究院<br/>完成范围：温州市域<br/>概述：普查温州市域各辖区最高峰、次高峰和最低点（水域、滩涂除外）的海拔高程和位置。普查参考数据包括10000DEM数据，大比例尺基础测绘数据等。",
+      "attr": {
+        "code": "3220",
+        "index": 1
+      }
+    }]
+  }, {
+    "id": 33300,
+    "name": "国家级自然保护区",
+    "type": "folder",
+    "attr": {
+      "code": "3300"
+    },
+    "children": [{
+      "id": 33310,
+      "name": "风景区",
+      "type": "folder",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：风景区数据主要为雁荡山风景区与滨海-玉苍山风景名胜区两个景区位置的分散性而形成了相对较多的景区面。其中，雁荡山风景名胜区分别由南雁荡山、雁荡山和中雁荡山组成，滨海-玉苍山风景名胜区分别由大玉苍山片区、莒溪景区、炎亭景区和鱼寮景区这4个景区组成。为保证数据的合理性和真实性，由原来的2个景区形成了7个面数据。因此，最终风景区点（面）成果由28个。",
+      "attr": {
+        "code": "3310"
+      },
+      "children": [{
+        "id": 333100,
+        "name": "点",
+        "type": "layer",
+        "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：风景区数据主要为雁荡山风景区与滨海-玉苍山风景名胜区两个景区位置的分散性而形成了相对较多的景区面。其中，雁荡山风景名胜区分别由南雁荡山、雁荡山和中雁荡山组成，滨海-玉苍山风景名胜区分别由大玉苍山片区、莒溪景区、炎亭景区和鱼寮景区这4个景区组成。为保证数据的合理性和真实性，由原来的2个景区形成了7个面数据。因此，最终风景区点（面）成果由28个。",
+        "layerUrl": "arcgis/rest/services/dlgq/sxq_gjzrbhq_15/MapServer",
+        "attr": {
+          "index": 0
+        }
+      }, {
+        "id": 333102,
+        "name": "面",
+        "type": "layer",
+        "layerUrl": "arcgis/rest/services/dlgq/sxq_gjzrbhq_15/MapServer",
+        "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：风景区数据主要为雁荡山风景区与滨海-玉苍山风景名胜区两个景区位置的分散性而形成了相对较多的景区面。其中，雁荡山风景名胜区分别由南雁荡山、雁荡山和中雁荡山组成，滨海-玉苍山风景名胜区分别由大玉苍山片区、莒溪景区、炎亭景区和鱼寮景区这4个景区组成。为保证数据的合理性和真实性，由原来的2个景区形成了7个面数据。因此，最终风景区点（面）成果由28个。",
+
+        "attr": {
+          "index": 2
+        }
+      }]
+    }, {
+      "id": 33320,
+      "name": "古道",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_gjzrbhq_15/MapServer",
+      "type": "layer",
+      "text": "完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：古道主要是天长岭古道由3条分开的古道组成，故成果记录数为34条。",
+      "attr": {
+        "code": "3320",
+        "index": 1
+      }
+    }]
+  }, {
+    "id": 33400,
+    "name": "历史文化街区",
+    "type": "folder",
+    "attr": {
+      "code": "3400"
+    },
+    "children": [{
+      "id": 33410,
+      "name": "历史文化街区（历史地段）",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_lswhjq_15/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：对庆年坊历史文化街区、城西历史文化街区、五马-墨池历史文化街区、朔门历史文化街区4个历史文化街区以及江心屿历史地段做了明确的定位和概述。",
+      "attr": {
+        "code": "3410",
+        "index": 4
+      }
+    }, {
+      "id": 33420,
+      "name": "历史建筑",
+      "type": "folder",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：对历史建筑点进行明确定位，并针对每个历史建筑进行用地范围面勾勒，最后共形成85个历史建筑点（面）。",
+      "attr": {
+        "code": "3420"
+      },
+      "children": [{
+        "id": 334201,
+        "name": "点",
+        "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：对历史建筑点进行明确定位，并针对每个历史建筑进行用地范围面勾勒，最后共形成85个历史建筑点（面）。",
+
+        "type": "layer",
+        "layerUrl": "arcgis/rest/services/dlgq/sxq_lswhjq_15/MapServer",
+        "attr": {
+          "index": 1
+        }
+      }, {
+        "id": 334205,
+        "name": "面",
+        "type": "layer",
+        "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：对历史建筑点进行明确定位，并针对每个历史建筑进行用地范围面勾勒，最后共形成85个历史建筑点（面）。",
+
+        "layerUrl": "arcgis/rest/services/dlgq/sxq_lswhjq_15/MapServer",
+        "attr": {
+          "index": 5
+        }
+      }]
+    }, {
+      "id": 33430,
+      "name": "历史文化保护村落",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_lswhjq_15/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：传统村落资料，根据《历史文化名城及传统村落》目录和实际情况，完成温州市苍南县矾山村福德湾村、温州市苍南县桥墩镇碗窑村等9个传统村落的入库。",
+      "attr": {
+        "code": "3430",
+        "index": 2
+      }
+    }, {
+      "id": 33440,
+      "name": "文物保护单位",
+      "type": "folder",
+      "attr": {
+        "code": "3440"
+      },
+      "children": [{
+        "id": 334403,
+        "name": "点",
+        "type": "layer",
+        "layerUrl": "arcgis/rest/services/dlgq/sxq_lswhjq_15/MapServer",
+        "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：成果数据共337个点，其中包括国家级文保单位4处，省级文保单位25处。",
+
+        "attr": {
+          "index": 3
+        }
+      }, {
+        "id": 334409,
+        "name": "面",
+        "type": "layer",
+        "layerUrl": "arcgis/rest/services/dlgq/sxq_lswhjq_15/MapServer",
+        "attr": {
+          "index": 9
+        }
+      }]
+    }, {
+      "id": 33450,
+      "name": "历史文化名城",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_lswhjq_15/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：针对历史文化名镇名村进行了相关数据收集，得到历史文化名城3个，历史文化名镇17个，历史文化名村29个，并参考行政界限勾勒其范围面或定位点。",
+      "attr": {
+        "code": "3450",
+        "index": 6
+      }
+    }, {
+      "id": 33460,
+      "name": "历史文化名镇",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_lswhjq_15/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br>概述：针对历史文化名镇名村进行了相关数据收集，得到历史文化名城3个，历史文化名镇17个，历史文化名村29个，并参考行政界限勾勒其范围面或定位点。",
+      "attr": {
+        "code": "3460",
+        "index": 7
+      }
+    }, {
+      "id": 33470,
+      "name": "历史文化名村",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_lswhjq_15/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：针对历史文化名镇名村进行了相关数据收集，得到历史文化名城3个，历史文化名镇17个，历史文化名村29个，并参考行政界限勾勒其范围面或定位点。",
+      "attr": {
+        "code": "3470",
+        "index": 8
+      }
+    }, {
+      "id": 33480,
+      "name": "传统村落",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_lswhjq_15/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：传统村落资料，根据《历史文化名城及传统村落》目录和实际情况，完成温州市苍南县矾山村福德湾村、温州市苍南县桥墩镇碗窑村等9个传统村落的入库。",
+      "attr": {
+        "code": "3480",
+        "index": 0
+      }
+    }]
+  }, {
+    "id": 33500,
+    "name": "古树名木",
+    "type": "folder",
+    "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：古树名木信息以市政府公布名录为准。实地测量古树名木的具体位置，空间精度不低于1米，实地核对古树名木的独立编号、古树名木所在的具体地址、古树名木的属性；古树名木名称、种名、科名、属名、树龄、古树名木管理单位、古树名木保护情况；保护级别、标志、现状保护是否完好等信息数据并记录；并配有反映古树现状情况的照片。",
+    "attr": {
+      "code": "3500"
+    },
+    "children": [{
+      "id": 335100,
+      "name": "点",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_gsmm_15/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：古树名木信息以市政府公布名录为准。实地测量古树名木的具体位置，空间精度不低于1米，实地核对古树名木的独立编号、古树名木所在的具体地址、古树名木的属性；古树名木名称、种名、科名、属名、树龄、古树名木管理单位、古树名木保护情况；保护级别、标志、现状保护是否完好等信息数据并记录；并配有反映古树现状情况的照片。",
+
+      "attr": {
+        "code": "3510",
+        "index": 0
+      }
+    }, {
+      "id": 335101,
+      "name": "面",
+      "layerUrl": "arcgis/rest/services/dlgq/sxq_gsmm_15/MapServer",
+      "type": "layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市规划信息中心<br/>完成范围：市域、市本级和十一个县市（区）<br/>概述：古树名木信息以市政府公布名录为准。实地测量古树名木的具体位置，空间精度不低于1米，实地核对古树名木的独立编号、古树名木所在的具体地址、古树名木的属性；古树名木名称、种名、科名、属名、树龄、古树名木管理单位、古树名木保护情况；保护级别、标志、现状保护是否完好等信息数据并记录；并配有反映古树现状情况的照片。",
+      "attr": {
+        "code": "3510",
+        "index": 1
+      }
+    }]
+  },{
+    "id":33600,
+    "name":"高压架空电力线",
+    "type":"folder",
+    "attr":{
+      "code":"3600"
+    },
+    "children":[{
+      "id":336100,
+      "name":"电力线",
+      "layerUrl":"",
+      "type":"layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市勘察测绘研究院<br/>完成范围：温州市区（鹿城、瓯海、龙湾、洞头）<br/>概述：根据现有的资料，在高分辨率遥感影像上标绘本级范围内的110千伏及以上架空线路及相关电力塔（杆）、变电站，作为外业调绘底图，将标绘后的影像图作为外业底图，逐一确定市本级内110千伏及以上电力架空线路的分布情况。",
+      "attr":{
+        "code":"3610",
+        "index":0
+      }
+    },{
+      "id":336200,
+      "name":"杆塔",
+      "type":"folder",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市勘察测绘研究院<br/>完成范围：温州市区（鹿城、瓯海、龙湾、洞头）<br/>概述：利用1:10000省级基础地理信息数据、温州市基础地理信息系统现有的基础地理信息数据、结合1:2000 3D数据（DLG、DEM、DOM）、1:2000像控资料、电力局提供的高压电力线路等专题资料，对温州市区{鹿城、瓯海、龙湾、洞头}[范围内的110千伏及以上电力架空线路（两侧）及相关电力塔（杆）、变电站的空间分布、范围进行全面采集。",
+      "layerUrl":"",
+      "attr":{
+        "code":"3620"
+      },
+      "children":[{
+        "id":336200,
+        "name":"杆",
+        "text":"利用1:10000省级基础地理信息数据、温州市基础地理信息系统现有的基础地理信息数据、结合1:2000 3D数据（DLG、DEM、DOM）、1:2000像控资料、电力局提供的高压电力线路等专题资料，通过内业影像判读，对温州市区{鹿城、瓯海、龙湾、洞头}[范围内的110千伏及以上电力架空线路（两侧）及相关电力塔（杆）、变电站的空间分布、范围进行全面采集。 ",
+
+        "layerUrl":"",
+        "type":"layer",
+        "attr":{
+          "index":1
+        }
+      },{
+        "id":336200,
+        "name":"塔",
+        "layerUrl":"",
+        "text":"利用1:10000省级基础地理信息数据、温州市基础地理信息系统现有的基础地理信息数据、结合1:2000 3D数据（DLG、DEM、DOM）、1:2000像控资料、电力局提供的高压电力线路等专题资料，通过内业影像判读，对温州市区{鹿城、瓯海、龙湾、洞头}[范围内的110千伏及以上电力架空线路（两侧）及相关电力塔（杆）、变电站的空间分布、范围进行全面采集。 ",
+
+        "type":"layer",
+        "attr":{
+          "index":2
+        }
+      }]
+    },{
+      "id":336300,
+      "name":"变电塔",
+      "layerUrl":"",
+      "type":"layer",
+      "text":"完成时间：2016年11月<br/>完成单位：温州市勘察测绘研究院<br>完成范围：温州市区（鹿城、瓯海、龙湾、洞头）<br/>概述：利用1:10000省级基础地理信息数据、温州市基础地理信息系统现有的基础地理信息数据、结合1:2000 3D数据（DLG、DEM、DOM）、1:2000像控资料、电力局提供的高压电力线路等专题资料，对温州市区{鹿城、瓯海、龙湾、洞头}[范围内的110千伏及以上电力架空线路（两侧）及相关电力塔（杆）、变电站的空间分布、范围进行全面采集。",
+      "attr":{
+        "code":"3630",
+        "index":3
+      }
+    }]
+  },{
+    "id":33700,
+    "name":"市县专题数据",
+    "type":"folder",
+    "attr":{
+      "code":"3700"
+    },
+    "children":[{
+      "id":337010,
+      "name":"市编办",
+      "type":"folder",
+      "attr":{
+        "code":"3701"
+      },
+      "children":[{
+        "id":3370101,
+        "name":"机关单位",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3701_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      },{
+        "id":3370102,
+        "name":"事业单位",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3701_16/MapServer",
+        "attr":{
+          "index":1
+        }
+      }]
+    },{
+      "id":337020,
+      "name":"市发改委",
+      "type":"folder",
+      "attr":{
+        "code":"337020"
+      },
+      "children":[{
+        "id":3370201,
+        "name":"高速公路",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3702_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      },{
+        "id":3370202,
+        "name":"功能区\"十二五\"建设区块",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3702_16/MapServer",
+        "attr":{
+          "index":1
+        }
+      },{
+        "id":3370203,
+        "name":"轨道交通",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3702_16/MapServer",
+        "attr":{
+          "index":2
+        }
+      },{
+        "id":3370204,
+        "name":"航道治理",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3702_16/MapServer",
+        "attr":{
+          "index":3
+        }
+      },{
+        "id":3370205,
+        "name":"空间拓展工程",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3702_16/MapServer",
+        "attr":{
+          "index":4
+        }
+      },{
+        "id":3370206,
+        "name":"全市域功能区布局",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3702_16/MapServer",
+        "attr":{
+          "index":5
+        }
+      },{
+        "id":3370207,
+        "name":"省级主干线",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3702_16/MapServer",
+        "attr":{
+          "index":6
+        }
+      },{
+        "id":3370208,
+        "name":"市域重大项目",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3702_16/MapServer",
+        "attr":{
+          "index":7
+        }
+      },{
+        "id":3370209,
+        "name":"市政线路",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3702_16/MapServer",
+        "attr":{
+          "index":8
+        }
+      },{
+        "id":3370210,
+        "name":"铁路",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3702_16/MapServer",
+        "attr":{
+          "index":9
+        }
+      }]
+    },{
+      "id":337030,
+      "name":"市经信委",
+      "type":"folder",
+      "layerUrl":"",
+      "attr":{
+        "code":"3703"
+      },
+      "children":[{
+        "id":3370301,
+        "name":"管辖面积",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3703_16/MapServer",
+        "attr":{
+          "index":2
+        }
+      },{
+        "id":3370302,
+        "name":"规划建设面积",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3703_16/MapServer",
+        "attr":{
+          "index":1
+        }
+      },{
+        "id":3370303,
+        "name":"核准面积",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3703_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      }]
+    },{
+      "id":337040,
+      "name":"市民宗局",
+      "type":"folder",
+      "layerUrl":"arcgis/rest/services/dlgq/sxq_sxztsj/MapServer",
+      "attr":{
+        "code":"3704"
+      },
+      "children":[{
+        "id":3370401,
+        "name":"宗教活动场所",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3704_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      }]
+    },{
+      "id":337050,
+      "name":"国土局",
+      "type":"folder",
+      "attr":{
+        "code":"3705"
+      },
+      "children":[{
+        "id":3370501,
+        "name":"地质灾害点",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3705_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      },{
+        "id":3370502,
+        "name":"基本农田数据层",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3705_16/MapServer",
+        "attr":{
+          "index":1
+        }
+      },{
+        "id":3370503,
+        "name":"尾矿库",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3705_16/MapServer",
+        "attr":{
+          "index":2
+        }
+      }]
+    },{
+      "id":337060,
+      "name":"水利局",
+      "type":"folder",
+      "attr":{
+        "code":"3706"
+      },
+      "children":[{
+        "id":3370601,
+        "name":"市区河道",
+        "type":"folder",
+        "attr":{
+        },
+        "children":[{
+          "id":337060101,
+          "name":"河流中心线",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":0
+          }}
+        ]
+      },{
+        "id":3370602,
+        "name":"水利普查",
+        "type":"folder",
+        "layerUrl":"",
+        "attr":{
+        },
+        "children":[{
+          "id":337060201,
+          "name":"提防工程",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":1
+          }
+        },{
+          "id":337060201,
+          "name":"河流",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":2
+          }
+        },{
+          "id":337060201,
+          "name":"闸",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":3
+          }
+        },{
+          "id":337060201,
+          "name":"水站",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":4
+          }
+        },{
+          "id":337060201,
+          "name":"翻水站",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":5
+          }
+        },{
+          "id":337060201,
+          "name":"水电站",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":6
+          }
+        },{
+          "id":337060201,
+          "name":"自来水厂",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":7
+          }
+        },{
+          "id":337060201,
+          "name":"渊站",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":8
+          }
+        },{
+          "id":337060201,
+          "name":"水库",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "text":"市域范围内的主要河流、湖泊、水库分布及长度、面积调查依据中分卫星影像数据、航空影像数据、1:10000省级基础地理信息数据、结合相应的国普成果，同时参考1:500、1:2000等大比例尺数据，对市域主要河流长度及重要湖泊、水库（1平方公里以上的）的面积进行量算、统计，形成相应的统计表格。 ",
+          "attr":{
+            "index":9
+          }
+        },{
+          "id":337060201,
+          "name":"灌区",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":10
+          }
+        },{
+          "id":337060201,
+          "name":"一级流域",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":11
+          }
+        },{
+          "id":337060201,
+          "name":"二级流域",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":12
+          }
+        },{
+          "id":337060201,
+          "name":"三级流域",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":13
+          }
+        },{
+          "id":337060201,
+          "name":"四级流域",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":14
+          }
+        },{
+          "id":337060201,
+          "name":"五级流域",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":15
+          }
+        },{
+          "id":337060201,
+          "name":"六级流域",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+          "attr":{
+            "index":16
+          }
+        }]
+      },{
+        "id":3370603,
+        "name":"五水共治（清三河）",
+        "type":"folder",
+        "attr":{
+        },
+        "children":[
+          {
+            "id":337060201,
+            "name":"温州市'清三河’行动地理空间",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3706_16/MapServer",
+            "attr":{
+              "index":17
+            }
+          }
+        ]
+      }]
+    },{
+      "id":337070,
+      "name":"交通运输局",
+      "type":"folder",
+      "attr":{
+        "code":"3707"
+      },
+      "children":[{
+        "id":3370701,
+        "name":"城市道路",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3707_16/MapServer",
+        "attr":{
+          "index":1
+        }
+      },{
+        "id":3370702,
+        "name":"村道",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3707_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      },{
+        "id":3370703,
+        "name":"绿道成果",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3707_16/MapServer",
+        "attr":{
+          "index":2
+        }
+      }]
+    },{
+      "id":337080,
+      "name":"市农办",
+      "type":"folder",
+      "attr":{
+        "code":"3708"
+      },
+      "children":[{
+        "id":3370801,
+        "name":"粮食生产功能区",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3708_16/MapServer",
+        "attr":{
+          "index":1
+        }
+      },{
+        "id":3370802,
+        "name":"现代农业园",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3708_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      }]
+    },{
+      "id":337090,
+      "name":"市住建委",
+      "type":"folder",
+      "attr":{
+        "code":"3709"
+      },
+      "children":[{
+        "id":3370901,
+        "name":"停车泊位",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3709_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      },{
+        "id":3370902,
+        "name":"小区及房屋资料",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3709_16/MapServer",
+        "attr":{
+          "index":1
+        }}
+      ]
+    },{
+      "id":337100,
+      "name":"环保局",
+      "type":"folder",
+      "attr":{
+        "code":"3710"
+      },
+      "children":[{
+        "id":3371001,
+        "name":"水、声、气环境功能区",
+        "type":"folder",
+        "attr":{
+          "code":"37101"
+        },
+        "children":[{
+        "id":337100101,
+        "name":"气功能区",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3710_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      },{
+          "id":337100102,
+          "name":"声功能区",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3710_16/MapServer",
+          "attr":{
+            "index":7
+          }
+        },{
+          "id":337100103,
+          "name":"水功能区",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3710_16/MapServer",
+          "attr":{
+            "index":9
+          }
+        }]},{
+        "id":3371002,
+        "name":"生态功能区、环境功能区",
+        "type":"folder",
+        "attr":{
+          "code":"37101"
+        },
+        "children":[{
+          "id":337100201,
+          "name":"环境优化准入图",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3710_16/MapServer",
+          "attr":{
+            "index":1
+          }
+        },{
+          "id":337100202,
+          "name":"环境重点准入区",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3710_16/MapServer",
+          "attr":{
+            "index":2
+          }
+        },{
+          "id":337100203,
+          "name":"农产品安全保障区",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3710_16/MapServer",
+          "attr":{
+            "index":3
+          }
+        },{
+          "id":337100204,
+          "name":"人居环境保障区",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3710_16/MapServer",
+          "attr":{
+            "index":4
+          }
+        },{
+          "id":337100205,
+          "name":"生态功能保障区",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3710_16/MapServer",
+          "attr":{
+            "index":5
+          }
+        },{
+          "id":337100206,
+          "name":"自然功能红线区",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3710_16/MapServer",
+          "attr":{
+            "index":6
+          }
+        }]
+      },{
+        "id":3371004,
+        "name":"自然保护区",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3710_16/MapServer",
+        "attr":{
+          "index":8
+        }
+      }]
+    },{
+      "id":337110,
+      "name":"市民政局",
+      "type":"folder",
+      "attr":{
+        "code":"3711"
+      },
+      "children":[{
+        "id":3371101,
+        "name":"避乱场所",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3711_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      },{
+        "id":3371102,
+        "name":"地名",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3711_16/MapServer",
+        "attr":{
+          "index":1
+        }
+      },{
+        "id":3371103,
+        "name":"社会福利机构",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3711_16/MapServer",
+        "attr":{
+          "index":2
+        }
+      }]
+    },{
+      "id":337120,
+      "name":"市公安局",
+      "type":"folder",
+      "layerUrl":"",
+      "attr":{
+        "code":"3712",
+        "index":0
+      }
+    },{
+      "id":337130,
+      "name":"市林业局",
+      "type":"folder",
+      "attr":{
+        "code":"3713"
+      },
+      "children":[{
+        "id":3371301,
+        "name":"国有林场",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3713_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      },{
+        "id":3371302,
+        "name":"森林公园",
+        "type":"folder",
+        "attr":{
+        },
+        "children":[{
+          "id":33713021,
+          "name":"点",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3713_16/MapServer",
+          "attr":{
+            "index":1
+          }
+        },{
+          "id":33713022,
+          "name":"面",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3713_16/MapServer",
+          "attr":{
+            "index":2
+          }
+        }]
+      },{
+        "id":3371303,
+        "name":"生态公益林",
+        "type":"folder",
+        "attr":{
+        },
+        "children":[{
+          "id":33713031,
+          "name":"区县",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3713_16/MapServer",
+          "attr":{
+            "index":3
+          }
+        },{
+          "id":33713031,
+          "name":"温州市域",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3713_16/MapServer",
+          "attr":{
+            "index":4
+          }
+        }]
+      },{
+        "id":3371304,
+        "name":"湿地公园",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3713_16/MapServer",
+        "attr":{
+          "index":5
+        }
+      }]
+    },{
+      "id":337140,
+      "name":"市旅游局",
+      "type":"folder",
+      "attr":{
+        "code":"3714"
+      },
+      "children":[
+        {"id":3371401,
+          "name":"A级旅游景区",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3714_16/MapServer",
+          "attr":{
+            "index":0
+          }}]
+    },{
+      "id":337150,
+      "name":"统计局",
+      "type":"folder",
+      "attr":{
+        "code":"3715"
+      },
+      "children":[
+        {"id":3371501,
+          "name":"经济普查",
+          "type":"folder",
+          "attr":{
+            "code":"37151"
+          },
+          "children":[{
+            "id":337150101,
+            "name":"温州市域_按行业大类、地区分组的全部企业法人单位数",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37151_16/MapServer",
+            "attr":{
+              "index":0
+            }
+          },{
+            "id":337150102,
+            "name":"温州市域_按行业大类、地区分组的法人单位数",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37151_16/MapServer",
+            "attr":{
+              "index":1
+            }
+          },{
+            "id":337150103,
+            "name":"温州市域_按行业大类、地区分组的法人单位从业人数",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37151_16/MapServer",
+            "attr":{
+              "index":2
+            }
+          },{
+            "id":337150104,
+            "name":"温州市域_按地区分组的全部企业法人单位数及从业人数",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37151_16/MapServer",
+            "attr":{
+              "index":3
+            }
+          },{
+            "id":337150105,
+            "name":"温州市域_按地区分组的法人单位、产业活动单位数及从业人数",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37151_16/MapServer",
+            "attr":{
+              "index":4
+            }
+          },{
+            "id":337150106,
+            "name":"温州区县_按行业大类、地区分组的全部企业法人单位数",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37151_16/MapServer",
+            "attr":{
+              "index":5
+            }
+          },{
+            "id":337150107,
+            "name":"温州区县_按行业大类、地区分组的法人单位数",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37151_16/MapServer",
+            "attr":{
+              "index":6
+            }
+          },{
+            "id":337150108,
+            "name":"温州区县_按行业大类、地区分组的法人单位从业人数",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37151_16/MapServer",
+            "attr":{
+              "index":7
+            }
+          },{
+            "id":337150109,
+            "name":"温州区县_按地区分组的全部企业法人单位数及从业人数",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37151_16/MapServer",
+            "attr":{
+              "index":8
+            }
+          },{
+            "id":337150110,
+            "name":"温州街道_按地区分组的全部企业法人单位数及从业人数 ",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37151_16/MapServer",
+            "attr":{
+              "index":9
+            }
+          },{
+            "id":337150111,
+            "name":"温州区县_按地区分组的法人单位、产业活动单位数及从业人数 ",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37151_16/MapServer",
+            "attr":{
+              "index":10
+            }
+          }
+          ]
+        },{
+          "id":3371502,
+          "name":"区划代码",
+          "type":"folder",
+          "attr":{
+            "code":"37152"
+          },
+          "children":[{
+            "id":337150201,
+            "name":"村社区",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37152_16/MapServer",
+            "attr":{
+              "index":0
+            }},{
+            "id":337150202,
+            "name":"区县",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37152_16/MapServer",
+            "attr":{
+              "index":1
+            }
+          },{
+            "id":337150203,
+            "name":"市",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37152_16/MapServer",
+            "attr":{
+              "index":2
+            }},{
+            "id":337150204,
+            "name":"市辖区",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37152_16/MapServer",
+            "attr":{
+              "index":3
+            }
+          },{
+            "id":337150205,
+            "name":"乡镇街道",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37152_16/MapServer",
+            "attr":{
+              "index":4
+            }}
+          ]
+        },{
+          "id":3371503,
+          "name":"人口普查",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37153_16/MapServer",
+          "attr":{
+            "code":"37150301"
+          },
+          "children":[{
+            "id":337150301,
+            "name":"街道乡镇",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37153_16/MapServer",
+            "attr":{
+              "index":0
+            }
+          },{
+            "id":337150302,
+            "name":"区县",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37153_16/MapServer",
+            "attr":{
+              "index":1
+            }
+          },{
+            "id":337150303,
+            "name":"全市",
+            "type":"layer",
+            "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_37153_16/MapServer",
+            "attr":{
+              "index":2
+            }
+          }]
+        }]
+    },{
+      "id":337160,
+      "name":"市文广新局",
+      "type":"folder",
+      "attr":{
+        "code":"3716"
+      },
+      "children":[{
+        "id":3371601,
+        "name":"公共文化活动场所",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3716_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      }]
+    },{
+      "id":337170,
+      "name":"市执法局",
+      "type":"folder",
+      "attr":{
+        "code":"3717"
+      },
+      "children":[{
+        "id":3371701,
+        "name":"公共自行车",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3717_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      },{
+        "id":3371702,
+        "name":"公园及公共绿地",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3717_16/MapServer",
+        "attr":{
+          "index":1
+        }
+      }]
+    },{
+      "id":337180,
+      "name":"市教育局",
+      "type":"folder",
+      "attr":{
+        "code":"3718"
+      },
+      "children":[{
+        "id":3371801,
+        "name":"教育机构",
+        "type":"folder",
+        "attr":{
+          "code":"37181"
+        },
+        "children":[{
+          "id":337180101,
+          "name":"大学",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3718_16/MapServer",
+          "attr":{
+            "index":0
+          }
+        },{
+          "id":337180102,
+          "name":"中小学校",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3718_16/MapServer",
+          "attr":{
+            "index":3
+          }
+        },{
+          "id":337180103,
+          "name":"幼儿园",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3718_16/MapServer",
+          "attr":{
+            "index":2
+          }
+        },{
+          "id":337180104,
+          "name":"教育培训机构",
+          "type":"layer",
+          "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3718_16/MapServer",
+          "attr":{
+            "index":1
+          }
+        }]
+      }]
+    },{
+      "id":337190,
+      "name":"市卫生局",
+      "type":"folder",
+      "attr":{
+        "code":"3719"
+      },
+      "children":[{
+        "id":3371901,
+        "name":"卫生院",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3719_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      }]
+    },{
+      "id":337200,
+      "name":"市安监局",
+      "type":"folder",
+      "attr":{
+        "code":"3720"
+      },
+      "children":[{
+        "id":3372001,
+        "name":"危险源",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3720_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      }]
+    },{
+      "id":337210,
+      "name":"市电力局",
+      "type":"layer",
+      "layerUrl":"",
+      "attr":{
+        "code":"3721",
+        "index":0
+      }
+    },{
+      "id":337220,
+      "name":"市规划局",
+      "type":"folder",
+      "attr":{
+        "code":"3722"
+      },
+      "children":[{
+        "id":3372201,
+        "name":"地籍数据",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3722_16/MapServer",
+        "attr":{
+          "index":0
+        }
+      },{
+        "id":3372202,
+        "name":"规划道路中心线",
+        "type":"layer",
+        "layerUrl":"arcgis/rest/services/dlgq/sxq_ztsj_3722_16/MapServer",
+        "attr":{
+          "index":1
+        }
+      }]
+    }]
+  }]
+}]
+

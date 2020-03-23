@@ -7,29 +7,24 @@
 export default {
   data() {
     return {
-      charts: "",
-      phname: ["小麦", "玉米", "大米", "高粱", "苹果"],
-      phData: [11, 33, 77, 39, 55],
-      phKd:[100, 100, 100, 100, 100],
-      titleData:"鹿城区农作物产量排行",
+      chart: undefined,
+      titleData: "鹿城区农作物产量排行"
     };
   },
   methods: {
     mapPh() {
-      const chart = this.$echarts.init(document.getElementById("nyjj-mapPh"));
-      chart.setOption({
+      const that = this;
+      this.chart = this.$echarts.init(document.getElementById("nyjj-mapPh"));
+      this.chart.setOption({
         grid: {
-          show: "true",
-          borderWidth: "0",
           height: "60%",
-          width: "80%",
-          x: "12%"
-          // y:"20%",
+          width: "75%",
+          left: "12%"
         },
         title: {
           text: this.titleData,
-          x: "left",
-          y: "10%",
+          left: "left",
+          top: "10%",
           textStyle: {
             color: "#6cf1f0",
             fontSize: "16"
@@ -76,7 +71,7 @@ export default {
           splitLine: { show: false }, //横向的线
           axisTick: { show: false }, //y轴的端点
           axisLine: { show: false }, //y轴的线
-          data: this.phname
+          data: that.nzw_Category
         },
         series: [
           {
@@ -93,11 +88,11 @@ export default {
                 show: true,
                 position: "right",
                 color: "#fff",
-                fontSize: 12,
+                fontSize: 12
               }
             },
             barWidth: 15,
-            data: this.phData
+            data: that.nzw_Data["鹿城区"]
           },
           {
             name: "外框",
@@ -111,11 +106,47 @@ export default {
             barGap: "-100%",
             z: 0,
             barWidth: 15,
-            data: this.phKd
+            data: that.maxObj["鹿城区"]
+          }
+        ]
+      });
+    },
+    // 数据更新
+    updateChart(name) {
+      const that = this;
+      this.titleData = `${name}农作物产量排行`;
+      this.chart.setOption({
+        title: {
+          text: that.titleData
+        },
+        series: [
+          {
+            data: that.nzw_Data[name]
+          },
+          {
+            data: that.maxObj[name]
           }
         ]
       });
     }
+  },
+  created() {
+    // 数据加载
+    const { nzw_Category, nzw_Data } = window.chartData;
+    this.nzw_Category = nzw_Category;
+    this.nzw_Data = nzw_Data;
+    const maxObj = {};
+    for (let k in nzw_Data) {
+      !maxObj[k] && (maxObj[k] = []);
+
+      const maxValue = nzw_Data[k].sort((a, b) => b - a)[0];
+
+      for (let i = 0; i < 5; i++) {
+        maxObj[k].push(maxValue);
+      }
+    }
+
+    this.maxObj = maxObj;
   },
   mounted() {
     this.mapPh(); //调用地图边上的柱状图
@@ -125,6 +156,6 @@ export default {
 
 <style>
 .jyjj-centent #nyjj-mapPh {
-  height:40%;
+  height: 40%;
 }
 </style>

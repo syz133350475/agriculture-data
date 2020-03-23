@@ -1,8 +1,9 @@
 <template>
   <div class="zyfb-centent">
-    <nymap />
+    <nymap ref="map"/>
     <nyzy />
-    <nyContent />
+    <nyContent ref="nyContent"/>
+    <historyButton />
   </div>
 </template>
 <script>
@@ -10,12 +11,15 @@
 import nyzy from "./zyfbType/zyml.vue";
 import nyContent from "./zyfbType/zyContent.vue";
 import nymap from "./zyfbType/map.vue";
+import historyButton from "./zyfbType/historyButton.vue";
+
 export default {
   name: "zyfb",
   components: {
     nyzy,
     nyContent,
-    nymap
+    nymap,
+    historyButton
   }
 };
 </script>

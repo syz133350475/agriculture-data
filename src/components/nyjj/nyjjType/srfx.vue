@@ -15,84 +15,26 @@
 
 <script>
 /* eslint-disable */
+import echarts from "echarts";
 export default {
   data() {
     return {
-      charts: " ",
-      category: [
-        "鹿城",
-        "龙湾",
-        "瓯海",
-        "洞头",
-        "永嘉",
-        "乐清",
-        "瑞安",
-        "文成",
-        "苍南",
-        "平阳",
-        "泰顺"
-      ],
-      dottedBase: [],
-      lineData: [
-        18092,
-        24045,
-        32808,
-        36097,
-        44715,
-        50415,
-        56061,
-        59521,
-        18092,
-        24045,
-        32808,
-        36097,
-        44715,
-        50415,
-        39867,
-        44715,
-        48444,
-        50415,
-        50061,
-        32677,
-        49521,
-        32808
-      ],
-      barData: [
-        4600,
-        5500,
-        7500,
-        8500,
-        12500,
-        21500,
-        23200,
-        25250,
-        4600,
-        5500,
-        6500,
-        8500,
-        22500,
-        21500,
-        9900,
-        12500,
-        14000,
-        21500,
-        23200,
-        24450,
-        25250,
-        7500
-      ],
-      //rateData: [],
+      chart: undefined
     };
   },
   methods: {
     //农业占比分析
     srfxFun() {
-      const chart = this.$echarts.init(document.getElementById("srfxEchart"));
-      // for (var i = 0; i < 33; i++) {
-      //   var rate = (this.barData[i] / this.lineData[i]) * 100;
-      //   this.rateData[i] = rate;//.toFixed(2);
-      // }
-      chart.setOption({
+      const that = this;
+      this.chart = this.$echarts.init(document.getElementById("srfxEchart"));
+      this.chart.setOption({
+        grid: {
+          left: "3%",
+          right: "5%",
+          top: "10%",
+          bottom: "15%",
+          containLabel: true
+        },
         tooltip: {
           trigger: "axis",
           axisPointer: {
@@ -108,17 +50,11 @@ export default {
           textStyle: {
             color: ["#fff"]
           },
-          itemGap: 25,
+          itemGap: 15,
           itemWidth: 20
         },
-        grid: {
-          x: "14%",
-          width: "73%",
-          height: "68%",
-          y: "9%"
-        },
         xAxis: {
-          data: this.category,
+          data: that.sr_Category,
           axisLine: {
             onZero: false,
             lineStyle: {
@@ -168,45 +104,60 @@ export default {
               lineStyle: {
                 color: "#04a58e"
               }
-            },
-            axisLabel: {
-              formatter: "{value} "
             }
           }
         ],
-
         series: [
+          // {
+          //   name: "人均收入 (万元)",
+          //   type: "line",
+          //   smooth: true,
+          //   showAllSymbol: true,
+          //   symbol: "emptyCircle",
+          //   symbolSize: 8,
+          //   itemStyle: {
+          //     normal: {
+          //       color: "#ffda47"
+          //     }
+          //   },
+          //   data: that.rjsrList
+          // },
           {
-            name: "农村人均收入（万元）",
-            type: "line",
-            smooth: true,
-            showAllSymbol: true,
-            symbol: "emptyCircle",
-            symbolSize: 8,
-            yAxisIndex: 1,
+            name: "可支配收入 (万元)",
+            type: "bar",
+            barGap: 0,
+            barWidth: "30%",
             itemStyle: {
               normal: {
-                color: "#ffda47"
+                color: "#5768EF"
               }
             },
-            data: this.lineData
+            data: that.kzpsrList
           },
-
           {
-            name: "农业收入（万元）",
+            name: "消费支出 (万元)",
             type: "bar",
-            barWidth: 10,
+            barWidth: "30%",
             itemStyle: {
               normal: {
-                barBorderRadius: 0,
                 color: "#50b0ff"
               }
             },
-            data: this.barData
+            data: that.xfzcList
           }
         ]
       });
     }
+  },
+  created() {
+    // 加载数据
+    const { sr_Category, sr_Data } = window.chartData;
+    this.sr_Category = sr_Category;
+
+    const { rjsrList, kzpsrList, xfzcList } = sr_Data;
+    this.rjsrList = rjsrList;
+    this.kzpsrList = kzpsrList;
+    this.xfzcList = xfzcList;
   },
   mounted() {
     this.srfxFun(); //近5年产量预警

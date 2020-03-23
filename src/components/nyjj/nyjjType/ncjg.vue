@@ -8,8 +8,8 @@
       <div class="border2"></div>
       <div class="border3"></div>
       <div class="border4"></div>
-      <todayprice />
-      <historyPrice />
+      <todayprice ref="todayprice" />
+      <historyPrice ref="historyPrice" />
     </div>
   </div>
 </template>

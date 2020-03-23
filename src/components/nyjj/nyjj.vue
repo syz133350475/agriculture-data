@@ -13,11 +13,11 @@
           <div id="nyjj-centertDivMapDiv">
             <el-row>
               <el-col :span="8">
-                <jyjjmapPh />
-                <jyjjTable />
+                <jyjjmapPh ref="jyjjmapPh" />
+                <jyjjTable ref="jyjjTable" />
               </el-col>
               <el-col :span="16">
-                <jyjjMAP />
+                <jyjjMAP ref="jyjjMAP" />
               </el-col>
             </el-row>
           </div>
@@ -70,8 +70,8 @@ export default {
     jyjjZBFX, //农业占比分析
     jyjjSRFX, //农村收入分析
     jyjjZQFX, //灾情分析
-    jyjjmapPh,//地图（农作物产量排行）
-    jyjjTable,//农产产量排行
+    jyjjmapPh, //地图（农作物产量排行）
+    jyjjTable //农产产量排行
   }
 };
 </script>
@@ -82,6 +82,7 @@ export default {
   height: 90%;
   position: relative;
   top: 5.7em;
+  overflow: hidden;
 }
 .jyjj-centent .el-row,
 .jyjj-centent .el-col {
@@ -104,8 +105,7 @@ export default {
   background-repeat: no-repeat;
   height: 5%;
 }
-.jyjj-centent #nyjj-centertDivMapDiv
-{
+.jyjj-centent #nyjj-centertDivMapDiv {
   height: 60%;
 }
 </style>

@@ -9,10 +9,10 @@
       <div class="border3"></div>
       <div class="border4"></div>
       <div class="ygncCententDiv">
-        <el-table :data="tableData" class="sfdlistTable">
-          <el-table-column prop="type" label="排名" width="50"></el-table-column>
-          <el-table-column prop="price" label="企业名称" ></el-table-column>
-          <el-table-column prop="tongbi" label="全年生产总值" width="120"></el-table-column>
+        <el-table :data="tableData" height="100%" class="sfdlistTable">
+          <el-table-column prop="index" label="序号" width="50"></el-table-column>
+          <el-table-column prop="name" label="农场名称"></el-table-column>
+          <el-table-column prop="product" label="主要产品" width="120"></el-table-column>
         </el-table>
       </div>
     </div>
@@ -20,37 +20,43 @@
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   data() {
     return {
       tableData: [
         {
-          type: "1",
+          index: "1",
           price: "永嘉县岩上村石上清流民宿",
-          tongbi: "100万元",
+          tongbi: "100万元"
         },
         {
-          type: "2",
+          index: "2",
           price: "永嘉县岩上村石上清流民宿",
-          tongbi: "100万元",
+          tongbi: "100万元"
         },
         {
-          type: "3",
+          index: "3",
           price: "永嘉县岩上村石上清流民宿",
-          tongbi: "100万元",
+          tongbi: "100万元"
         },
         {
-          type: "4",
+          index: "4",
           price: "永嘉县岩上村石上清流民宿",
-          tongbi: "100万元",
+          tongbi: "100万元"
         },
         {
-          type: "5",
+          index: "5",
           price: "永嘉县岩上村石上清流民宿",
-          tongbi: "100万元",
+          tongbi: "100万元"
         }
       ]
     };
+  },
+  created() {
+    // 加载数据
+    const { ygnc_Data } = window.chartData;
+    this.tableData = ygnc_Data;
   }
 };
 </script>
@@ -60,8 +66,7 @@ export default {
   height: 96%;
   padding-right: 1.5%;
 }
-.jyjj-centent #ygncDiv .ygncCententDiv
-{
+.jyjj-centent #ygncDiv .ygncCententDiv {
   width: 96%;
   margin-left: 2%;
   height: 94%;
@@ -116,10 +121,9 @@ export default {
 }
 #ygncDiv .sfdlistTable {
   width: 96%;
-  margin-left: 2%
+  margin-left: 2%;
 }
-#ygncDiv .todayprice
-{
+#ygncDiv .todayprice {
   height: 50%;
 }
 #ygncDiv .todayprice h3 {

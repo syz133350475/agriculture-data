@@ -118,12 +118,18 @@ export default {};
   font-size: 56px;
 }
 .jcyj-centent #centerleftDiv .city {
-  padding-left: 18%;
-  padding-top: 6%;
+  /* padding-left: 18%;
+  padding-top: 6%; */
+  position: relative;
+  top: 23%;
+  left: 28%;
 }
 .jcyj-centent #centerrightDiv .city {
-  padding-right: 18%;
-  padding-top: 6%;
+  /* padding-right: 18%;
+  padding-top: 6%; */
+  position: relative;
+  top: 23%;
+  right: 28%;
 }
 .jcyj-centent #centerrightDiv .city li {
   margin-bottom: 1.1em;

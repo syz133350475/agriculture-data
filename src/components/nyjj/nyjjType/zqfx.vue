@@ -18,25 +18,15 @@
 export default {
   data() {
     return {
-      weekData: [
-        { text: "气象灾害", max: 100 },
-        { text: "海洋灾害", max: 100 },
-        { text: "地质灾害", max: 100 },
-        { text: "农、林病虫害", max: 100 },
-        { text: "人为自然灾害", max: 100 },
-      ],
-      student: [60, 73, 85, 40, 50, 40, 30]
+      chart: undefined
     };
   },
   methods: {
     //农业占比分析
     zqfxFun() {
-      const chart = this.$echarts.init(document.getElementById("zqfxEchart"));
-      // for (var i = 0; i < 33; i++) {
-      //   var rate = (this.barData[i] / this.lineData[i]) * 100;
-      //   this.rateData[i] = rate;//.toFixed(2);
-      // }
-      chart.setOption({
+      const that = this;
+      this.chart = this.$echarts.init(document.getElementById("zqfxEchart"));
+      this.chart.setOption({
         tooltip: {
           trigger: "axis",
           axisPointer: {
@@ -49,13 +39,13 @@ export default {
         },
         radar: [
           {
-            indicator: this.weekData,
+            indicator: this.category,
             center: ["50%", "57%"],
             radius: "80%",
             name: {
               textStyle: {
                 color: "#e6fae5",
-                fontSize: 16,
+                fontSize: 16
               }
             },
             splitLine: {
@@ -89,8 +79,8 @@ export default {
             },
             data: [
               {
-                value: this.student,
-                name: "灾情经济损失（万元）"
+                value: that.zq_Data,
+                name: "次数"
               }
             ],
             symbolSize: 10,
@@ -116,6 +106,25 @@ export default {
         ]
       });
     }
+  },
+  created() {
+    // 数据加载
+    const { zq_Category, zq_Data } = window.chartData;
+
+    this.zq_Data = zq_Data;
+
+    const maxValue = zq_Data.sort((a, b) => b - a)[0];
+
+    const sArr = [];
+
+    zq_Category.map(item => {
+      sArr.push({
+        text: item,
+        max: maxValue
+      });
+    });
+
+    this.category = sArr;
   },
   mounted() {
     this.zqfxFun(); //近5年产量预警

@@ -1,7 +1,7 @@
 <template>
   <div id="nlfxDiv">
     <div class="title" style="height:22%">
-      <h3>农旅经济分析</h3>
+      <h3>乡村旅游分析</h3>
     </div>
     <div id="jpdDiv">
       <div class="border1"></div>
@@ -15,156 +15,97 @@
 
 <script>
 /* eslint-disable */
+import echarts from "echarts";
 export default {
   data() {
     return {
-      charts: " ",
-      dataName: ["2015年", "2016年", "2017年", "2018年", "2019年"],
-      data_1: [11, 30, 20, 80, 11],
-      data_2: [10, 56, 23, 43, 23],
-      data_3: [80, 40, 8, 12, 45],
-      data_4: [20, 70, 60, 80, 60],
+      chart: undefined
     };
   },
   methods: {
     //近5年产量预警
     historyPrice() {
-      const chart = this.$echarts.init(document.getElementById("nljjfx"));
-      chart.setOption({
+      const that = this;
+      this.chart = this.$echarts.init(document.getElementById("nljjfx"));
+      this.chart.setOption({
+        grid: {
+          left: "3%",
+          right: "5%",
+          top: "24%",
+          bottom: "5%",
+          containLabel: true
+        },
         tooltip: {
           trigger: "axis",
           axisPointer: {
-            //type: "line",
+            type: "shadow",
             label: {
-              backgroundColor: "#6a7985"
+              show: true,
+              backgroundColor: "#333"
             }
           }
         },
         legend: {
-          show: true,
-          icon: "roundRect",
-          bottom: "2%",
+          // data: ["各县市区旅游次数", "人均消费(万元)"],
+          top: "2%",
           textStyle: {
-            color: "#fff",
-            fontSize: 12
+            color: "#fff"
           }
         },
-        color: ["#0080ff", "#4cd5ce"],
-        toolbox: {
-          // feature: {
-          //     saveAsImage: {}
-          // }
-        },
-        grid: {
-          left: "3%",
-          right: "6%",
-          top: "10%",
-          bottom: "20%",
-          containLabel: true
-        },
-        // legend: {
-        //   orient: "vertical",
-        //   top: "12%",
-        //   left: "50%",
-        // },
-        xAxis: [
-          {
-            type: "category",
-            boundaryGap: false,
-            data: this.dataName,
-            axisLabel: {
-              show: true,
-              textStyle: {
-                color: "#fff",
-                fontSize: 12
-              }
-            },
-            axisTick: false, //刻度不显示
-            axisLine: {
-              lineStyle: {
-                color: "#04a58e",
-                width: 2 //这里是为了突出显示加上的
-              }
+        xAxis: {
+          data: that.ly_Category,
+          axisLine: {
+            lineStyle: {
+              color: "#fff"
             }
           }
-        ],
-        yAxis: [
-          {
-            type: "value",
-            axisLine: {
-              onZero: false,
-              lineStyle: {
-                width: 2, //这里是为了突出显示加上的
-                color: "#04a58e"
-              }
-            },
-            axisTick: false, //刻度不显示
-            axisLabel: {
-              show: true,
-              textStyle: {
-                color: "#fff" //字体颜色
-              }
-            },
-            splitLine: {
-              show: true,
-              lineStyle: {
-                type: "solid",
-                color: "#075a47"
-              }
+        },
+        yAxis: {
+          splitLine: { show: false },
+          axisLine: {
+            lineStyle: {
+              color: "#fff"
             }
           }
-        ],
+        },
         series: [
           {
-            name: "乡村景点",
-            type: "line",
-            smooth: true,
-            //  symbol: "none", //去掉折线点
+            name: "人均消费 (万元)",
+            type: "bar",
+            barGap: 0,
+            barWidth: "30%",
             itemStyle: {
               normal: {
-                color: "rgb(255,179,62)" //背景色
+                color: "#ffda47"
               }
             },
-            data: this.data_1
+            data: that.xf
           },
           {
-            name: "农业园",
-            type: "line",
-            smooth: true,
-            //  symbol: "none", //去掉折线点
+            name: "各县市区旅游次数",
+            type: "bar",
+            barWidth: "30%",
             itemStyle: {
               normal: {
-                color: "rgb(230,212,41)" //背景色
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "#14c8d4" },
+                  { offset: 1, color: "#43eec6" }
+                ])
               }
             },
-            data: this.data_2
-          },
-          {
-            name: "民宿",
-            type: "line",
-            smooth: true,
-            itemStyle: {
-              normal: {
-                color: "rgb(52,227,64)" //背景色
-              }
-            },
-            data: this.data_3
-          },
-          {
-            name: "农家乐",
-            type: "line",
-            smooth: true,
-            //  symbol: "none", //去掉折线点
-            itemStyle: {
-              normal: {
-                color: "rgb(206,62,119)" //背景色
-              }
-            },
-            data: this.data_4
+            data: that.cs
           }
         ]
       });
     }
+  },
+  created() {
+    const { ly_Category, ly_Data } = window.chartData;
+    this.ly_Category = ly_Category;
+
+    const { cs, xf } = ly_Data;
+    this.cs = cs;
+    this.xf = xf;
   },
   mounted() {
     this.historyPrice(); //近5年产量预警
@@ -226,6 +167,6 @@ export default {
 }
 .jyjj-centent #nlfxDiv #nljjfx {
   width: 100%;
-  height:100%;
+  height: 100%;
 }
 </style>
