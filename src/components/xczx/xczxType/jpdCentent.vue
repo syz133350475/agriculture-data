@@ -66,8 +66,8 @@ export default {
       mapSrc: require("../../../assets/img/map/s_map.jpg"), //图片
       mapFit: "cover", //图片自适应方式
       mapSrcList: [
-        require("../../../assets/img/map/b_map1.jpg"),
-        require("../../../assets/img/map/b_map2.jpg")
+        // require("../../../assets/img/map/b_map1.jpg"),
+        // require("../../../assets/img/map/b_map2.jpg")
       ] //大图预览
     };
   }
