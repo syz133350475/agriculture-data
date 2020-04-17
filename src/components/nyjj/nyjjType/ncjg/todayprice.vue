@@ -25,6 +25,7 @@ export default {
   },
   created() {
     const tableData = window.chartData.ncp_Data;
+    // console.log("tableData",tableData)
     this.tableData = tableData;
   },
   mounted() {
@@ -79,6 +80,8 @@ export default {
         data.push(this.dataFrom[i].date);
         this.tableData.shift();
       }
+      // console.log("name",name)
+      // console.log("data",data)
 
       this.$parent.$refs.historyPrice.chart.setOption({
         series: [

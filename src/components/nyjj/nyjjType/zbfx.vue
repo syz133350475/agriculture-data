@@ -46,6 +46,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 /* eslint-disable */
 export default {
   data() {
@@ -74,7 +76,19 @@ export default {
       value: "种植业"
     };
   },
+
+  computed(){
+    // ...mapState({
+    //   stat
+    // })
+  },
+
   methods: {
+    //更新数据
+    refresh(){
+
+    },
+
     //农业占比分析
     nczbFun() {
       const that = this;
@@ -83,6 +97,7 @@ export default {
         tooltip: {
           trigger: "item",
           formatter: function(parms) {
+            console.log("农业占比分析",parms)
             if (parms.seriesIndex == 0) {
               return `${parms.marker}${parms.name}<br />
                 ${

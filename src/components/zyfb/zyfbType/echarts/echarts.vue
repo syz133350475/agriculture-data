@@ -1,5 +1,6 @@
 <template>
-  <div class="commonEchart" :id="id"></div>
+  <div class="commonEchart" :id="id">
+  </div>
 </template>
 
 <script>
@@ -49,7 +50,7 @@ export default {
 </script>
  <style lang="less">
 .commonEchart {
-  height: 440px;
-  width:490px ;
+  height: 370px;
+  width:380px;
 }
 </style>

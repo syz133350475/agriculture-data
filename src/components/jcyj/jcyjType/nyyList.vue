@@ -29,7 +29,10 @@
         <h3 id="nyy-viedo-name">监控视频</h3>
         <el-row class="nyy-viedo-centent">
           <el-col class="video-content" :span="12">
-            <img src="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg" />
+            <!-- <img src="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg" /> -->
+            <video id="myVideo"   class="video-js" controls preload="auto" style='width: 100%;height: 100%' poster="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg">
+            <source id="source" src="http://hls01open.ys7.com/openlive/92d457324bd24f9eac9bb617b0a42412.m3u8" type="application/x-mpegURL" />
+        </video>
           </el-col>
           <el-col class="video-content" :span="12">
             <img src="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg" />
@@ -56,6 +59,26 @@ export default {
         "https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg"
       ] //大图预览
     };
+  },
+  mmounted(){
+    this.initVideo()
+  },
+  methods:{
+            initVideo() {
+        //初始化视频方法
+        let myPlayer=this.$video(document.getElementById('myVideo'), {
+            //确定播放器是否具有用户可以与之交互的控件。没有控件，启动视频播放的唯一方法是使用autoplay属性或通过Player API。
+            controls: true,
+            //自动播放属性,muted:静音播放
+            autoplay: "muted",
+            //建议浏览器是否应在<video>加载元素后立即开始下载视频数据。
+            preload: "auto",
+            // //设置视频播放器的显示宽度（以像素为单位）
+            // width: "100%",
+            // //设置视频播放器的显示高度（以像素为单位）
+            // height: "100%"
+        });
+        }
   },
   components:{
     jcyjHJJC, //环境监测

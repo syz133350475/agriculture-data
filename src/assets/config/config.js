@@ -17,3 +17,28 @@ export const TQ_url = 'https://api.seniverse.com/v3/weather/now.json?key=SLsQOxZ
 
 export const NL_url = url+"YJNL/NLZT/MapServer";//农旅
 export const XCZX_url = "http://218.75.26.57:6080/arcgis/rest/services/NYDSJ/XCZXSFD/MapServer";//乡村振兴
+
+
+// 温州生产主体
+export const wzscztUrl= 'http://218.75.26.62:6443/arcgis/rest/services/NYDSJ/wzsczt/MapServer'
+
+// 文成高山蔬菜
+export const wcgsscUrl='http://218.75.26.62:6443/arcgis/rest/services/NYDSJ/wcgssc/MapServer'
+
+// 文成糯米山药
+export const wcnmsy ='http://218.75.26.62:6443/arcgis/rest/services/NYDSJ/wcnmsy/MapServer'
+
+// 文成生产主体
+export const wcscztUrl= 'http://218.75.26.62:6443/arcgis/rest/services/NYDSJ/wcsczt/MapServer'
+
+// 阳光农场产品
+export const ygncUrl='http://218.75.26.62:6443/arcgis/rest/services/NYDSJ/ygnc/MapServer'
+
+// 乡村振兴示范带标志性项目
+export const xczxsfdbzxxmUrl ='http://218.75.26.62:6443/arcgis/rest/services/NYDSJ/xczxsfdbzxxm/MapServer'
+
+// 西部生态休闲产业带重点项目
+export const xbstxxcydzdxmUrl ='http://218.75.26.62:6443/arcgis/rest/services/NYDSJ/xbstxxcydzdxm/MapServer'
+
+// 文成杨梅分布数据
+export const wcymfbUrl='http://218.75.26.62:6443/arcgis/rest/services/NYDSJ/wcymfb/MapServer'

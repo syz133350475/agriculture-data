@@ -26,7 +26,7 @@
               <el-col :span="12">
                 <jyjjYGNC />
               </el-col>
-              <el-col :span="12">
+              <el-col :span="12"> 
                 <jyjjNYJJ />
               </el-col>
             </el-row>
@@ -58,6 +58,8 @@ import jyjjZQFX from "./nyjjType/zqfx.vue";
 import jyjjmapPh from "./nyjjType/mapPh.vue";
 import jyjjTable from "./nyjjType/nyjjTable.vue";
 
+import { mapActions } from "vuex";
+
 export default {
   name: "nyjj", //农业经济
   components: {
@@ -72,11 +74,20 @@ export default {
     jyjjZQFX, //灾情分析
     jyjjmapPh, //地图（农作物产量排行）
     jyjjTable //农产产量排行
+  },
+  async mounted(){
+     await this.get_prod_today_price();
+     await this.get_prod_year_price();
+     await this.get_output_year();
+  },
+  methods:{
+    ...mapActions(["get_prod_today_price","get_prod_year_price","get_output_year"]),
   }
 };
 </script>
 
 <style>
+
 .jyjj-centent {
   width: 100%;
   height: 90%;

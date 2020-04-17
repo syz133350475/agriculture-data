@@ -16,10 +16,13 @@
 <script>
 /* eslint-disable */
 import echarts from "echarts";
+import { baroption } from "./echartconfig/doublebar";
+
 export default {
   data() {
     return {
       chart: undefined
+      // baroption
     };
   },
   methods: {
@@ -27,126 +30,16 @@ export default {
     srfxFun() {
       const that = this;
       this.chart = this.$echarts.init(document.getElementById("srfxEchart"));
-      this.chart.setOption({
-        grid: {
-          left: "3%",
-          right: "5%",
-          top: "10%",
-          bottom: "15%",
-          containLabel: true
-        },
-        tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            type: "shadow",
-            label: {
-              show: true,
-              backgroundColor: "#0bb364"
-            }
-          }
-        },
-        legend: {
-          bottom: "2%",
-          textStyle: {
-            color: ["#fff"]
-          },
-          itemGap: 15,
-          itemWidth: 20
-        },
-        xAxis: {
-          data: that.sr_Category,
-          axisLine: {
-            onZero: false,
-            lineStyle: {
-              width: 2, //这里是为了突出显示加上的
-              color: "#04a58e"
-            }
-          },
-          axisTick: false, //刻度不显示
-          axisLabel: {
-            show: true,
-            textStyle: {
-              color: "#fff" //字体颜色
-            }
-          }
-        },
-        yAxis: [
-          {
-            type: "value",
-            axisLine: {
-              onZero: false,
-              lineStyle: {
-                width: 2, //这里是为了突出显示加上的
-                color: "#04a58e"
-              }
-            },
-            axisTick: false, //刻度不显示
-            axisLabel: {
-              show: true,
-              textStyle: {
-                color: "#fff" //字体颜色
-              }
-            },
-            splitLine: {
-              show: true,
-              lineStyle: {
-                type: "solid",
-                color: "#075a47"
-              }
-            },
-            axisLabel: {
-              formatter: "{value} "
-            }
-          },
-          {
-            splitLine: { show: false },
-            axisLine: {
-              lineStyle: {
-                color: "#04a58e"
-              }
-            }
-          }
-        ],
-        series: [
-          // {
-          //   name: "人均收入 (万元)",
-          //   type: "line",
-          //   smooth: true,
-          //   showAllSymbol: true,
-          //   symbol: "emptyCircle",
-          //   symbolSize: 8,
-          //   itemStyle: {
-          //     normal: {
-          //       color: "#ffda47"
-          //     }
-          //   },
-          //   data: that.rjsrList
-          // },
-          {
-            name: "可支配收入 (万元)",
-            type: "bar",
-            barGap: 0,
-            barWidth: "30%",
-            itemStyle: {
-              normal: {
-                color: "#5768EF"
-              }
-            },
-            data: that.kzpsrList
-          },
-          {
-            name: "消费支出 (万元)",
-            type: "bar",
-            barWidth: "30%",
-            itemStyle: {
-              normal: {
-                color: "#50b0ff"
-              }
-            },
-            data: that.xfzcList
-          }
-        ]
-      });
+
+      console.log(baroption);
+
+      baroption.xAxis.data = that.sr_Category;
+      baroption.series[0].data = that.kzpsrList;
+      baroption.series[0].name = "可支配收入 (万元)";
+      baroption.series[1].data = that.xfzcList;
+      baroption.series[1].name = "消费支出 (万元)";
+      this.chart.setOption(baroption);
+      
     }
   },
   created() {

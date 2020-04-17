@@ -42,14 +42,18 @@ export default {
       this.offsetLeft = this.offsetLeft == 0 ? -15 : 0;
     },
     handleCheckChange(data, checked, indeterminate) {
+      console.log("agaga",data, checked, indeterminate)
       const arr = ["耕地","园地","林地","水域"]
+      //全选中
       if (!indeterminate) {
         this.$parent.$refs.map.isaddLayer(data, checked);
       }
+      //选中并存在arr所述的字符串
       if(checked && ~arr.includes(data.label)!=-1 ){
         this.$parent.$refs.nyContent.$refs.contentDiv.isShow = true;
         this.$parent.$refs.nyContent.$refs.contentDiv.updatedCharts(data.label)
         this.$parent.$refs.nyContent.isShow = false;
+        //选中并不存在
       }else if(checked && ~arr.includes(data.label)==-1 &&this.$parent.$refs.nyContent.$refs.contentDiv.isShow){
         this.$parent.$refs.nyContent.$refs.contentDiv.isShow = false;
       }
