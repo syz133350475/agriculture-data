@@ -1,5 +1,6 @@
 import { getDefaultAxios } from '../index.js'
 const RES = "testsql_all";
+import {LAYER_SFD,LAYER_PROJECT} from '../../assets/config'
 
 
 /*
@@ -350,6 +351,17 @@ export const agro_boutique_item = async () => {
   };
 
 
+/**
+ * 乡村振兴
+ */
+export const agro_sfd= async ()=>{
+  const axios = getDefaultAxios();
+  return await axios.get(`${url}/query`,{params:{
+
+  }})
+
+}
+
 
 /**
  * 配置
@@ -376,3 +388,4 @@ const option_concat = (name, cols, where = "", count) => {
     count && (option.count = count);
     return option;
   };
+
