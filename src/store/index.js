@@ -7,8 +7,9 @@ import {
     agro_prod_yield_year_bank, agro_tour_analysis, agro_analysis, agro_rural_economy_analysis, agro_disaster_year_analysis, agro_history_disaster, agro_company_distribution, agro_prod_distribution, agro_agricultural_park, agro_boutique_band, agro_boutique_item
 } from "../mock/index"
 
+import { fetchArcgisServer } from "@/api/bean/space.js";
 
-
+import {  LAYER_SFD,LAYER_PROJECT} from "@/assets/config/config.js";
 
 Vue.use(Vuex)
 
@@ -31,7 +32,9 @@ export default new Vuex.Store({
         prod_distribution:[],       //资源分布农产品详情表(区县)
         agricultural_park:[],       //农业园信息表(区县)
         boutique_band:[],           //乡村振兴区域精品带表(区县)
-        boutique_item:[]            //精品项目表
+        boutique_item:[],           //精品项目表
+        boutique_map_band:[],        //精品带数据 地图
+        boutique_map_item:[]        //精品带项目数据 地图
     },
     mutations: {
         set_prod_today_price(state, data = []) {
@@ -81,6 +84,12 @@ export default new Vuex.Store({
         },
         set_boutique_item(state,data=[]){
             state.boutique_item= data
+        },
+        set_boutique_map_item(state,data=[]){
+            state.boutique_map_item= data
+        },
+        set_boutique_map_band(state,data=[]){
+            state.boutique_map_band=data
         }
 
     },
@@ -94,26 +103,6 @@ export default new Vuex.Store({
         //历年价格
         async get_prod_year_price(context) {
             const { data } = await agro_prod_year_price();
-            // console.log("在store农产品历年价格表", data)
-            // 年份:数组
-            // 绿豆:[]
-            // 晚稻:[]
-            // 黄瓜:[]
-            // const year=[]
-            // const product={}
-            // let newData=data.map(item=>{
-            //     // console.log("item",item)
-            //     const key=item.product
-            //     if(!product[key]){
-            //         product[key]=[]
-            //     }else{
-            //         year.push(item.year.split("-")[0])
-            //         product[key].push(item.avgprice)
-            //     }
-            //     // console.log("year",year)
-            //     // console.log("product",product)
-            //     // console.log("newData",newData)
-            // })
             context.commit('set_prod_year_price', data)
         },
         //农产品年度农业产值产量表
@@ -185,8 +174,21 @@ export default new Vuex.Store({
         async get_boutique_item(context){
             const {data} = await agro_boutique_item()
             context.commit('set_boutique_item',data)
-        }
+        },
 
+        //精品带项目数据  arcgis
+        async fetch_boutique_map_item(context){
+            const {data} =await fetchArcgisServer({url:`${LAYER_PROJECT}/0`})
+            // console.log("aarcgis精品带数据",data.features)
+            context.commit('set_boutique_map_item',data.features)
+         },
+
+        //精品带数据 arcgis 
+        async fetch_boutique_map_band(context){
+            const {data} = await fetchArcgisServer({url:`${LAYER_SFD}/0`})
+            // console.log("aarcgis精品带项目数据",data.features)
+            context.commit('set_boutique_map_band',data.features)
+        }
     }
 })
 

@@ -64,6 +64,8 @@
 
 import { TQ_url } from "@/assets/config/config.js";
 import { auth_token } from "@/api/bean/auth.js";
+// import {  fetchArcgisServer} from "@/api/bean/space.js";
+
 
 
 export default {
@@ -79,6 +81,8 @@ export default {
   async mounted() {
     // this.fetchData(); //天气
     // await auth_token();
+    // const ss=  await fetchArcgisServer({url:`${LAYER_PROJECT}/0`})
+    // console.log(ss)
   },
   computed: {},
   methods: {

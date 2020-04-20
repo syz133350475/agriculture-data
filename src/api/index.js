@@ -2,12 +2,20 @@ import axios from "axios"
 
 // 创建axios的一个实例
 let defaultAxios = null;
+let arcgisAxios =null
 
 export function getDefaultAxios() {
     if (!defaultAxios) {
         defaultAxios = getAxiosInstance();
     }
     return defaultAxios;
+}
+
+export function getArcgisAxios(){
+    if(!arcgisAxios){
+        arcgisAxios=getArcgisAxiosInstance()
+    }
+    return arcgisAxios
 }
 
 // 192.168.2.208:5001
@@ -43,3 +51,10 @@ function getAxiosInstance() {
     return instance
 
 }
+
+function getArcgisAxiosInstance() {
+    const instance = axios.create();
+    instance.defaults.headers.get["Content-Type"] = "multipart/form-data";
+    return instance;
+  }
+  
