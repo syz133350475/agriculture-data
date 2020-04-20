@@ -1,7 +1,7 @@
 <template>
   <div id="xczx_videoDiv">
-    <div class="title" style="height:19%">
-      <h3>景区（点）视频</h3>
+    <div class="title">
+      <h3>{{bandName}}</h3>
     </div>
     <div id="jpdDiv">
       <div class="border1"></div>
@@ -9,28 +9,167 @@
       <div class="border3"></div>
       <div class="border4"></div>
       <!-- 视频 -->
-      <el-row class="nyy-viedo-centent">
+      <!-- <el-row class="nyy-viedo-centent">
         <el-col class="video-content" :span="12">
-          <img  style="height:98%;margin-top: 4%;" src="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg" />
+          <img
+            style="height:98%;margin-top: 4%;"
+            src="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg"
+          />
         </el-col>
-        <el-col class="video-content" :span="12">
-          <img  style="height:98%;margin-top: 4%;" src="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg" />
-        </el-col>
-      </el-row>
+      </el-row>-->
+
+      <el-carousel height="800px" :autoplay="false" @change="filterItemBySFD('山水雁楠跨区域精品带')">
+        <el-carousel-item
+          v-for="(band) in boutique_map_band"
+          :key="band.OBJECTID"
+          :name="band['attributes']['xmname']"
+        >
+          <div class="text">
+            <header>基本概况</header>
+            <div>
+              <div class="video">
+                <video
+                  :src="sfd.videos ? sfd.videos[0] : ''"
+                  muted
+                  autoplay
+                  controls
+                  loop
+                >your browser does not support the video tag</video>
+                <div>项目与2020年6月建成</div>
+              </div>
+              <ul class="text_ul">
+                <li>
+                  <p>项目名称</p>
+                  <p>{{band['attributes']['xmname']}}</p>
+                </li>
+                <li>
+                  <p>投资总额</p>
+                  <p>{{band['attributes']['tz']?band['attributes']['tz']:'1233万元'}}</p>
+                </li>
+                <li>
+                  <p>长度及范围</p>
+                  <p>{{band['attributes']['cdfw']?band['attributes']['cdfw']:'200km'}}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="data">
+            <header>投资及效益</header>
+            <div>
+              <div>
+                <header>实现投资-2019年</header>
+                <div>
+                  <div
+                    class="blue"
+                  >{{band['attributes']['tz2019']?band['attributes']['tz2019']:'10.4亿元'}}</div>
+                  <div>
+                    <span>同比增长</span>
+                    <span>+{{band['attributes']['tz2019zz']?band['attributes']['tz2019zz']:'18.26%%'}}</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <header>产出效益-2019年</header>
+                <div>
+                  <div
+                    class="green"
+                  >{{band['attributes']['xy2019']?band['attributes']['xy2019']:'12.9亿元'}}</div>
+                  <div>
+                    <span>同比增长</span>
+                    <span>+{{band['attributes']['xy2019zz']?band['attributes']['xy2019zz']:'65.21%'}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project">
+            <header>精品项目</header>
+            <ul class="projectList">
+              <li v-for="(item,index) in itemData" :key="index" @click="goProject(item)">
+                <!-- <img /> -->
+                <!-- :src="item.nowImgs[0]" -->
+                <div>
+                  <header>
+                    <i>{{item['attributes']['NAME_1']}}</i>
+                    <span class="ing">建设中</span>
+                  </header>
+                  <p>投资金额：255万元</p>
+                  <p>{{item['attributes']['SUMMARY_1']}}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </el-carousel-item>
+      </el-carousel>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+
+export default {
+  data() {
+    return {
+      sfd: {},
+      itemData: [],
+      bandName: ""
+    };
+  },
+  async mounted() {
+    this.filterItemBySFD('山水雁楠跨区域精品带')
+  },
+  watch: {
+    boutique_map_band: {
+      handler(n, o) {
+        return this.boutique_map_band;
+      },
+      deep: true
+    },
+    bandName(n, o) {
+      return this.bandName;
+    }
+    //  itemData(n,o){
+    //     this.filterItemBySFD()
+    //  }
+  },
+  computed: {
+    ...mapState({
+      boutique_map_item: state => state.boutique_map_item,
+      boutique_map_band: state => state.boutique_map_band
+    })
+  },
+  methods: {
+    filterItemBySFD(xmname) {
+      console.log(xmname);
+      this.bandName = xmname;
+      console.log("afafaaf", this.boutique_map_item);
+      this.itemData = this.boutique_map_item.filter(
+        item => item.attributes.sssfd === xmname
+      );
+      console.log("afafaaf14141", this.itemData);
+    },
+    swapArr(arr) {
+      let index = 0;
+      this.boutique_map_band.forEach(element => {
+        index++;
+        if (element.attributes.xmname === "山水雁楠跨区域精品带") {
+          return;
+        }
+      });
+      arr[0] = arr.splice(index, 1, arr[0])[0];
+      return arr;
+    }
+  }
+};
 </script>
 
-<style>
+<style lang="less">
 .xczx-centent #xczx_videoDiv {
-  height: 30%;
+  height: 100%;
 }
 .xczx-centent #xczx_videoDiv #jpdDiv {
-  height: 79%;
+  height: 92%;
   background-color: rgba(0, 126, 52, 0.3);
   border: 1px solid #24ff78;
   border-radius: 22px;
@@ -76,4 +215,192 @@ export default {};
   right: -2px;
   transform: rotate(180deg);
 }
+
+#jpdDiv .el-carousel__indicators--horizontal {
+  display: none !important;
+}
+#jpdDiv header {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  line-height: 30px;
+  height: 30px;
+  color: #72fffc;
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 6px;
+  width: max-content;
+}
+
+#jpdDiv .text .video {
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 1);
+  position: relative;
+  box-shadow: 0px -5px 15px 0px rgba(0, 0, 0, 0.45) inset;
+  margin-bottom: 6px;
+}
+
+#jpdDiv .text .video > video {
+  height: 100%;
+  width: 100%;
+}
+
+#jpdDiv .text .text_ul {
+  list-style: none;
+}
+#jpdDiv .text .text_ul li {
+  text-align: left;
+}
+#jpdDiv .text .text_ul li p {
+  margin: 2px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#jpdDiv .text .text_ul li p:first-child {
+  display: inline-block;
+  padding: 0 6px;
+  height: 24px;
+  color: #72fffc;
+}
+
+#jpdDiv .text .text_ul li p:last-child {
+  color: rgb(255, 255, 255);
+  padding: 0 8px;
+  line-height: 24px;
+}
+// > div {
+//   position: absolute;
+//   bottom: 0;
+//   left: 20px;
+//   right: 0px;
+//   line-height: 30px;
+//   text-align: left;
+//   color: #fff;
+// }
+
+.data {
+  display: block;
+  border: 1pt rgba(146, 199, 149, 1) dashed;
+  border-left: 0;
+  border-right: 0;
+  padding: 10px 0;
+  > div {
+    > div:last-child {
+      border-right: 0;
+      padding-left: 16px;
+    }
+    > div {
+      vertical-align: top;
+      text-align: left;
+      display: inline-block;
+      width: 50%;
+      box-sizing: border-box;
+      border-right: 1pt rgba(146, 199, 149, 1) dashed;
+      header {
+        font-size: 18px;
+        height: 36px;
+        line-height: 36px;
+        font-weight: bold;
+      }
+      > div {
+        > div {
+          display: inline-block;
+          text-align: left;
+          height: 60px;
+          line-height: 40px;
+          vertical-align: top;
+        }
+        .blue {
+          color: rgba(37, 151, 248, 1);
+        }
+        .green {
+          color: rgba(248, 118, 37, 1);
+        }
+        > div:first-child {
+          width: 110px;
+          font-size: 24px;
+          font-family: Tahoma;
+        }
+        > div:last-child {
+          width: 60px;
+          line-height: unset;
+          box-sizing: border-box;
+          > span {
+            display: inline-block;
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            font-size: 12px;
+          }
+          > span:first-child {
+            color: rgba(153, 153, 153, 1);
+          }
+          > span:last-child {
+            color: rgba(17, 17, 17, 1);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+    .project {
+      flex: 1;
+      min-height: 200px;
+      overflow: hidden;
+      .projectList::-webkit-scrollbar {
+        display: none;
+      }
+      .projectList {
+        list-style: none;
+        flex: 1;
+        overflow-y: auto;
+        > li {
+          box-sizing: border-box;
+          padding: 10px 0;
+          display: flex;
+          flex-direction: unset;
+          font-size: 14px;
+          cursor: pointer;
+          > img {
+            width: 160px;
+            height: 100px;
+            border-radius: 20px;
+            overflow: hidden;
+          }
+          > div {
+            text-align: left;
+            box-sizing: border-box;
+            padding-left: 10px;
+            line-height: 24px;
+            header {
+              height: 24px;
+              * {
+                display: inline-block;
+                font-size: 16px;
+                vertical-align: top;
+                height: 24px;
+                font-style: normal;
+              }
+              span {
+                margin-left: 16px;
+                padding: 0 6px;
+                color: rgba(26, 147, 74, 1);
+                background-color: rgba(26, 147, 74, 0.1);
+                border-radius: 8px;
+              }
+            }
+            > p:last-child {
+              color: rgba(153, 153, 153, 1);
+            }
+          }
+        }
+      }
+    }
 </style>

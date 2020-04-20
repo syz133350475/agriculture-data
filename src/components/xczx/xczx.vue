@@ -13,10 +13,9 @@
       <el-col :span="6">
         <div id="xczx-rightDiv">
           <xczxVideo />
-          <xczxJQC />
-          <xczxMS />
+          <!-- <xczxJQC />
+          <xczxMS />-->
           <!-- <xczxNJL /> -->
-          
         </div>
       </el-col>
     </el-row>
@@ -28,9 +27,11 @@ import jpdCentent from "./xczxType/jpdCentent.vue";
 import xczxMap from "./xczxType/map.vue";
 import xczxZxzc from "./xczxType/zxzc.vue";
 import xczxVideo from "./xczxType/video.vue";
-import xczxMS from "./xczxType/msTop.vue";
-import xczxNJL from "./xczxType/njlTop.vue";
-import xczxJQC from "./xczxType/jqcTop.vue";
+// import xczxMS from "./xczxType/msTop.vue";
+// import xczxNJL from "./xczxType/njlTop.vue";
+// import xczxJQC from "./xczxType/jqcTop.vue";
+import { mapActions } from "vuex";
+
 export default {
   name: "xczx", //乡村振兴
   components: {
@@ -38,9 +39,16 @@ export default {
     xczxMap, //地图模块
     xczxZxzc, //乡村政策
     xczxVideo, //景点监控视频
-    xczxMS,//民宿排行
-    xczxNJL,//农家乐排行
-    xczxJQC,//景区村排行
+    // xczxMS, //民宿排行
+    // xczxNJL, //农家乐排行
+    // xczxJQC //景区村排行
+  },
+  async mounted() {
+    await this.fetch_boutique_map_band();
+    await this.fetch_boutique_map_item();
+  },
+  methods: {
+    ...mapActions(["fetch_boutique_map_item", "fetch_boutique_map_band"])
   }
 };
 </script>
@@ -62,8 +70,7 @@ export default {
   padding-top: 0;
   padding-bottom: 0;
 }
-.xczx-centent #xczx-rightDiv
-{
+.xczx-centent #xczx-rightDiv {
   height: 100%;
   padding: 3%;
   padding-top: 0;

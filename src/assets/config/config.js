@@ -42,3 +42,14 @@ export const xbstxxcydzdxmUrl ='http://218.75.26.62:6443/arcgis/rest/services/NY
 
 // 文成杨梅分布数据
 export const wcymfbUrl='http://218.75.26.62:6443/arcgis/rest/services/NYDSJ/wcymfb/MapServer'
+
+
+/**
+ * 乡村振兴
+ */
+
+const OTHER_HOST = `http://218.75.26.62:6443/arcgis/rest/services`
+// 精品带数据
+export const LAYER_SFD = `${OTHER_HOST}/NYDSJ/sfd/MapServer`;
+// 项目数据
+export const LAYER_PROJECT = `${OTHER_HOST}/NYDSJ/ZDXM_DW/MapServer`;
