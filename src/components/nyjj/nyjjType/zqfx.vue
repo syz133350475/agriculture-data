@@ -1,25 +1,32 @@
 <template>
   <div id="zqfxDiv">
-    <div class="title" style="height:18%">
+    <div id="zqfxDiv_title" class="title" style="height:18%">
       <h3>灾情分析</h3>
+           <popUp></popUp>
     </div>
     <div id="jpdDiv">
       <div class="border1"></div>
       <div class="border2"></div>
       <div class="border3"></div>
       <div class="border4"></div>
-      <div id="zqfxEchart"></div>
+        <div  id="zqfxEchart"></div>
     </div>
   </div>
 </template>
 
 <script>
+import popUp from "@/components/common/popUp.vue";
+
 /* eslint-disable */
 export default {
   data() {
     return {
-      chart: undefined
+      chart: undefined,
+      show: false
     };
+  },
+  components: {
+    popUp
   },
   methods: {
     //农业占比分析
@@ -127,7 +134,7 @@ export default {
     this.category = sArr;
   },
   mounted() {
-    this.zqfxFun(); //近5年产量预警
+    this.zqfxFun(); //灾情分析
   }
 };
 </script>

@@ -17,6 +17,7 @@ Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts;
 Vue.prototype.$axios = axios;
 Vue.prototype.$video = Video
+Vue.prototype.$bus =new Vue()
 
 Vue.use(ElementUI);
 

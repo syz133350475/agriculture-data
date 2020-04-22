@@ -11,11 +11,14 @@ import {
   OPTION,
   url,
   DT_url,
-  XCZX_url
+  XCZX_url,
+  td_dt_url,
+  ARCGIS_NEW_API_URL
 } from "@/assets/config/config.js";
 export default {
   mounted: function() {
     this.addMap(); //地图
+    this.doMapPopup(); //弹出项目
   },
   methods: {
     /*添加地图*/
@@ -33,7 +36,7 @@ export default {
           "esri/Graphic",
           "esri/PopupTemplate"
         ],
-        OPTION
+        ARCGIS_NEW_API_URL
       ).then(
         ([
           Map,
@@ -47,17 +50,18 @@ export default {
           Graphic,
           PopupTemplate
         ]) => {
+          const that = this;
           const baseLayer = new VectorTileLayer({
-            url: DT_url
+            url: td_dt_url
           });
-          const map = new Map();
-          const view = new MapView({
+          that.map = new Map();
+          that.view = new MapView({
             container: "xczxMap",
-            map: map,
+            map: that.map,
             zoom: 9,
             center: [120.695, 27.997]
           });
-          map.add(baseLayer);
+          that.map.add(baseLayer);
 
           //兴趣点
           var renderer = {
@@ -129,9 +133,44 @@ export default {
             //showLabels : true   //一定要设置为true
           });
           xczx.labelingInfo = [statesLabelClass];
-          map.add(xczx);
+          that.map.add(xczx);
         }
       );
+    },
+    //项目弹窗
+    doMapPopup() {
+      const that = this;
+      this.$bus.$on("mapPoint", function({ attributes, geometry }) {
+        let centerPointX = null;
+        let centerPointY = null;
+        let rings = geometry.rings[0];
+        let chu = rings.length;
+        for (let i = 0; i < rings.length; i++) {
+          // rings[i]
+          centerPointX = centerPointX + rings[i][0];
+          centerPointY = centerPointY + rings[i][1];
+        }
+
+        const popupTemplate = `<div class="map_item">
+                              <div>
+                               <p>项目名称:${attributes.NAME_1}</p>
+                              </div>
+                              <div>
+                                <p>所属示范带:${attributes.sssfd}</p>
+                              </div>
+                              <div>
+                                <p>地址:${attributes.ADDRESS_1}</p>
+                              </div>
+                              <div>
+                                <p>建设时间:${attributes.jssj}年</p>
+                              </div>
+                            </div>`
+
+        that.view.popup.open({
+          content: popupTemplate,
+          location: { x: centerPointX / chu, y: centerPointY / chu }
+        });
+      });
     }
   }
 };
@@ -151,5 +190,21 @@ export default {
   height: 110%;
   margin: auto;
   display: block;
+}
+.xczx-centent #xczxMap .esri-popup__footer .esri-popup__footer--has-actions,.esri-popup__footer ,.esri-popup__footer--has-actions{
+  display: none;
+}
+
+.xczx-centent #xczxMap .esri-popup__header-title:hover{
+  background: none;
+}
+
+
+#xczxMap .map_item {
+  color: #ffffff;
+}
+#xczxMap .esri-popup__content{
+  color: #ffffff;
+
 }
 </style>

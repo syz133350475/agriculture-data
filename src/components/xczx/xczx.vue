@@ -7,7 +7,7 @@
         </div>
       </el-col>
       <el-col :span="12">
-        <xczxMap />
+        <xczxMap ref="xczxMap"/>
         <xczxZxzc />
       </el-col>
       <el-col :span="6">
@@ -44,6 +44,7 @@ export default {
     // xczxJQC //景区村排行
   },
   async mounted() {
+    console.log("xczx",this.$refs)
     await this.fetch_boutique_map_band();
     await this.fetch_boutique_map_item();
   },

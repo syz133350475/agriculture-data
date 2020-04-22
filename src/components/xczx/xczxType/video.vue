@@ -17,8 +17,12 @@
           />
         </el-col>
       </el-row>-->
-
-      <el-carousel height="800px" :autoplay="false" @change="filterItemBySFD('山水雁楠跨区域精品带')">
+      <el-carousel
+        height="800px"
+        :autoplay="false"
+        ref="carousel"
+        @change="filterItemBySFD(bandName)"
+      >
         <el-carousel-item
           v-for="(band) in boutique_map_band"
           :key="band.OBJECTID"
@@ -29,7 +33,7 @@
             <div>
               <div class="video">
                 <video
-                  :src="sfd.videos ? sfd.videos[0] : ''"
+                  :src="sfdVideo ? sfdVideo : ''"
                   muted
                   autoplay
                   controls
@@ -85,9 +89,12 @@
           <div class="project">
             <header>精品项目</header>
             <ul class="projectList">
-              <li v-for="(item,index) in itemData" :key="index" @click="goProject(item)">
-                <!-- <img /> -->
-                <!-- :src="item.nowImgs[0]" -->
+              <li
+                v-for="(item) in itemData"
+                :key="item['attributes']['OBJECTID']"
+                @click="goMapPoint(item)"
+              >
+                <img v-if="item['attributes']['img']" :src="item['attributes']['img'][0]" />
                 <div>
                   <header>
                     <i>{{item['attributes']['NAME_1']}}</i>
@@ -107,19 +114,30 @@
 
 <script>
 import { mapState } from "vuex";
+import { projectData } from "../../../../public/data/img_data";
+import { sfdData } from "../../../../public/data/img_sfd_data";
 
 export default {
   data() {
     return {
       sfd: {},
       itemData: [],
-      bandName: ""
+      bandName: "",
+      projectData, //图片
+      sfdData,
+      OBJECTID: "",
+      sfdVideo: ""
     };
   },
-  async mounted() {
-    this.filterItemBySFD('山水雁楠跨区域精品带')
+  created() {},
+  mounted() {
+    //接受乡村振兴示范带建设的传值
+    this.findProject();
   },
   watch: {
+    sfdVideo() {
+      return this.sfdVideo;
+    },
     boutique_map_band: {
       handler(n, o) {
         return this.boutique_map_band;
@@ -127,27 +145,61 @@ export default {
       deep: true
     },
     bandName(n, o) {
+      // return this.bandName;
+      this.findProject();
       return this.bandName;
+    },
+    itemData: {
+      handler(n, o) {
+        return this.itemData;
+      },
+      deep: true
     }
-    //  itemData(n,o){
-    //     this.filterItemBySFD()
-    //  }
   },
   computed: {
     ...mapState({
       boutique_map_item: state => state.boutique_map_item,
       boutique_map_band: state => state.boutique_map_band
+      // sfd_picture:state=>state.sfd_picture,
+      // item_pictur:state=>state.item_pictur
     })
   },
   methods: {
+    goMapPoint(item) {
+      console.log("item", item);
+      this.$bus.$emit("mapPoint", item);
+    },
+    //接受列表的值
+    findProject() {
+      const that = this;
+      this.$bus.$on("goProject", function(obj) {
+        that.bandName = obj.xmname;
+        that.OBJECTID = obj.OBJECTID;
+      });
+      this.$refs.carousel.setActiveItem(that.bandName);
+    },
+    //通过示范带找到相应的项目
     filterItemBySFD(xmname) {
-      console.log(xmname);
+      this.sfdVideo = sfdData[xmname].videos[0];
       this.bandName = xmname;
-      console.log("afafaaf", this.boutique_map_item);
-      this.itemData = this.boutique_map_item.filter(
+      let kk = this.boutique_map_item.filter(
         item => item.attributes.sssfd === xmname
       );
-      console.log("afafaaf14141", this.itemData);
+      const ff = this.projectData;
+      // let name=itemData.attributes.NAME_1
+      kk.forEach(item => {
+        for (let key in ff) {
+          if (key === item.attributes.NAME_1) {
+            item.attributes.img = [];
+            ff[key].nowImgs.map(element => {
+              item.attributes.img.push(element);
+            });
+          }
+        }
+      });
+      this.itemData = kk;
+
+      console.log("this.itemData13131", this.itemData);
     },
     swapArr(arr) {
       let index = 0;
@@ -234,7 +286,8 @@ export default {
 }
 
 #jpdDiv .text .video {
-  width: 100%;
+  width: 96%;
+  margin: auto;
   height: 170px;
   overflow: hidden;
   border-radius: 12px;
@@ -349,58 +402,68 @@ export default {
   }
 }
 
-
-    .project {
-      flex: 1;
-      min-height: 200px;
-      overflow: hidden;
-      .projectList::-webkit-scrollbar {
-        display: none;
+.project {
+  flex: 1;
+  // max-height: 200px;
+  height: 100%;
+  // overflow-y: auto;
+  .projectList::-webkit-scrollbar {
+    display: none;
+  }
+  .projectList {
+    list-style: none;
+    height: 100%;
+    flex: 1;
+    overflow-y: auto;
+    > li {
+      box-sizing: border-box;
+      padding: 10px 0;
+      display: flex;
+      flex-direction: unset;
+      font-size: 14px;
+      cursor: pointer;
+      > img {
+        width: 140px;
+        height: 100px;
+        // width: 100%;
+        border-radius: 20px;
+        // overflow: hidden;
       }
-      .projectList {
-        list-style: none;
-        flex: 1;
-        overflow-y: auto;
-        > li {
-          box-sizing: border-box;
-          padding: 10px 0;
-          display: flex;
-          flex-direction: unset;
-          font-size: 14px;
-          cursor: pointer;
-          > img {
-            width: 160px;
-            height: 100px;
-            border-radius: 20px;
-            overflow: hidden;
+      > div {
+        text-align: left;
+        box-sizing: border-box;
+        padding-left: 10px;
+        line-height: 24px;
+        header {
+          height: 24px;
+          * {
+            display: inline-block;
+            font-size: 16px;
+            vertical-align: top;
+            height: 24px;
+            font-style: normal;
           }
-          > div {
-            text-align: left;
-            box-sizing: border-box;
-            padding-left: 10px;
-            line-height: 24px;
-            header {
-              height: 24px;
-              * {
-                display: inline-block;
-                font-size: 16px;
-                vertical-align: top;
-                height: 24px;
-                font-style: normal;
-              }
-              span {
-                margin-left: 16px;
-                padding: 0 6px;
-                color: rgba(26, 147, 74, 1);
-                background-color: rgba(26, 147, 74, 0.1);
-                border-radius: 8px;
-              }
-            }
-            > p:last-child {
-              color: rgba(153, 153, 153, 1);
-            }
+          span {
+            margin-left: 16px;
+            padding: 0 6px;
+            color: rgba(26, 147, 74, 1);
+            background-color: rgba(26, 147, 74, 0.1);
+            border-radius: 8px;
           }
+        }
+        > p:nth-child(2) {
+          margin: auto;
+          color: rgb(248, 173, 37);
+        }
+        > p:last-child {
+          color: rgb(255, 255, 255);
+          width: 80%;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
         }
       }
     }
+  }
+}
 </style>

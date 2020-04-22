@@ -10,6 +10,10 @@ import {
 import { fetchArcgisServer } from "@/api/bean/space.js";
 
 import {  LAYER_SFD,LAYER_PROJECT} from "@/assets/config/config.js";
+//图片信息
+import { projectData } from "../../public/data/img_data";
+import { sfdData } from "../../public/data/img_sfd_data";
+
 
 Vue.use(Vuex)
 
@@ -17,6 +21,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
+        sfd_picture:sfdData,
+        item_picture: projectData,
         prod_today_price: [],       //农产品今日价格
         prod_year_price: [],        //农产品历年价格
         output_year: [],            //农产品年度农业产值产量

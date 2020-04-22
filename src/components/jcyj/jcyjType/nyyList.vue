@@ -30,17 +30,28 @@
         <el-row class="nyy-viedo-centent">
           <el-col class="video-content" :span="12">
             <!-- <img src="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg" /> -->
-            <video id="myVideo"   class="video-js" controls preload="auto" style='width: 100%;height: 100%' poster="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg">
-            <source id="source" src="http://hls01open.ys7.com/openlive/92d457324bd24f9eac9bb617b0a42412.m3u8" type="application/x-mpegURL" />
-        </video>
+            <video
+              id="myVideo"
+              class="video-js"
+              controls
+              preload="auto"
+              style="width: 100%;height: 100%"
+              poster="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg"
+            >
+              <source
+                id="source"
+                src="http://hls01open.ys7.com/openlive/92d457324bd24f9eac9bb617b0a42412.m3u8"
+                type="application/x-mpegURL"
+              />
+            </video>
           </el-col>
           <el-col class="video-content" :span="12">
             <img src="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg" />
           </el-col>
         </el-row>
       </div>
-       <jcyjHJJC />
-    <jcyjSZZQ />
+      <jcyjHJJC />
+      <jcyjSZZQ />
     </div>
   </div>
 </template>
@@ -60,27 +71,27 @@ export default {
       ] //大图预览
     };
   },
-  mmounted(){
-    this.initVideo()
+  mmounted() {
+    this.initVideo();
   },
-  methods:{
-            initVideo() {
-        //初始化视频方法
-        let myPlayer=this.$video(document.getElementById('myVideo'), {
-            //确定播放器是否具有用户可以与之交互的控件。没有控件，启动视频播放的唯一方法是使用autoplay属性或通过Player API。
-            controls: true,
-            //自动播放属性,muted:静音播放
-            autoplay: "muted",
-            //建议浏览器是否应在<video>加载元素后立即开始下载视频数据。
-            preload: "auto",
-            // //设置视频播放器的显示宽度（以像素为单位）
-            // width: "100%",
-            // //设置视频播放器的显示高度（以像素为单位）
-            // height: "100%"
-        });
-        }
+  methods: {
+    initVideo() {
+      //初始化视频方法
+      let myPlayer = this.$video(document.getElementById("myVideo"), {
+        //确定播放器是否具有用户可以与之交互的控件。没有控件，启动视频播放的唯一方法是使用autoplay属性或通过Player API。
+        controls: true,
+        //自动播放属性,muted:静音播放
+        autoplay: "muted",
+        //建议浏览器是否应在<video>加载元素后立即开始下载视频数据。
+        preload: "auto"
+        // //设置视频播放器的显示宽度（以像素为单位）
+        // width: "100%",
+        // //设置视频播放器的显示高度（以像素为单位）
+        // height: "100%"
+      });
+    }
   },
-  components:{
+  components: {
     jcyjHJJC, //环境监测
     jcyjSZZQ //生长周期
   }
@@ -92,14 +103,14 @@ export default {
   height: 100%;
 }
 .jcyj-centent #nyyDiv #jpdDiv {
-  height: 95%;
+  height: 94%;
   background-color: rgba(0, 126, 52, 0.3);
   border: 1px solid #24ff78;
   border-radius: 22px;
   position: relative;
   top: 1%;
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
 }
 .jcyj-centent #nyyDiv #jpdDiv .border1 {
   width: 40px;
@@ -176,15 +187,13 @@ export default {
   margin-bottom: 0;
   line-height: 45px;
   font-size: 16px;
-  font-weight: normal;
+  font-weight: bold;
   margin-left: 3%;
 }
-.jcyj-centent #nyyDiv .video-content img
-{
+.jcyj-centent #nyyDiv .video-content img {
   height: 100%;
 }
-.jcyj-centent #nyyDiv .ny_name .nyy-viedo-centent
-{
+.jcyj-centent #nyyDiv .ny_name .nyy-viedo-centent {
   height: 65%;
 }
 </style>

@@ -12,7 +12,9 @@ import {
   OPTION,
   url,
   DT_url,
-  NL_url
+  td_dt_url,
+  NL_url,
+  ARCGIS_NEW_API_URL
 } from "@/assets/config/config.js";
 
 // 具体引用例子
@@ -40,10 +42,10 @@ export default {
           "esri/layers/VectorTileLayer",
           "esri/layers/FeatureLayer"
         ],
-        OPTION
+        ARCGIS_NEW_API_URL
       ).then(([Map, MapView, Legend, VectorTileLayer, FeatureLayer]) => {
         const baseLayer = new VectorTileLayer({
-          url: DT_url
+          url: td_dt_url
         });
         that.map = new Map();
         that.view = new MapView({
@@ -266,5 +268,13 @@ export default {
   color: #fff;
   font-size: 16px;
   line-height: 23px;
+}
+
+#map .esri-popup__header-title:hover,.esri-popup__button:hover{
+  background: none;
+}
+#map .esri-popup__button:hover{
+  background: none;
+
 }
 </style>

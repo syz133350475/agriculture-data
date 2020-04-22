@@ -17,7 +17,6 @@
       <el-col :span="6">
         <div id="jcyj-rightDiv">
           <jcyjNYY />
-          
         </div>
       </el-col>
     </el-row>
@@ -41,8 +40,7 @@ export default {
     jcyjZQZB, //灾情占比
     Jimg, //首页大图
     jcyjJJSS, //经济损失
-    jcyjNYY, //农业园列表
-    
+    jcyjNYY //农业园列表
   }
 };
 </script>
@@ -62,11 +60,14 @@ export default {
 .jcyj-centent #jcyj-rightDiv {
   height: 100%;
   padding: 3%;
+  display: flex;
+  flex-direction: column;
   padding-top: 0;
   padding-bottom: 0;
 }
 .jcyj-centent #jcyj-centertDiv {
   height: 100%;
+  flex: 1;
 }
 .jcyj-centent .title {
   background-image: url(../../assets/img/title.png);

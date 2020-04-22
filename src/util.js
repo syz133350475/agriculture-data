@@ -198,7 +198,7 @@ export function deepClone(data) {
             if (key3) {
                 const xData = []
                 data.forEach(element => {
-                    console.log(element)
+                    // console.log(element)
                     if(!xData.includes(element[key3])){
                         xData.push(element[key3])
                     }

@@ -37,6 +37,10 @@ export default {
 <style>
 @import url("./assets/css/common.css");
 
+html{
+  overflow: hidden;
+}
+
 #app {
   background-color: #ffffff;
 
@@ -45,9 +49,14 @@ export default {
 .container {
   background-image: url(./assets/img/bg.png);
   background-position: center;
-  background-size: 100%;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
 }
 </style>
