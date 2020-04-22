@@ -370,6 +370,7 @@ export default {
         }
         .blue {
           color: rgba(37, 151, 248, 1);
+          padding-left: 4px;
         }
         .green {
           color: rgba(248, 118, 37, 1);
@@ -427,6 +428,7 @@ export default {
         height: 100px;
         // width: 100%;
         border-radius: 20px;
+        padding-left:10px ;
         // overflow: hidden;
       }
       > div {
@@ -457,7 +459,7 @@ export default {
         }
         > p:last-child {
           color: rgb(255, 255, 255);
-          width: 80%;
+          width: 280px;
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
