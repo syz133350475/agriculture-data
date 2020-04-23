@@ -19,7 +19,8 @@ export default {
   computed: {},
   methods: {
       addhistory(){
-          this.$parent.map.addhistory();
+        console.log("父元素",this.$parent)
+          this.$parent.$refs.map.addhistory();
       }
   }
 };

@@ -1,13 +1,13 @@
 <template>
   <div class="hjjcDiv">
-    <div class="hjjctitle" style="height:14%;padding: 14px;">
+    <div class="hjjctitle" style="padding-left: 14px;">
       <h3>环境监测</h3>
     </div>
     <div id="hjjc-jpdDiv">
-      <el-carousel :interval="5000" arrow="always">
-        <el-carousel-item v-for="item in hjcj" :key="item">
+      <!-- <el-carousel :interval="5000" arrow="always">
+        <el-carousel-item > -->
           <div id="hjjc-centent">
-            <ul>
+            <ul v-for="item in hjcj" :key="item">
               <li>
                 <p>{{item.kqwd}}</p>
                 <h3>{{item.wd}}</h3>
@@ -34,30 +34,31 @@
               </li>
             </ul>
           </div>
-        </el-carousel-item>
-      </el-carousel>
+        <!-- </el-carousel-item>
+      </el-carousel> -->
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data(){
-    return{
-      hjcj:[{
-        kqwd:"空气温度",
-        wd:"14.1℃",
-        kqsd:"空气湿度",
-        sd:"10.1℃",
-        gzwd:"光照温度",
-        gz:"116800lux",
-        trsd:"土壤湿度",
-        tr:"5.1℃",
-        trwd:"土壤温度",
-        tr1:"50%PH",
-        eyht:"二氧化碳浓度",
-        nd:"0mm/h"
-      }
+  data() {
+    return {
+      hjcj: [
+        {
+          kqwd: "空气温度",
+          wd: "14.1℃",
+          kqsd: "空气湿度",
+          sd: "10.1℃",
+          gzwd: "光照温度",
+          gz: "116800lux",
+          trsd: "土壤湿度",
+          tr: "5.1℃",
+          trwd: "土壤温度",
+          tr1: "50%PH",
+          eyht: "二氧化碳浓度",
+          nd: "0mm/h"
+        }
       ]
     };
   }
@@ -112,11 +113,11 @@ export default {
   right: -2px;
   transform: rotate(180deg);
 } */
- #hjjc-centent,
- #hjjc-centent ul {
+#hjjc-centent,
+#hjjc-centent ul {
   height: 100%;
 }
- #hjjc-centent ul li {
+#hjjc-centent ul li {
   width: 30%;
   float: left;
   margin-right: 3%;
@@ -127,13 +128,16 @@ export default {
   color: #84ed86;
   margin-top: 0.3em;
   margin-bottom: 0.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 #hjjc-centent ul li h3 {
   line-height: 20px;
   color: #fff;
 }
 
- .el-carousel__container {
+.el-carousel__container {
   height: 163px;
 }
 .jcyj-centent .hjjcDiv #hjjc-jpdDiv .el-carousel__item:nth-child(2n) {

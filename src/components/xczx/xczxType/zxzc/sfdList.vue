@@ -1,37 +1,97 @@
 <template>
   <div id="sfdDiv">
     <h3>乡村振兴示范带建设</h3>
-    <el-table :data="tableData" height="180" style="width: 100%" class="sfdlistTable">
-      <el-table-column prop="date" label="建成时间" width="95px"></el-table-column>
-      <el-table-column prop="name" label="名称"></el-table-column>
-      <el-table-column prop="address" label="区域" width="65px"></el-table-column>
+    <el-table :data="boutique_map_band" height="180" style="width: 100%" class="sfdlistTable" @row-click="goProject">
+      <el-table-column prop="jssj" label="建成时间" width="95px"></el-table-column>
+      <el-table-column prop="xmname" label="名称"></el-table-column>
+      <el-table-column prop="area" label="区域" width="80px"></el-table-column>
     </el-table>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   data() {
     return {
       tableData: [
-        {date: "2018-2019",name: "岩坦南溪古韵示范带",address: "永嘉县"},
-        {date: "2018-2019",name: "鹤盛山水诗歌示范带",address: "永嘉县"},
-        {date: "2018-2019",name: "岩头红军小镇示范带",address: "永嘉县"},
-        {date: "2018-2019",name: "大若岩陶公养生福地示范类",address: "永嘉县"},
-        {date: "2018-2019",name: "大若岩陶公养生福地示范类",address: "永嘉县"},
-        {date: "2018-2019",name: "大若岩陶公养生福地示范类",address: "永嘉县"},
-        {date: "2018-2019",name: "大若岩陶公养生福地示范类",address: "永嘉县"},
-        {date: "2018-2019",name: "大若岩陶公养生福地示范类",address: "永嘉县"},
-        {date: "2018-2019",name: "岩坦南溪古韵示范带",address: "永嘉县"},
-        {date: "2018-2019",name: "鹤盛山水诗歌示范带",address: "永嘉县"},
-        {date: "2018-2019",name: "岩头红军小镇示范带",address: "永嘉县"},
-        {date: "2018-2019",name: "大若岩陶公养生福地示范类",address: "永嘉县"},
-        {date: "2018-2019",name: "大若岩陶公养生福地示范类",address: "永嘉县"},
-        {date: "2018-2019",name: "大若岩陶公养生福地示范类",address: "永嘉县"},
-        {date: "2018-2019",name: "大若岩陶公养生福地示范类",address: "永嘉县"},
+        { date: "2018-2019", name: "岩坦南溪古韵示范带", address: "永嘉县" },
+        { date: "2018-2019", name: "鹤盛山水诗歌示范带", address: "永嘉县" },
+        { date: "2018-2019", name: "岩头红军小镇示范带", address: "永嘉县" },
+        {
+          date: "2018-2019",
+          name: "大若岩陶公养生福地示范类",
+          address: "永嘉县"
+        },
+        {
+          date: "2018-2019",
+          name: "大若岩陶公养生福地示范类",
+          address: "永嘉县"
+        },
+        {
+          date: "2018-2019",
+          name: "大若岩陶公养生福地示范类",
+          address: "永嘉县"
+        },
+        {
+          date: "2018-2019",
+          name: "大若岩陶公养生福地示范类",
+          address: "永嘉县"
+        },
+        {
+          date: "2018-2019",
+          name: "大若岩陶公养生福地示范类",
+          address: "永嘉县"
+        },
+        { date: "2018-2019", name: "岩坦南溪古韵示范带", address: "永嘉县" },
+        { date: "2018-2019", name: "鹤盛山水诗歌示范带", address: "永嘉县" },
+        { date: "2018-2019", name: "岩头红军小镇示范带", address: "永嘉县" },
+        {
+          date: "2018-2019",
+          name: "大若岩陶公养生福地示范类",
+          address: "永嘉县"
+        },
+        {
+          date: "2018-2019",
+          name: "大若岩陶公养生福地示范类",
+          address: "永嘉县"
+        },
+        {
+          date: "2018-2019",
+          name: "大若岩陶公养生福地示范类",
+          address: "永嘉县"
+        },
+        {
+          date: "2018-2019",
+          name: "大若岩陶公养生福地示范类",
+          address: "永嘉县"
+        }
       ]
     };
-  }
+  },
+  watch: {
+    boutique_map_band: {
+      handler(n, o) {
+        return this.boutique_map_band;
+      },
+      deep: true
+    }
+  },
+  computed: {
+    ...mapState({
+      boutique_map_band: state => state.boutique_map_band.map(item=>{
+        return item['attributes']
+      })
+    })
+  },
+  methods:{
+    goProject(e){
+      console.log(e)
+      this.$bus.$emit('goProject',{OBJECTID:e.OBJECTID,xmname:e.xmname})
+    }
+  },
+  
 };
 </script>
 

@@ -15,171 +15,85 @@
 
 <script>
 /* eslint-disable */
+import { mapState } from "vuex";
+import {lineOption } from "./echartconfig/line"
+
+
+
 export default {
   data() {
     return {
-      chart: undefined
+      chart: undefined,
+      //       Id: 1
+      // lycz: "1947" 林业
+      // mycz: "3145" 牧业
+      // nf: "1949" 年份
+      // nlmyfwy: null 农林牧渔业总产值
+      // nlmyyzcz: "27129"
+      // nycz: "20318" 农业产值
+      // yycz: "1719" 渔业产值
+      cz_Cate: [],
+      cz_Datab: {
+        ny: [],
+        ly: [],
+        yy: [],
+        my: []
+      }
     };
   },
+  computed: {
+    ...mapState({
+      nyczb: state => state.nyczb
+    })
+  },
+  watch: {
+    nyczb(n, o) {
+      this.nyczFilter();
+      this.refreshData()
+    }
+  },
   methods: {
+    //筛选最近五年的数据
+    refreshData() {
+      const that = this;
+      console.log("that.cz_Datab.ny",that.cz_Datab.ny)
+      lineOption.series[0].data = that.cz_Datab.ny;
+      lineOption.series[1].data = that.cz_Datab.ly;
+      lineOption.series[2].data = that.cz_Datab.my;
+      lineOption.series[3].data = that.cz_Datab.yy;
+      lineOption.xAxis[0].data = that.cz_Cate;
+      that.chart.setOption(lineOption);
+    },
+
+    nyczFilter() {
+      const data = this.nyczb;
+      let end = data.length - 6;
+      for (let i = data.length - 1; end < i; i--) {
+        console.log("i", i);
+        console.log("data i", data[i]);
+        this.cz_Datab.ny.push(parseInt(data[i].nycz));
+        this.cz_Datab.ly.push(parseInt(data[i].lycz));
+        this.cz_Datab.my.push(parseInt(data[i].mycz));
+        this.cz_Datab.yy.push(parseInt(data[i].yycz));
+        this.cz_Cate.push(data[i].nf + "年");
+      }
+      // console.log('cz_Datab',this.cz_Datab)
+    },
+
     //近5年产量预警
     nyjctj() {
       const that = this;
       this.chart = this.$echarts.init(document.getElementById("nyjctj"));
-      this.chart.setOption({
-        grid: {
-          left: "3%",
-          right: "6%",
-          top: "10%",
-          bottom: "15%",
-          containLabel: true
-        },
-        tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            label: {
-              backgroundColor: "#6a7985"
-            }
-          }
-        },
-        legend: {
-          show: true,
-          icon: "roundRect",
-          bottom: "2%",
-          textStyle: {
-            color: "#fff"
-          }
-        },
-        xAxis: [
-          {
-            type: "category",
-            boundaryGap: false,
-            axisLabel: {
-              show: true,
-              textStyle: {
-                color: "#fff",
-                fontSize: 12
-              }
-            },
-            axisTick: false,
-            axisLine: {
-              lineStyle: {
-                color: "#04a58e",
-                width: 2
-              }
-            },
-            data: that.cz_Category
-          }
-        ],
-        yAxis: [
-          {
-            type: "value",
-            axisLine: {
-              onZero: false,
-              lineStyle: {
-                width: 2,
-                color: "#04a58e"
-              }
-            },
-            axisTick: false,
-            axisLabel: {
-              show: true,
-              textStyle: {
-                color: "#fff"
-              }
-            },
-            splitLine: {
-              show: true,
-              lineStyle: {
-                type: "solid",
-                color: "#075a47"
-              }
-            }
-          }
-        ],
-        series: [
-          {
-            name: "种植业",
-            type: "line",
-            smooth: true,
-            itemStyle: {
-              normal: {
-                color: "rgba(14,255,216,.4)",
-                lineStyle: {
-                  width: 2,
-                  type: "solid",
-                  color: "rgb(14,255,216)"
-                }
-              }
-            },
-            symbolSize: 5,
-            areaStyle: {
-              normal: {}
-            },
-            data: that.zzy
-          },
-          {
-            name: "畜牧业",
-            type: "line",
-            smooth: true,
-            itemStyle: {
-              normal: {
-                color: "rgba(255,179,62,.4)",
-                lineStyle: {
-                  width: 2,
-                  type: "solid",
-                  color: "rgb(255,179,62)"
-                }
-              }
-            },
-            symbolSize: 5,
-            areaStyle: {
-              normal: {}
-            },
-            data: that.xmy
-          },
-          {
-            name: "林业",
-            type: "line",
-            smooth: true,
-            itemStyle: {
-              normal: {
-                color: "rgba(80,216,0,.4)",
-                lineStyle: {
-                  width: 2,
-                  type: "solid",
-                  color: "rgb(80,216,0)"
-                }
-              }
-            },
-            symbolSize: 5,
-            areaStyle: {
-              normal: {}
-            },
-            data: that.ly
-          },
-          {
-            name: "渔业",
-            type: "line",
-            smooth: true,
-            itemStyle: {
-              normal: {
-                color: "rgba(15,188,239,.4)",
-                lineStyle: {
-                  width: 2,
-                  type: "solid",
-                  color: "rgb(15,188,239)"
-                }
-              }
-            },
-            symbolSize: 5,
-            areaStyle: {
-              normal: {}
-            },
-            data: that.yy
-          }
-        ]
-      });
+     
+            lineOption.series[0].data = that.zzy;
+      lineOption.series[1].data = that.xmy;
+      lineOption.series[2].data = that.ly;
+      lineOption.series[3].data = that.yy;
+      lineOption.xAxis[0].data = that.cz_Cate;
+      lineOption.series.forEach(Element=>{
+        Element.areaStyle={}
+      })
+      this.chart.setOption(lineOption);
     }
   },
   created() {
@@ -194,6 +108,7 @@ export default {
   },
   mounted() {
     this.nyjctj(); //近5年产量预警
+    // this.nyczFilter();
   }
 };
 </script>

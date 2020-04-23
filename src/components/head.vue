@@ -6,7 +6,7 @@
           <h1 id="head-name">{{ headName }}</h1>
         </div>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="15">
         <div class="grid-content bg-purple-light">
           <div id="head-menu">
             <el-menu
@@ -27,12 +27,22 @@
               </el-menu-item>
               <el-menu-item index="4">
                 <router-link to="/xczx">乡村振兴</router-link>
+                <!-- <a target="_blank" href="http://wznl.wznync.cn/xczx/#/">乡村振兴</a> -->
               </el-menu-item>
+              <!-- <el-menu-item index="5" :disabled="true">
+                <router-link to="/cyfz" disabled>产业发展</router-link>
+              </el-menu-item>
+              <el-menu-item index="6" :disabled="true">
+                <router-link to="/xczx">农村管理</router-link>
+              </el-menu-item>
+              <el-menu-item index="7" :disabled="true">
+                <router-link to="/xczx">精准扶贫</router-link>
+              </el-menu-item>-->
             </el-menu>
           </div>
         </div>
       </el-col>
-      <el-col :span="3" :offset="7">
+      <el-col :span="3">
         <div class="grid-content bg-purple">
           <!-- 天气 -->
           <div id="tq">
@@ -53,6 +63,10 @@
 /* eslint-disable */
 
 import { TQ_url } from "@/assets/config/config.js";
+import { auth_token } from "@/api/bean/auth.js";
+import { fetchWeather } from "@/api/bean/space.js";
+// import {  fetchArcgisServer} from "@/api/bean/space.js";
+
 export default {
   data() {
     return {
@@ -63,9 +77,16 @@ export default {
       city: "温州市"
     };
   },
-  mounted() {
-    //this.fetchData();//天气
+  async mounted() {
+    // this.fetchData(); //天气
+    // await auth_token();
+    // const ss=  await fetchArcgisServer({url:`${LAYER_PROJECT}/0`})
+    // console.log(ss)
+    console.log("天气")
+    const ff = await fetchWeather();
+    console.log(ff);
   },
+  computed: {},
   methods: {
     /*天气*/
     fetchData() {
@@ -135,8 +156,7 @@ export default {
   display: inline-block;
   color: #fff;
 }
-#head a
-{
+#head a {
   display: block;
 }
 </style>

@@ -16,10 +16,10 @@ import historyButton from "./zyfbType/historyButton.vue";
 export default {
   name: "zyfb",
   components: {
-    nyzy,
-    nyContent,
-    nymap,
-    historyButton
+    nyzy, //左边资源目录
+    nyContent, //右边弹框
+    nymap, //地图
+    historyButton //历史地图影像
   }
 };
 </script>

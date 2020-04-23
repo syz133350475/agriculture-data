@@ -1,7 +1,7 @@
 <template>
   <div id="JimgDiv">
     <!-- 上 -->
-    <div class="zqTextDiv" style="position: absolute;left: 42%;top: 0%;">
+    <div class="zqTextDiv" style="position: absolute;left: 42%;top: 0%;" @click="show = true">
       <p>
         发生次数（次）：
         <span>245</span>
@@ -87,23 +87,45 @@
       <h2 style="top: -61%;">人为灾害</h2>
     </div>
     <img src="../../../assets/img/jcyj.gif" alt />
+    <popUp
+      :visible="show"
+      @changVisible="changVisible"
+      :tableData="history_disaster"
+      :field="field"
+      :tableTitle="'具体灾情信息'"
+      :tableWidth="tableWidth"
+    />
   </div>
 </template>
 
 <script>
+import { history_disaster } from "../../../../public/data/new_data.js";
+
+import popUp from "../../common/popUp";
 /* eslint-disable */
 export default {
   data() {
     return {
-      scrollW: 0
+      scrollW: 0,
+      show: false,
+      history_disaster,
+      field: ["名称", "种类", "地区", "日期","图片", "影响", "年份", "损失(万元)"],
+      tableWidth: "40%"
     };
+  },
+  components:{
+    popUp
   },
   mounted() {
     //实例挂载完毕前
     //调用滚动代码
-     this.scroll();
+    this.scroll();
   },
   methods: {
+    // 弹窗状态
+    changVisible(data) {
+      this.show = data;
+    },
     //鼠标悬停，停止滚动
     stopScroll() {
       clearInterval(this.scrollTime);
@@ -112,10 +134,10 @@ export default {
     startScroll() {
       var target = this.$refs.contlist;
       this.scrollW = target.offsetLeft; // 移开时记录向左移动的距离
-       this.scroll();
+      this.scroll();
     },
     scroll() {
-     var width = document.getElementById('yj').getBoundingClientRect().width;
+      var width = document.getElementById("yj").getBoundingClientRect().width;
       var target = this.$refs.contlist;
       var initLeft = 178;
       if (this.scrollW < 0) {
@@ -150,6 +172,7 @@ export default {
   top: -5%;
 }
 .jcyj-centent #JimgDiv .zqTextDiv {
+  cursor: pointer;
   width: 180px;
   font-size: 13px;
   color: #fff;

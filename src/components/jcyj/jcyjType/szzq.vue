@@ -1,6 +1,6 @@
 <template>
   <div id="szzqDiv">
-    <div class="szzqtitle" style="height:17%">
+    <div class="szzqtitle">
       <h3>生长周期监测</h3>
     </div>
     <div id="szzq-jpdDiv">
@@ -29,7 +29,7 @@
             </tbody>
           </table>
         </div>
-        <h3>生长周期（天）</h3>
+        <h3 style="font-weight: bold; padding-left: 8px;">生长周期（天）</h3>
         <el-steps :active="2" align-center finish-status="success">
           <el-step title="幼苗期" description=" ">
             <img
@@ -51,6 +51,10 @@ export default {};
 </script>
 
 <style>
+.szzqtitle{
+  height:8% ;
+  padding-left: 14px;
+}
 .jcyj-centent #szzqDiv {
   height: 35%;
 }

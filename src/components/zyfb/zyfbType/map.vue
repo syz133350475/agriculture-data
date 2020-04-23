@@ -5,13 +5,16 @@
 <script>
 /* eslint-disable */
 import { loadModules } from "esri-loader";
+import { addLayer} from "./map.js"
 
 import {
   ARCGIS_API_URL,
   OPTION,
   url,
   DT_url,
-  NL_url
+  td_dt_url,
+  NL_url,
+  ARCGIS_NEW_API_URL
 } from "@/assets/config/config.js";
 
 // 具体引用例子
@@ -39,19 +42,19 @@ export default {
           "esri/layers/VectorTileLayer",
           "esri/layers/FeatureLayer"
         ],
-        OPTION
+        ARCGIS_NEW_API_URL
       ).then(([Map, MapView, Legend, VectorTileLayer, FeatureLayer]) => {
         const baseLayer = new VectorTileLayer({
-          url: DT_url
+          url: td_dt_url
         });
         that.map = new Map();
-        // const map = new Map();
         that.view = new MapView({
           container: "map",
           map: that.map,
           zoom: 9,
           center: [120.695, 27.997]
         });
+
         that.map.add(baseLayer);
         that.legend = new Legend({
           // label:"图例",
@@ -98,130 +101,67 @@ export default {
     isaddLayer(item, checked) {
       const _id_ = item.id;
       if (checked) {
-        this.map && this.map.findLayerById(_id_)
-          ? (this.map.findLayerById(_id_).visible = true)
-          : this.addLayer(item, _id_);
+        // this.map && this.map.findLayerById(_id_)
+        //   ? (this.map.findLayerById(_id_).visible = true)
+        //   : this.addLayer(item, _id_);
+        if (this.map && this.map.findLayerById(_id_)) {
+          this.map.findLayerById(_id_).visible = true;
+          console.log(_id_);
+          const historyArray = [
+            "history_jq",
+            "history_jz",
+            "history_bhdw",
+            "history_mz",
+            "history_mc"
+          ];
+          const nyzyArray = ["nyzy_gd", "nyzy_yd", "nyzy_ld", "nyzy_nt"];
+          const nlzyArray = [
+            "nlzy_mlxc",
+            "nlzy_nyy",
+            "nlzy_ms",
+            "nlzy_njl",
+            "nlzy_jqjd"
+          ];
+          if (historyArray.includes(_id_)) {
+            this.view.goTo({
+              zoom: 13,
+              center: [120.64971358299253, 28.024326345443715]
+            });
+          }
+          if (nyzyArray.includes(_id_)) {
+            this.view.goTo({
+              zoom: 13,
+              center: [120.69317358299253, 28.154566345443715]
+            });
+          }
+          if (nlzyArray.includes(_id_)) {
+            this.view.goTo({
+              zoom: 13,
+              center: [120.69317358299253, 28.154566345443715]
+            });
+          }
+        } else {
+          // this.addLayer(item, _id_);
+          addLayer(this,item,_id_)
+        }
       } else {
         this.map && this.map.findLayerById(_id_)
           ? (this.map.findLayerById(_id_).visible = false)
           : null;
+
+        this.view.goTo({
+          zoom: 9,
+          center: [120.695, 27.997]
+        });
       }
     },
-    addLayer(item) {
-      const that = this;
-      const _item = item;
-      const arr = [
-        "耕地",
-        "园地",
-        "林地",
-        "历史建筑",
-        "历史文物保护单位",
-        "路网数据",
-        "水系河网数据"
-      ];
-      loadModules(
-        [
-          "esri/widgets/Legend",
-          "esri/layers/FeatureLayer",
-          "esri/layers/MapImageLayer"
-        ],
-        OPTION
-      ).then(([Legend, FeatureLayer, MapImageLayer]) => {
-        let feature = null;
-        if (that.view.zoom != 9) {
-          that.view.goTo({
-            zoom: 9,
-            center: [120.695, 27.997]
-          });
-        }
-        if (item.label == "历史文化街区" || item.label == "历史文化建筑") {
-          that.view.goTo({
-            zoom: 13,
-            center: [120.64971358299253, 28.024326345443715]
-          });
-          feature = new MapImageLayer({
-            id: item.id,
-            url: item.url,
-            sublayers: item.sublayers
-          });
-        } else if (item.label == "电商村") {
-          const popupTemplate = {
-            title: "信息",
-            content: [
-              {
-                type: "fields",
-                fieldInfos: [
-                  {
-                    fieldName: "NAME",
-                    label: "名称"
-                  },
-                  {
-                    fieldName: "ADDRESS",
-                    label: "地址"
-                  },
-                  {
-                    fieldName: "TAG",
-                    label: "标签"
-                  }
-                ]
-              }
-            ]
-          };
-          feature = new FeatureLayer({
-            id: item.id,
-            url: item.url + "/" + item.sublayers,
-            popupTemplate: popupTemplate
-          });
-        } else if (item.label == "美丽乡村") {
-          const popupTemplate = {
-            title: "信息",
-            content: [
-              {
-                type: "fields",
-                fieldInfos: [
-                  {
-                    fieldName: "NAME",
-                    label: "名称"
-                  },
-                  {
-                    fieldName: "ADDRESS",
-                    label: "地址"
-                  },
-                  {
-                    fieldName: "TAG",
-                    label: "标签"
-                  }
-                ]
-              }
-            ]
-          };
-          feature = new FeatureLayer({
-            id: item.id,
-            url: item.url + "/" + item.sublayers,
-            popupTemplate: popupTemplate
-          });
-        } else {
-          feature = new MapImageLayer({
-            id: item.id,
-            url: item.url,
-            sublayers: item.sublayers
-          });
-        }
-        that.map.add(feature, 1);
-        if (~arr.includes(item.label) != -1) {
-          that.legend.layerInfos.push({
-            title: "",
-            layer: feature
-          });
-        }
-      });
-    },
+
     //历史影像
     addhistory() {
       const that = this;
+      // console.log("item",item)
       loadModules(["esri/layers/MapImageLayer"], OPTION).then(
         ([MapImageLayer]) => {
-          // const map = new Map();
           const history = new MapImageLayer({
             id: "history",
             url: item.url,
@@ -231,7 +171,8 @@ export default {
           that.map.add(history);
         }
       );
-    }, //空间查询
+    }, 
+   // 空间查询
     IdentifyTaskFun({ mapPoint }) {
       const that = this;
       loadModules(
@@ -327,5 +268,17 @@ export default {
   color: #fff;
   font-size: 16px;
   line-height: 23px;
+}
+
+#map .esri-popup__header-title:hover,.esri-popup__button:hover{
+  background: none;
+}
+#map .esri-popup__button:hover{
+  background: none;
+
+}
+
+#map .esri-component .esri-legend .esri-widget--panel .esri-widget{
+  min-width: 140px !important;
 }
 </style>

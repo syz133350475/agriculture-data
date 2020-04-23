@@ -10,6 +10,8 @@
 
 <script>
 /* eslint-disable */
+import {mapState} from 'vuex'
+
 export default {
   data() {
     return {

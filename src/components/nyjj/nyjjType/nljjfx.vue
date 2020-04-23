@@ -16,6 +16,8 @@
 <script>
 /* eslint-disable */
 import echarts from "echarts";
+import { baroption } from "./echartconfig/doublebar";
+
 export default {
   data() {
     return {
@@ -27,76 +29,21 @@ export default {
     historyPrice() {
       const that = this;
       this.chart = this.$echarts.init(document.getElementById("nljjfx"));
-      this.chart.setOption({
-        grid: {
-          left: "3%",
-          right: "5%",
-          top: "24%",
-          bottom: "5%",
-          containLabel: true
-        },
-        tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            type: "shadow",
-            label: {
-              show: true,
-              backgroundColor: "#333"
-            }
-          }
-        },
-        legend: {
-          // data: ["各县市区旅游次数", "人均消费(万元)"],
-          top: "2%",
-          textStyle: {
-            color: "#fff"
-          }
-        },
-        xAxis: {
-          data: that.ly_Category,
-          axisLine: {
-            lineStyle: {
-              color: "#fff"
-            }
-          }
-        },
-        yAxis: {
-          splitLine: { show: false },
-          axisLine: {
-            lineStyle: {
-              color: "#fff"
-            }
-          }
-        },
-        series: [
-          {
-            name: "人均消费 (万元)",
-            type: "bar",
-            barGap: 0,
-            barWidth: "30%",
-            itemStyle: {
-              normal: {
-                color: "#ffda47"
-              }
-            },
-            data: that.xf
-          },
-          {
-            name: "各县市区旅游次数",
-            type: "bar",
-            barWidth: "30%",
-            itemStyle: {
-              normal: {
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                  { offset: 0, color: "#14c8d4" },
-                  { offset: 1, color: "#43eec6" }
-                ])
-              }
-            },
-            data: that.cs
-          }
-        ]
-      });
+
+      baroption.xAxis.data=  that.ly_Category
+      baroption.series[0].itemStyle.normal.color = "#ffda47";
+      baroption.series[0].name = "人均消费 (万元)";
+      baroption.series[0].data = that.xf;
+
+      baroption.series[1].name = "各县市区旅游次数";
+      baroption.series[1].data = that.cs;
+      baroption.series[1].itemStyle.normal = {
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          { offset: 0, color: "#14c8d4" },
+          { offset: 1, color: "#43eec6" }
+        ])
+      };
+      this.chart.setOption(baroption)
     }
   },
   created() {

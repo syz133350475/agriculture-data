@@ -84,6 +84,7 @@ export default {
       // 图表点击事件
       this.chart.on("click", function(event) {
         // 清除定时器
+        console.log("图表点击事件",event)
         clearInterval(that.interval);
 
         const geoList = Object.keys(that.geoMap);

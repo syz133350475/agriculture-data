@@ -7,18 +7,27 @@
     <div class="border4"></div>
     <!-- 边框结束 -->
     <!-- 内容 -->
-    <div class="zzt">
-      <ecoecharts ref="zzt" id="zzt" :option="zztOption"></ecoecharts>
-    </div>
-    <div class="bt">
-      <ecoecharts ref="bt" id="bt" :option="btOption"></ecoecharts>
-    </div>
+    <el-carousel height="800px">
+      <el-carousel-item>
+        <div class="zzt">
+          <ecoecharts ref="zzt" id="zzt" :option="zztOption"></ecoecharts>
+        </div>
+        <div class="bt">
+          <ecoecharts ref="bt" id="bt" :option="btOption"></ecoecharts>
+        </div>
+      </el-carousel-item>
+      <el-carousel-item>
+        <div class="line">
+          <ecoecharts ref="line" id="line" :option="lineOption"></ecoecharts>
+        </div>
+      </el-carousel-item>
+    </el-carousel>
   </div>
 </template>
 
 <script>
 import ecoecharts from "./echarts";
-import { zztOption, btOption } from "./option.js";
+import { zztOption, btOption, lineOption } from "./option.js";
 export default {
   name: "contentDiv",
   data() {
@@ -26,7 +35,8 @@ export default {
       isShow: false,
       chartData: [],
       zztOption,
-      btOption
+      btOption,
+      lineOption
     };
   },
   components: { ecoecharts },
@@ -84,6 +94,23 @@ export default {
           }
         ]
       });
+      this.$refs.line.chart.setOption({
+        title: {
+          left: "center",
+          text: `温州市${label}资源折线`,
+          textStyle: {
+            color: ["#fff"]
+          }
+        },
+        // legend: {
+        //   data: this.chartData.area
+        // },
+        series: [
+          {
+            data: this.chartData[label]
+          }
+        ]
+      });
     }
   }
 };
@@ -138,11 +165,12 @@ export default {
     transform: rotate(180deg);
   }
   .zzt,
-  .bt {
+  .bt,
+  line {
     width: 100%;
     height: 50%;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 5px;
   }
 }
 </style>

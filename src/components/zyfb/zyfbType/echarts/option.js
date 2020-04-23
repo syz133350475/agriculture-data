@@ -12,7 +12,7 @@ const category = [
   "泰顺"
 ];
 const barData = [
-  4600,
+  4444,
   5500,
   7500,
   8500,
@@ -35,6 +35,41 @@ const barData = [
   25250,
   7500
 ];
+
+var data = [
+  {
+    name: "1",
+    value: 10
+  },
+  {
+    name: "2",
+    value: 10
+  },
+  {
+    name: "3",
+    value: 10
+  },
+  {
+    name: "4",
+    value: 10
+  },
+  {
+    name: "5",
+    value: 10
+  },
+  {
+    name: "6",
+    value: 20
+  },
+  {
+    name: "7",
+    value: 30
+  }
+];
+
+/**
+ * 柱状图
+ */
 export const zztOption = {
   title: {
     left: "center",
@@ -126,36 +161,11 @@ export const zztOption = {
     }
   ]
 };
-var data = [
-  {
-    name: "1",
-    value: 10
-  },
-  {
-    name: "2",
-    value: 10
-  },
-  {
-    name: "3",
-    value: 10
-  },
-  {
-    name: "4",
-    value: 10
-  },
-  {
-    name: "5",
-    value: 10
-  },
-  {
-    name: "6",
-    value: 20
-  },
-  {
-    name: "7",
-    value: 30
-  }
-];
+
+
+/**
+ * 饼图
+ */
 export const btOption = {
   // title: {
   //   left: "center",
@@ -190,7 +200,7 @@ export const btOption = {
   series: [
     // 主要展示层的
     {
-      radius: ["30%", "51%"],
+      radius: ["25%", "38%"],
       center: ["50%", "40%"],
       type: "pie",
       label: {
@@ -198,7 +208,7 @@ export const btOption = {
           show: true,
           formatter: "{b}:{c}%",
           textStyle: {
-            fontSize: 20
+            fontSize: 18
           },
           position: "outside"
         },
@@ -209,7 +219,7 @@ export const btOption = {
       labelLine: {
         normal: {
           show: true,
-          length: 10,
+          length: 5,
           length2: 5
         },
         emphasis: {
@@ -221,7 +231,7 @@ export const btOption = {
     },
     // 边框的设置
     {
-      radius: ["30%", "34%"],
+      radius: ["38%", "38%"],
       center: ["50%", "40%"],
       type: "pie",
       label: {
@@ -259,7 +269,7 @@ export const btOption = {
       clockWise: false, //顺时加载
       hoverAnimation: false, //鼠标移入变大
       center: ["50%", "40%"],
-      radius: ["50%", "50%"],
+      radius: ["40%", "40%"],
       label: {
         normal: {
           show: false
@@ -278,5 +288,88 @@ export const btOption = {
         }
       ]
     }
+  ]
+};
+
+
+export const  lineOption = {
+  title: {
+    text: '堆叠区域图',
+    left:'center'
+  },
+  tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+          type: 'cross',
+          label: {
+              backgroundColor: '#6a7985'
+          }
+      }
+  },
+  toolbox: {
+      feature: {
+          saveAsImage: {}
+      }
+  },
+  grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+  },
+  xAxis: [
+      {
+          type: 'category',
+          boundaryGap: false,
+          data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+      }
+  ],
+  yAxis: [
+      {
+          type: 'value'
+      }
+  ],
+  series: [
+      {
+          name: '邮件营销',
+          type: 'line',
+          stack: '总量',
+          areaStyle: {},
+          data: [120, 132, 101, 134, 90, 230, 210]
+      },
+      {
+          name: '联盟广告',
+          type: 'line',
+          stack: '总量',
+          areaStyle: {},
+          data: [220, 182, 191, 234, 290, 330, 310]
+      },
+      {
+          name: '视频广告',
+          type: 'line',
+          stack: '总量',
+          areaStyle: {},
+          data: [150, 232, 201, 154, 190, 330, 410]
+      },
+      {
+          name: '直接访问',
+          type: 'line',
+          stack: '总量',
+          areaStyle: {},
+          data: [320, 332, 301, 334, 390, 330, 320]
+      },
+      {
+          name: '搜索引擎',
+          type: 'line',
+          stack: '总量',
+          label: {
+              normal: {
+                  show: true,
+                  position: 'top'
+              }
+          },
+          areaStyle: {},
+          data: [820, 932, 901, 934, 1290, 1330, 1320]
+      }
   ]
 };

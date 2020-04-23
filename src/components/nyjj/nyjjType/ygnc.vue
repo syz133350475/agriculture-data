@@ -1,6 +1,6 @@
 <template>
   <div id="ygncDiv">
-    <div class="title" style="height:22%">
+    <div class="title" style="height:22%" @click="show = true">
       <h3>阳光农场</h3>
     </div>
     <div id="jpdDiv">
@@ -9,54 +9,82 @@
       <div class="border3"></div>
       <div class="border4"></div>
       <div class="ygncCententDiv">
-        <el-table :data="tableData" height="100%" class="sfdlistTable">
-          <el-table-column prop="index" label="序号" width="50"></el-table-column>
-          <el-table-column prop="name" label="农场名称"></el-table-column>
-          <el-table-column prop="product" label="主要产品" width="120"></el-table-column>
+        <el-table :data="sunshine_farm" height="100%" class="sfdlistTable">
+          <!-- <el-table-column prop="index" label="序号" width="50"></el-table-column> -->
+          <!-- <el-table-column label="农场名称">
+            <template slot-scope="scope">
+              <el-popover trigger="hover" placement="top">
+                <p>企业名称: {{ scope.row.name}}</p>
+                <p>企业法人: {{ scope.row.representative }}</p>
+                <p>企业简介: {{ scope.row.intro }}</p>
+                <p>行业: {{ scope.row.industry }}</p>
+
+                <div slot="reference">
+                  <el-tag size="medium">{{ scope.row.name }}</el-tag>
+                </div>
+              </el-popover>
+            </template>
+          </el-table-column>-->
+          <el-table-column prop="name" label="农场名称" width="120"></el-table-column>
+          <el-table-column prop="representative" label="企业法人"></el-table-column>
+          <el-table-column prop="main_product" label="主要产品" width="120"></el-table-column>
         </el-table>
       </div>
+      <popUp
+        :visible="show"
+        @changVisible="changVisible"
+        :tableData="sunshine_farm"
+        :field="field"
+        :tableTitle="'阳光农场详细信息'"
+        :tableWidth="tableWidth"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import { sunshine_farm } from "../../../../public/data/new_data.js";
+import popUp from "../../common/popUp";
+
 /* eslint-disable */
 export default {
   data() {
     return {
-      tableData: [
-        {
-          index: "1",
-          price: "永嘉县岩上村石上清流民宿",
-          tongbi: "100万元"
-        },
-        {
-          index: "2",
-          price: "永嘉县岩上村石上清流民宿",
-          tongbi: "100万元"
-        },
-        {
-          index: "3",
-          price: "永嘉县岩上村石上清流民宿",
-          tongbi: "100万元"
-        },
-        {
-          index: "4",
-          price: "永嘉县岩上村石上清流民宿",
-          tongbi: "100万元"
-        },
-        {
-          index: "5",
-          price: "永嘉县岩上村石上清流民宿",
-          tongbi: "100万元"
-        }
-      ]
+      field: [
+        "企业名称",
+        "企业法人",
+        "企业地址",
+        "企业简介",
+        "产业类型",
+        "联系方式",
+        "产值",
+        "产量",
+        "年份",
+        "主打产品",
+        "地区",
+        "图片",
+        "视频",
+        "经度",
+        "维度"
+      ],
+      sunshine_farm,
+      show: false,
+      tableWidth: "65%"
     };
+  },
+  components: {
+    popUp
+  },
+  methods: {
+    changVisible(data) {
+      this.show = data;
+    }
   },
   created() {
     // 加载数据
-    const { ygnc_Data } = window.chartData;
-    this.tableData = ygnc_Data;
+    // const { ygnc_Data } = window.chartData;
+    // this.tableData = ygnc_Data;
+    // this.tableData = sunshine_farm;
   }
 };
 </script>
@@ -66,11 +94,21 @@ export default {
   height: 96%;
   padding-right: 1.5%;
 }
+
+#ygncDiv .title {
+  cursor: pointer;
+}
 .jyjj-centent #ygncDiv .ygncCententDiv {
   width: 96%;
   margin-left: 2%;
   height: 94%;
   overflow: hidden;
+}
+
+.ygncCententDiv .el-tag {
+  color: #fff;
+  border-style: none;
+  background: none;
 }
 .jyjj-centent #ygncDiv #jpdDiv {
   height: 76%;
