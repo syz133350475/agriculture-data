@@ -24,11 +24,12 @@
           :prop="item"
           :label="field[index]"
           width="100px"
+          :show-overflow-tooltip="true"
         ></el-table-column>
       </el-table>
       <span slot="footer" class="dialog-footer">
         <!-- <el-button @click="setState()">取 消</el-button> -->
-        <el-button type="success" @click="setState()">关闭</el-button>
+        <!-- <el-button type="success" @click="setState()">关闭</el-button> -->
       </span>
     </el-dialog>
   </div>

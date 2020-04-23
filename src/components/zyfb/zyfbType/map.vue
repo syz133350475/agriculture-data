@@ -277,4 +277,8 @@ export default {
   background: none;
 
 }
+
+#map .esri-component .esri-legend .esri-widget--panel .esri-widget{
+  min-width: 140px !important;
+}
 </style>

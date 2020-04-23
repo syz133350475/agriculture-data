@@ -109,8 +109,8 @@ export default {
       scrollW: 0,
       show: false,
       history_disaster,
-      field: ["名称", "种类", "地区", "日期", "影响", "年份", "损失(万元)"],
-      tableWidth: "38%"
+      field: ["名称", "种类", "地区", "日期","图片", "影响", "年份", "损失(万元)"],
+      tableWidth: "40%"
     };
   },
   components:{

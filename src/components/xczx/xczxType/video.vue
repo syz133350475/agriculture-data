@@ -428,7 +428,7 @@ export default {
         height: 100px;
         // width: 100%;
         border-radius: 20px;
-        padding-left:10px ;
+        padding-left: 10px;
         // overflow: hidden;
       }
       > div {
@@ -459,10 +459,15 @@ export default {
         }
         > p:last-child {
           color: rgb(255, 255, 255);
-          width: 280px;
+          width: 260px;
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
+        }
+        > p:last-child:hover {
+          overflow: visible;
+          // text-overflow: none;
+          // word-break: keep-all;
         }
       }
     }

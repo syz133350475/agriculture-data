@@ -29,7 +29,7 @@
                 <router-link to="/xczx">乡村振兴</router-link>
                 <!-- <a target="_blank" href="http://wznl.wznync.cn/xczx/#/">乡村振兴</a> -->
               </el-menu-item>
-              <el-menu-item index="5" :disabled="true">
+              <!-- <el-menu-item index="5" :disabled="true">
                 <router-link to="/cyfz" disabled>产业发展</router-link>
               </el-menu-item>
               <el-menu-item index="6" :disabled="true">
@@ -37,7 +37,7 @@
               </el-menu-item>
               <el-menu-item index="7" :disabled="true">
                 <router-link to="/xczx">精准扶贫</router-link>
-              </el-menu-item>
+              </el-menu-item>-->
             </el-menu>
           </div>
         </div>
@@ -64,9 +64,8 @@
 
 import { TQ_url } from "@/assets/config/config.js";
 import { auth_token } from "@/api/bean/auth.js";
+import { fetchWeather } from "@/api/bean/space.js";
 // import {  fetchArcgisServer} from "@/api/bean/space.js";
-
-
 
 export default {
   data() {
@@ -83,6 +82,9 @@ export default {
     // await auth_token();
     // const ss=  await fetchArcgisServer({url:`${LAYER_PROJECT}/0`})
     // console.log(ss)
+    console.log("天气")
+    const ff = await fetchWeather();
+    console.log(ff);
   },
   computed: {},
   methods: {

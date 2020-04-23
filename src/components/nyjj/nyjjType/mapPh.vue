@@ -14,14 +14,14 @@ export default {
     };
   },
   computed: {
-    ...mapState({
+    // ...mapState({
       // qxnzwbzmjhclb: state => {
       //   return state.qxnzwbzmjhclb.filter(item => {
       //     console.log("总产量",item)
       //     return item.zb.includes("总产量");
       //   });
       // }
-    })
+    // })
   },
   methods: {
     mapPh() {
@@ -144,7 +144,7 @@ export default {
   },
   created() {
     // 数据加载
-    console.log('qxnzwbzmjhclb',this.qxnzwbzmjhclb)
+    // console.log('qxnzwbzmjhclb',this.qxnzwbzmjhclb)
     const { nzw_Category, nzw_Data } = window.chartData;
     this.nzw_Category = nzw_Category;
     this.nzw_Data = nzw_Data;
@@ -158,7 +158,7 @@ export default {
         maxObj[k].push(maxValue);
       }
     }
-    console.log("maxObj", maxObj);
+    // console.log("maxObj", maxObj);
     this.maxObj = maxObj;
   },
   mounted() {

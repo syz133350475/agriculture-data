@@ -69,7 +69,7 @@ export default {
       ],
       sunshine_farm,
       show: false,
-      tableWidth: "56%"
+      tableWidth: "65%"
     };
   },
   components: {

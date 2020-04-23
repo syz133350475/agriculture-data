@@ -67,34 +67,34 @@ export const treedata = [
         url: `${server}/arcgis/rest/services/NYQH_XZQH/MapServer`,
         sublayers: [{ id: 0 }]
       },
-      {
-        id: "nyqh_zzy",
-        label: "种植业区划",
-        url: `${server}/arcgis/rest/services/NYQH_XZQH/MapServer`,
-        sublayers: [{ id: 0 }],
-        disabled: true
-      },
-      {
-        id: "nyqh_ly",
-        label: "林业区划",
-        url: `${server}/arcgis/rest/services/NYQH_XZQH/MapServer`,
-        sublayers: [{ id: 0 }],
-        disabled: true
-      },
-      {
-        id: "nyqh_cmy",
-        label: "畜牧业区划",
-        url: `${server}/arcgis/rest/services/NYQH_XZQH/MapServer`,
-        sublayers: [{ id: 0 }],
-        disabled: true
-      },
-      {
-        id: "nyqh_yy",
-        label: "渔业区划",
-        url: `${server}/arcgis/rest/services/NYQH_XZQH/MapServer`,
-        sublayers: [{ id: 0 }],
-        disabled: true
-      },
+      // {
+      //   id: "nyqh_zzy",
+      //   label: "种植业区划",
+      //   url: `${server}/arcgis/rest/services/NYQH_XZQH/MapServer`,
+      //   sublayers: [{ id: 0 }],
+      //   disabled: true
+      // },
+      // {
+      //   id: "nyqh_ly",
+      //   label: "林业区划",
+      //   url: `${server}/arcgis/rest/services/NYQH_XZQH/MapServer`,
+      //   sublayers: [{ id: 0 }],
+      //   disabled: true
+      // },
+      // {
+      //   id: "nyqh_cmy",
+      //   label: "畜牧业区划",
+      //   url: `${server}/arcgis/rest/services/NYQH_XZQH/MapServer`,
+      //   sublayers: [{ id: 0 }],
+      //   disabled: true
+      // },
+      // {
+      //   id: "nyqh_yy",
+      //   label: "渔业区划",
+      //   url: `${server}/arcgis/rest/services/NYQH_XZQH/MapServer`,
+      //   sublayers: [{ id: 0 }],
+      //   disabled: true
+      // },
       {
         id: "nyzy_ls",
         label: "粮食功能生产区",
@@ -107,22 +107,22 @@ export const treedata = [
   {
     id: "nycy",
     label: "农业产业",
-    children: [
-      {
-        id: "nycy_ltqy",
-        label: "龙头企业",
-        url: `${server}/arcgis/rest/services/NYQH_XZQH/MapServer`,
-        sublayers: [{ id: 0 }],
-        disabled: true
-      },
-      {
-        id: "nycy_nycy",
-        label: "农业企业",
-        url: `${server}/arcgis/rest/services/NYQH_XZQH/MapServer`,
-        sublayers: [{ id: 0 }],
-        disabled: true
-      }
-    ]
+    // children: [
+    //   {
+    //     id: "nycy_ltqy",
+    //     label: "龙头企业",
+    //     url: `${server}/arcgis/rest/services/NYQH_XZQH/MapServer`,
+    //     sublayers: [{ id: 0 }],
+    //     disabled: true
+    //   },
+    //   {
+    //     id: "nycy_nycy",
+    //     label: "农业企业",
+    //     url: `${server}/arcgis/rest/services/NYQH_XZQH/MapServer`,
+    //     sublayers: [{ id: 0 }],
+    //     disabled: true
+    //   }
+    // ]
   },
   {
     id: "nyzy",
@@ -187,13 +187,13 @@ export const treedata = [
         url: `${server}/arcgis/rest/services/NLZY_MS/MapServer`,
         sublayers: "0"
       },
-      {
-        id: "nlzy_njl",
-        label: "农家乐",
-        url: `${server}/arcgis/rest/services/dlgq/sxq_lswhjq_15/MapServer`,
-        sublayers: "8",
-        disabled: true
-      },
+      // {
+      //   id: "nlzy_njl",
+      //   label: "农家乐",
+      //   url: `${server}/arcgis/rest/services/dlgq/sxq_lswhjq_15/MapServer`,
+      //   sublayers: "8",
+      //   disabled: true
+      // },
       {
         id: "nlzy_jqjd",
         label: "景区景点",
@@ -225,13 +225,13 @@ export const treedata = [
         url: `${server}/arcgis/rest/services/NYDS_DSC/MapServer`,
         sublayers: "0"
       },
-      {
-        id: "nyds_dsqy",
-        label: "电商企业",
-        url: `${server}/arcgis/rest/services/NYDS_DSC/MapServer`,
-        sublayers: [{ id: 0 }],
-        disabled: true
-      }
+      // {
+      //   id: "nyds_dsqy",
+      //   label: "电商企业",
+      //   url: `${server}/arcgis/rest/services/NYDS_DSC/MapServer`,
+      //   sublayers: [{ id: 0 }],
+      //   disabled: true
+      // }
     ]
   },
   {
@@ -308,20 +308,20 @@ export const treedata = [
     id: "jcdl",
     label: "基础地理",
     children: [
-      {
-        id: "jcdl_dzdt",
-        label: "温州全市域电子地图数据",
-        url: `${server}/arcgis/rest/services/dlgq/sxq_dxdm_16/MapServer`,
-        sublayers: [{ id: 0 }],
-        disabled: true
-      },
-      {
-        id: "jcdl_yxsj",
-        label: "2019温州全市域0.5m影像数据",
-        url: `${server}/arcgis/rest/services/dlgq/sxq_dxdm_16/MapServer`,
-        sublayers: [{ id: 2 }],
-        disabled: true
-      },
+      // {
+      //   id: "jcdl_dzdt",
+      //   label: "温州全市域电子地图数据",
+      //   url: `${server}/arcgis/rest/services/dlgq/sxq_dxdm_16/MapServer`,
+      //   sublayers: [{ id: 0 }],
+      //   disabled: true
+      // },
+      // {
+      //   id: "jcdl_yxsj",
+      //   label: "2019温州全市域0.5m影像数据",
+      //   url: `${server}/arcgis/rest/services/dlgq/sxq_dxdm_16/MapServer`,
+      //   sublayers: [{ id: 2 }],
+      //   disabled: true
+      // },
       {
         id: "jcdl_lwsj",
         label: "路网数据",

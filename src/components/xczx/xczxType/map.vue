@@ -164,7 +164,12 @@ export default {
                               <div>
                                 <p>建设时间:${attributes.jssj}年</p>
                               </div>
-                            </div>`
+                            </div>`;
+
+        that.view.goTo({
+          zoom: 13,
+          center: [centerPointX / chu, centerPointY / chu]
+        });
 
         that.view.popup.open({
           content: popupTemplate,
@@ -191,20 +196,20 @@ export default {
   margin: auto;
   display: block;
 }
-.xczx-centent #xczxMap .esri-popup__footer .esri-popup__footer--has-actions,.esri-popup__footer ,.esri-popup__footer--has-actions{
+.xczx-centent #xczxMap .esri-popup__footer .esri-popup__footer--has-actions,
+.esri-popup__footer,
+.esri-popup__footer--has-actions {
   display: none;
 }
 
-.xczx-centent #xczxMap .esri-popup__header-title:hover{
+.xczx-centent #xczxMap .esri-popup__header-title:hover {
   background: none;
 }
-
 
 #xczxMap .map_item {
   color: #ffffff;
 }
-#xczxMap .esri-popup__content{
+#xczxMap .esri-popup__content {
   color: #ffffff;
-
 }
 </style>
